@@ -17,16 +17,49 @@
     </header>
     
     <main>
-        <div class="pin-container">
-            <div class="enter-pin">Enter your PIN</div>
-            <div class="pin-boxes">
-                <div class="pin-box"></div>
-                <div class="pin-box"></div>
-                <div class="pin-box"></div>
-                <div class="pin-box"></div>
+        <div class="form-container">
+            <label for="birth-date">Birth date</label>
+            <div class="date-dropdowns">
+                <select id="month">
+                    <option value="" disabled selected>MM</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+    
+                <select id="day">
+                    <option value="" disabled selected>DD</option>
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(`<option value="${i < 10 ? '0' + i : i}">${i < 10 ? '0' + i : i}</option>`);
+                        }
+                    </script>
+                </select>
+    
+                <select id="year">
+                    <option value="" disabled selected>YYYY</option>
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= 1900; i--) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
             </div>
+    
+            <label for="national-id">National ID</label>
+            <input type="text" id="national-id" placeholder="Must be 14 numbers" maxlength="14">
         </div>
-        
+
         <div class="divider"></div>
 
         <div class="numpad-container">
@@ -55,8 +88,8 @@
     </main>
     
     <footer>
-        <button class="language-btn confirm">Confirm</button>
-        <button class="language-btn cancel">Cancel</button>
+        <button class="language-btn english">Back</button>
+        <button class="language-btn arabic">Next</button>
     </footer>
 </body>
 </html>
