@@ -18,7 +18,7 @@ const usersSchema:Schema = new Schema<users>({
     fingerId: { type: Number, unique:true,required: true },
     phoneNum: { type: String, required: true,unique: true },
     IBAN: { type: String,unique:true, required: true },
-    cardNum: { type: String,unique:true, required: true },   //unique
+    cardNum: { type: String,unique:true, required: true },   
     cvv: { type: String, required: true },
     nationalId: { type: String, required: true },
     address: {
