@@ -2,11 +2,12 @@ $font-primary: 'Noto Kufi Arabic', sans-serif;
 $primary-color: #ffffff;
 $secondary-color: #1a1a40;
 $button-bg: #ffffff;
-$button-text: #4F46E5;
+$button-text: #4545ff;
 $pin-bg: rgb(227, 227, 227);
 $divider-color: white;
 $fingerprint-color: #4F46E5;
-
+$icon-color: #4F46E5;
+$icon-size: 10rem;
 * {
   margin: 0;
   padding: 0;
@@ -18,31 +19,36 @@ body {
   background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
   background-size: cover;
   background-position: center;
-  color: $primary-color;
-  display: flex;
+  color: $primary-color; 
+  display: flex;    
   flex-direction: column;
   min-height: 100vh;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  padding: 20px;
-  font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+
+    .logo {
+        :first-child {
+            height: 50px;
+            top: 10px;
+            position: relative;
+        }
+        :last-child {
+            height: 30px;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+    }
 }
-header .logo :first-child {
-  height: 50px;
-  top: 10px;
-  position: relative;
-}
-header .logo :last-child {
-  height: 30px;
-}
-header .date {
-  font-weight: bold;
-}
+
+
 .white-container {
   background: white;
   width: 832px;
@@ -62,24 +68,15 @@ header .date {
   font-size: 40px;
   font-weight: 600;
   text-align: center;
-  margin-top: 16px;
+  margin-top: 90px;
+  margin-bottom: 20px;
 }
 
-.i-majesticons-scan-fingerprint {
-  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.3' d='M12 19v-8m-3 7v-7c0-1 .6-3 3-3s3 2 3 3v6m-9-3v-3c0-2 1.2-6 6-6s6 4 6 6m0 4v-1M6.001 17H6M7 3H5a2 2 0 0 0-2 2v2m0 10v2a2 2 0 0 0 2 2h2m10 0h2a2 2 0 0 0 2-2v-2m0-10V5a2 2 0 0 0-2-2h-2'/%3E%3C/svg%3E");
-
-  -webkit-mask: var(--un-icon) no-repeat center;
-  mask: var(--un-icon) no-repeat center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-
-  background-color: $fingerprint-color;
-  width: 190px;
-  height: 190px;
-  display: inline-block;
-  margin-top: 116px;
+.ti-fingerprint {
+  font-size: $icon-size;
+  color: $icon-color;
+  text-align: center;
 }
-
 footer {
   display: flex;
   justify-content: space-between;
@@ -98,13 +95,15 @@ footer {
     &:active {
       background: $fingerprint-color;
       transition: 0ms;
+      
+      color: #ffffff;
     }
   }
 
   .back {
     left: -60px;
     border-radius: 9999rem;
-    background-color: $button-bg;
+    background-color: $button-bg; 
     color: $button-text;
     bottom: 10px;
     position: absolute;
