@@ -18,22 +18,22 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   padding: 20px;
   font-size: 25px;
 }
-header .logo {
-  display: flex;
-  align-items: center;
-}
-header .logo img:first-child {
+
+header .logo :first-child {
   height: 50px;
   top: 10px;
   position: relative;
 }
-header .logo img:last-child {
+
+header .logo :last-child {
   height: 30px;
 }
+
 header .date {
   font-weight: bold;
 }

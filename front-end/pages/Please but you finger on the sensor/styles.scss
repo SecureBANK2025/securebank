@@ -27,30 +27,22 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   padding: 20px;
   font-size: 25px;
-
-  .logo {
-    display: flex;
-    align-items: center;
-
-    img:first-child {
-      height: 50px;
-      top: 10px;
-      position: relative;
-    }
-
-    img:last-child {
-      height: 30px;
-    }
-  }
-
-  .date {
-    font-weight: bold;
-  }
 }
-
+header .logo :first-child {
+  height: 50px;
+  top: 10px;
+  position: relative;
+}
+header .logo :last-child {
+  height: 30px;
+}
+header .date {
+  font-weight: bold;
+}
 .white-container {
   background: white;
   width: 832px;
