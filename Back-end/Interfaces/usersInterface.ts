@@ -16,12 +16,12 @@ export interface users extends Document{
     IBAN: string;
     phoneNum: string;
     cvv: string ;
-    
+    balance? :number ;
 
 }
 
 export interface Address extends Document {
-    street: string ;
+  street: string ;
   city: string;
   country: string;
 }

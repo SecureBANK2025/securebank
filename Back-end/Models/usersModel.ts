@@ -26,6 +26,7 @@ const usersSchema:Schema = new Schema<users>({
         city: { type: String },
         country: { type: String }
       }
+    
 
 },{timestamps:true});
 
