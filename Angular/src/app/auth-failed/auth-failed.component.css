@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  font-size: 25px;
+}
+
+header .logo :first-child {
+  height: 50px;
+  top: 10px;
+  position: relative;
+}
+
+header .logo :last-child {
+  height: 30px;
+}
+
+header .date {
+  font-weight: bold;
+}
+
+.white-container {
+  background: white;
+  width: 832px;
+  height: 530px;
+  border-radius: 49px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  justify-content: flex-start;
+  padding-top: 30px;
+}
+
+.ti-xbox-x {
+  padding-top: 80px;
+  font-size: 9rem;
+  color: #ff1010;
+}
+
+.fail {
+  color: #ff1010;
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-back {
+  font-size: 30px;
+  left: -50px;
+  padding: 5px 100px;
+  border: 0px;
+  font-weight: 900;
+  border-radius: 0 9999rem 9999rem 0;
+  background-color: #ffffff;
+  color: #4f46e5;
+}
+.btn-back:active {
+  background-color: #4f46e5;
+  color: #ffffff;
+}/*# sourceMappingURL=auth-failed.component.css.map */
