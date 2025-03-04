@@ -68,7 +68,6 @@ export class SignupComponent implements OnInit {
     this.atForm2 = false;
     this.atScanFinger = false;
   } submit(): void {
-    
     console.log('Submitting Data:', this.myData);
     this.atForm1 = false;
     this.atForm2 = false;
@@ -94,6 +93,7 @@ export class SignupComponent implements OnInit {
         this._router.navigate(['/welcome'])
       }, error: (err) => {
         err.error.errors.map((error: any) => {
+          // this.signup(this.myData);
           console.log(err)
         })
       }

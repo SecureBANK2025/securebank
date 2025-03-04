@@ -8,11 +8,9 @@ import customErrors from '../Utils/Errors';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-
-
 export const signUp = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise <void> => {
     
-   
+    
     const fingerId = await enrollFingerprint();
     // const fingerId =5;
     
@@ -22,19 +20,15 @@ export const signUp = asyncHandler(async (req: Request, res: Response, next: Nex
     const user: users = await usersModel.create({...req.body , fingerId});
     
     res.status(201).json({ data: user })
-
-
 });
 
 export const login = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise <void> => {
-    
     const user = await usersModel.findOne({cardNum:req.body.cardNum});
     if(!user || !(await bcrypt.compare(req.body.PIN,user.PIN))){
         return next(new customErrors("Invalid Email or Password", 401)); 
     }
     const token = createToken(user._id);
     res.status(201).json({ token, message : "logged in successfully"});
-
 });
 
 export const biometricLogin = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise <void> => {

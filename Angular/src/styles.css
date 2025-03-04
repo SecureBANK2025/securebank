@@ -26,4 +26,13 @@ section {
   min-height: 85vh;
   display: flex;
   flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }/*# sourceMappingURL=styles.css.map */
