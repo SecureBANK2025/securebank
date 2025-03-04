@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 25px;
+}
+header .logo :first-child {
+  height: 50px;
+  top: 10px;
+  padding-right: 6px;
+}
+header .logo :last-child {
+  height: 30px;
+}
+header .date {
+  font-weight: bold;
+}/*# sourceMappingURL=nav-bar.component.css.map */

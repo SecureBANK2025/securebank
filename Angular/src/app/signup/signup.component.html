@@ -1,0 +1,29 @@
+@if (atForm1) {
+<app-form1></app-form1>
+<app-keyboard></app-keyboard>
+<div class="fotterNB">
+    <button class="btn back" (click)="navToHome()">Back</button>
+    <!-- <button class="btn next" [disabled]="!isForm1Valid()" (click)="navToForm2()">Next</button> -->
+    <button class="btn next" (click)="navToForm2()">Next</button>
+</div>
+}
+
+
+@if (atForm2) {
+<app-form2></app-form2>
+<div class="fotterSB">
+    <button class="btn back" (click)="navToForm1()">Back</button>
+    <!-- <button class="btn submit" [disabled]="!isForm2Valid()" (click)="navToScanFinger()">Next</button> -->
+    <button class="btn submit" (click)="navToScanFinger()">Next</button>
+</div>
+}
+
+
+
+@if (atScanFinger) {
+<app-scan-finger></app-scan-finger>
+<div class="fotterSB">
+    <button class="btn back" (click)="navToForm2()">Back</button>
+    <button class="btn submit" (click)="[submit(),signup(myData)]" >Submit</button>
+</div>
+}

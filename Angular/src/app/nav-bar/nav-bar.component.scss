@@ -1,0 +1,35 @@
+// Variables
+$primary-color: #1a1a40;
+$secondary-color: #ffffff;
+$accent-color: #4a4aff;
+
+// Reset some default styles
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+
+    .logo {
+        :first-child{
+            height: 50px;
+            top: 10px;
+padding-right: 6px;        }
+        :last-child{
+            height: 30px;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+    }
+}

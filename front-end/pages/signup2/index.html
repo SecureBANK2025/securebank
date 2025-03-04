@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTBANK</title>
+    <link rel="icon" type="image/svg+xml" href="/front-end/pages/welcome page/assets/Union (4).svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/Union (4).svg" alt="Logo">
+            <img src="./assets/BTBANK.svg" alt="BTBANK Logo">
+        </div>
+        <div class="date">
+            2 FEB 2025, SUNDAY
+        </div>
+    </header>
+    <main>
+        <form action="">
+            <div class="field addressField">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address" required>
+            </div>
+            <div class="field accountTypeField">
+                <label for="accountType">Account type</label>
+                <select id="accountType">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+                <!-- <input type="text" id="accountType" name="accountType" placeholder="Select your account type from the list" required> -->
+            </div>
+        </form>
+
+
+
+
+        <!-- Main container for centering the keyboard -->
+        <div class="keyboard-container">
+            <!-- Keyboard element using grid layout -->
+            <div class="keyboard">
+                <!-- Row 1: Numbers -->
+                <div class="row">
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key">0</button>
+                </div>
+                <!-- Row 2: Top Letters (to be populated dynamically) -->
+                <div class="row">
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                </div>
+                <!-- Row 3: Middle Letters (to be populated dynamically) -->
+                <div class="row">
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                </div>
+                <!-- Row 4: Bottom Letters & Backspace (to be populated dynamically) -->
+                <div class="row">
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key"></button>
+                    <button class="key">⌫</button>
+                </div>
+                <!-- Row 5: Special keys (Shift, language toggle, space, and additional keys) -->
+                <div class="row">
+                    <button class="key shift"></button>
+                    <button class="key toggle-lang">⇧</button>
+                    <button class="key space">SPACE</button>
+                    <button class="key backspace">.COM</button>
+                    <button class="key backspace">.</button>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Link to the external JavaScript file -->
+        <script src="main.js"></script>
+
+
+
+
+
+    </main>
+    <footer>
+        <button class="language-btn english">Back</button>
+        <button class="language-btn arabic">Next</button>
+    </footer>
+</body>
+
+</html>

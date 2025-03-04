@@ -1,0 +1,92 @@
+<div class="form-container">
+    <form [formGroup]="signupForm2">
+
+        <div class="field">
+            <label for="birthDate">Birth Date</label>
+            <input [max]="maxDate" type="date" title="birthDate" [(ngModel)]="formData.birthDate"
+                formControlName="birthDate">
+            <p>︎@if (signupForm2.get('birthDate')?.errors!==null&&signupForm2.get('birthDate')?.touched) {
+                @if (signupForm2.get('birthDate')?.errors?.['required']) {
+            <p>Birth Date Required</p>}
+            }
+        </div>
+
+        <div class="field phone-field">
+            <label for="phoneNum">Phone Number</label>
+            <div class="phone-input">
+                <!-- <span class="prefix">+20</span> -->
+                <input id="phoneNum" formControlName="phoneNum" type="text" [(ngModel)]="formData.phoneNum"
+                    placeholder="ex. 01XXXXXXXXX">
+            </div>
+            <!-- <p>{{ signupForm2.get('phoneNum')?.touched ? signupForm2.get('phoneNum')?.errors : '' |json}}</p> -->
+            <p>︎@if (signupForm2.get('phoneNum')?.errors!==null&&signupForm2.get('phoneNum')?.touched) {
+                @if (signupForm2.get('phoneNum')?.errors?.['required']) {
+            <p>phone Number Required</p>}
+            @if (signupForm2.get('phoneNum')?.errors?.['minlength']||signupForm2.get('phoneNum')?.errors?.['maxlength'])
+            {<p>Must Be 11 Numbers</p>}
+            }
+            </p>
+
+        </div>
+
+
+
+        <!-- National ID -->
+        <div class="field">
+            <label for="nationalId">National ID</label>
+            <input id="nationalId" formControlName="nationalId" type="text" [(ngModel)]="formData.nationalId"
+                placeholder="Enter national ID">
+            <!-- <p>{{ signupForm2.get('nationalId')?.touched ? signupForm2.get('nationalId')?.errors : '' }}</p> -->
+            <p>︎@if (signupForm2.get('nationalId')?.errors!==null&&signupForm2.get('nationalId')?.touched) {
+                @if (signupForm2.get('nationalId')?.errors?.['required']) {
+            <p>National ID Required</p>}
+            @if
+            (signupForm2.get('nationalId')?.errors?.['minlength']||signupForm2.get('nationalId')?.errors?.['maxlength'])
+            {<p>Must Be 14 Numbers</p>}
+            }
+            </p>
+        </div>
+
+        <div class="pass">
+            <!-- PIN -->
+            <div class="field">
+                <label for="PIN">PIN</label>
+                <input id="PIN" formControlName="PIN" type="password" [(ngModel)]="formData.PIN"
+                    placeholder="Enter PIN">
+                <!-- <p>{{ signupForm2.get('PIN')?.touched ? signupForm2.get('PIN')?.errors : '' }}</p> -->
+                <p>︎@if (signupForm2.get('PIN')?.errors!==null&&signupForm2.get('PIN')?.touched) {
+                    @if (signupForm2.get('PIN')?.errors?.['required']) {
+                <p>PIN Required</p>}
+                @if (signupForm2.get('PIN')?.errors?.['minlength']||signupForm2.get('PIN')?.errors?.['maxlength']) {<p>
+                    Must Be 6 Numbers</p>}
+                }
+                </p>
+            </div>
+
+            <!-- Confirm PIN -->
+            <div class="field">
+                <label for="confirmPIN">Confirm PIN</label>
+                <input id="confirmPIN" formControlName="confirmPIN" type="password" [(ngModel)]="formData.confirmPIN"
+                    placeholder="Confirm PIN">
+                <!-- <p>{{ signupForm2.get('confirmPIN')?.touched ? signupForm2.get('confirmPIN')?.errors : '' }}</p> -->
+                <p>︎@if (signupForm2.get('confirmPIN')?.errors!==null&&signupForm2.get('confirmPIN')?.touched) {
+                    @if (signupForm2.get('confirmPIN')?.errors?.['required']) {
+                <p>PIN Confirmation Required</p>}
+                @if
+                (signupForm2.get('confirmPIN')?.errors?.['minlength']||signupForm2.get('confirmPIN')?.errors?.['maxlength'])
+                {<p>Must Be 6 Numbers</p>}
+                }
+            </div>
+
+
+        </div>
+
+
+    </form>
+</div>
+
+
+
+<div class="numpad-container">
+    <app-num-pad></app-num-pad>
+</div>

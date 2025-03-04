@@ -1,0 +1,103 @@
+body {
+  background-image: url(/pics/back.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.form-container {
+  max-width: 30%;
+  max-height: 10vh;
+  position: relative;
+  left: 235px;
+  top: 80px;
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+form label {
+  font-size: 16px;
+  color: #ffffff;
+}
+form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  color: #333333;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+form input:focus {
+  border-color: #4a4aff;
+  box-shadow: 0px 0px 8px rgba(74, 74, 255, 0.5);
+}
+
+.pass {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.pass .field {
+  flex: 1;
+}
+
+.numpad-container {
+  display: grid;
+  place-items: center;
+  width: 400px;
+  left: 950px;
+  top: -20px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.numpad {
+  display: grid;
+  justify-content: center;
+  gap: 30px;
+}
+
+.row {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.key {
+  background: transparent;
+  color: #fff;
+  padding: 15px 0;
+  font-size: 35px;
+  border: 2px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  text-align: center;
+  width: 13vh;
+  height: 13vh;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.key:active {
+  background: #dcdcdc;
+} 
+p {
+  font-size: 0.9rem;
+  color: red;
+  height: 0px;
+  position: relative;
+  top: -9px;
+}/*# sourceMappingURL=form2.component.css.map */

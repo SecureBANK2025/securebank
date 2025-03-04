@@ -1,0 +1,63 @@
+.fotterNB {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  top: calc(100vh - 500px);
+  z-index: 2;
+}
+
+.fotterSB {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.btn {
+  position: relative;
+  padding: 5px 100px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.back {
+  left: -20px;
+  border-radius: 0 9999rem 9999rem 0;
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+.back:active {
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+
+.next {
+  left: 20px;
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+.next:active {
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+
+.submit {
+  left: 20px;
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+.submit:active {
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-left: 20px;
+}/*# sourceMappingURL=signup.component.css.map */
