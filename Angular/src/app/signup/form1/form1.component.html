@@ -1,0 +1,74 @@
+<div class="form-container">
+    <form [formGroup]="signupForm1">
+        <!-- Name Field -->
+        <div class="names">
+            <label for="name">Name</label>
+            <input id="name" formControlName="name" type="text" [(ngModel)]="formData.name" placeholder="Your name">
+            <!-- <p>︎{{ signupForm1.get('name')?.touched ? signupForm1.get('name')?.errors : '' }}</p> -->
+            <p>︎@if (signupForm1.get('name')?.errors!==null&&signupForm1.get('name')?.touched) {
+                @if (signupForm1.get('name')?.errors?.['required']) {
+            <p>Name Required</p>}
+            @if (signupForm1.get('name')?.errors?.['minlength']||signupForm1.get('name')?.errors?.['maxlength']) {<p>
+                Name Between 2:50</p>}
+            }
+            </p>
+        </div>
+
+        <!-- governorate, City, Street (3 in one row) -->
+        <div class="names2">
+            <div class="field">
+                <label for="governorate">governorate</label>
+                <input id="governorate" formControlName="governorate" type="text" [(ngModel)]="formData.governorate">
+                <!-- <p>︎{{ signupForm1.get('governorate')?.touched ? signupForm1.get('governorate')?.errors : '' }}</p> -->
+                <p>︎@if (signupForm1.get('governorate')?.errors!==null&&signupForm1.get('governorate')?.touched) {
+                    @if (signupForm1.get('governorate')?.errors?.['required']) {
+                <p>Governorate Required</p>}
+                @if
+                (signupForm1.get('governorate')?.errors?.['minlength']||signupForm1.get('governorate')?.errors?.['maxlength'])
+                {<p>Governorate Between 2:50</p>}
+                }
+                </p>
+            </div>
+
+            <div class="field">
+                <label for="city">City</label>
+                <input id="city" formControlName="city" type="text" [(ngModel)]="formData.city">
+                <!-- <p>︎{{ signupForm1.get('city')?.touched ? signupForm1.get('city')?.errors : '' }}</p> -->
+                <p>︎@if (signupForm1.get('city')?.errors!==null&&signupForm1.get('city')?.touched) {
+                    @if (signupForm1.get('city')?.errors?.['required']) {
+                <p>city Required</p>}
+                @if (signupForm1.get('city')?.errors?.['minlength']||signupForm1.get('city')?.errors?.['maxlength']) {
+                <p>city Between 2:50</p>}
+                }
+                </p>
+            </div>
+
+            <div class="field">
+                <label for="street">Street</label>
+                <input id="street" formControlName="street" type="text" [(ngModel)]="formData.street">
+                <!-- <p>︎{{ signupForm1.get('street')?.touched ? signupForm1.get('street')?.errors : '' }}</p> -->
+                <p>︎@if (signupForm1.get('street')?.errors!==null&&signupForm1.get('street')?.touched) {
+                    @if (signupForm1.get('street')?.errors?.['required']) {
+                <p>street Required</p>}
+                @if (signupForm1.get('street')?.errors?.['minlength']||signupForm1.get('street')?.errors?.['maxlength'])
+                {<p>street Between 2:50</p>}
+                }
+                </p>
+            </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="emailField">
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" type="email" [(ngModel)]="formData.email"
+                placeholder="Your email">
+            <!-- <p>︎{{ signupForm1.get('email')?.touched ? signupForm1.get('email')?.errors : '' }}</p> -->
+            <p>︎@if (signupForm1.get('email')?.errors!==null&&signupForm1.get('email')?.touched) {
+                @if (signupForm1.get('email')?.errors?.['required']) {
+            <p>Email Required</p>}
+            @if (signupForm1.get('email')?.errors?.['email']) {<p>Wrong Email Format</p>}
+            }
+            </p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,83 @@
+// Variables
+$primary-color: #1a1a40; // Background color
+$secondary-color: #ffffff; // White text
+$accent-color: #4a4aff; // Blue accent
+$input-bg: #ffffff; // White input fields
+$input-border: #cccccc; // Light gray border
+$input-text: #333333; // Dark text for inputs
+
+.fotterNB {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    top: calc(100vh - 500px);
+    z-index: 2;
+}
+.fotterSB {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    padding: 20px;
+    // position: relative;
+    // top: 230px;
+    // z-index: -1;
+
+}
+
+.btn {
+    position: relative;
+    padding: 5px 100px;
+    border: none;
+
+    cursor: pointer;
+    transition: background-color 0.3s;
+    // text-align:start;
+    font-size: 35px;
+    font-weight: 600;
+    // z-index: 200;
+}
+
+.back {
+    // z-index: 200;
+
+    left: -20px;
+    border-radius: 0 9999rem 9999rem 0;
+    background-color: $secondary-color;
+    color: $accent-color;
+    &:active {
+        background-color: $accent-color;
+        color: $secondary-color;
+    }
+}
+
+.next {
+    // z-index: 200;
+
+    left: 20px;
+    border-radius: 9999rem 0 0 9999rem;
+    background-color: $accent-color;
+    color: $secondary-color;
+    &:active {
+        background-color: $secondary-color;
+        color: $accent-color;
+    }
+}
+
+.submit {
+    // z-index: 200;
+
+    left: 20px;
+    border-radius: 9999rem 0 0 9999rem;
+    background-color: $accent-color;
+    color: $secondary-color;
+    &:active {
+        background-color: $secondary-color;
+        color: $accent-color;
+    }
+}
+p {
+    font-size: 0.9rem;
+    margin-left: 20px;
+}

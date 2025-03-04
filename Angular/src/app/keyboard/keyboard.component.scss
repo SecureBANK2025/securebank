@@ -1,0 +1,102 @@
+// Define color variables for easy theme adjustments
+$bg-color: #22222200;
+$key-color: #44444400;
+$key-hover: #666;
+$key-active: #888;
+$text-color: #fff;
+
+// Style the body to center the keyboard on the screen
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: $bg-color;
+}
+
+// Container for the keyboard with grid centering
+.keyboard-container {
+    // position: relative;
+    // top: 0px;
+    display: grid;
+    place-items: center;
+    // width: 100%;
+    height: 5px;
+}
+
+// Main keyboard styling with fixed width and grid layout
+.keyboard {
+    width: 800px; // Fixed width to maintain consistency
+    display: grid;
+    gap: 10px; // Space between rows
+    padding: 20px;
+    // background: $bg-color;
+    border-radius: 10px;
+    // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+// Each row uses grid layout to evenly space keys
+.row {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+}
+
+// Define grid layout for each row based on the number of keys
+.keyboard > .row:nth-child(1) {
+    grid-template-columns: repeat(10, 1fr); // 10 number keys
+}
+.keyboard > .row:nth-child(2) {
+    grid-template-columns: repeat(10, 1fr); // 10 keys for top letters
+}
+.keyboard > .row:nth-child(3) {
+    grid-template-columns: repeat(9, 1fr); // 9 keys for middle letters
+}
+.keyboard > .row:nth-child(4) {
+    grid-template-columns: repeat(8, 1fr); // 8 keys for bottom letters and backspace
+}
+.keyboard > .row:nth-child(5) {
+    // Layout for special keys: shift, language toggle, space, etc.
+    grid-template-columns: auto auto 1fr auto auto;
+}
+
+// Styling for all keys
+.key {
+    z-index: 5;
+    -webkit-backdrop-filter:blur(50px);
+    backdrop-filter: blur(50px);
+    // box-shadow: 0 5px 5px rgba(0, 0, 0, 0.553);
+    background: $key-color;
+    color: $text-color;
+    border: solid 1px $key-active ;
+    padding: 15px 0; // Vertical padding for key height
+    font-size: 25px;
+    font-weight: 900;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out; // Smooth transition on hover/active
+    text-align:center;
+    line-height: 10px;
+    // text-justify:distribute;
+    width: 100%;
+    min-width: 50px; // Prevent keys from becoming too small
+    min-height: 50px; // Ensure a consistent key height
+    max-height: 50px; // Ensure a consistent key height
+    box-sizing: border-box;
+    white-space: nowrap; // Keep text in a single line
+
+    // Change background on hover
+    &:hover {
+        background: $key-hover;
+    }
+
+    // Change background on active (pressed)
+    &:active {
+        background: $key-active;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
+    }
+
+    // Additional style when a key (e.g., shift) is active
+    &.active {
+        background: $key-active;
+    }
+}

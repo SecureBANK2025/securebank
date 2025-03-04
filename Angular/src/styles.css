@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Noto Kufi Arabic";
+  src: url("/pics/fonts/noto/NotoKufiArabic-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", serif;
+}
+
+body {
+  background-image: url(/pics/back.jpg);
+  background-size: cover;
+  background-position: 0px -100px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 10vh;
+}
+
+section {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=styles.css.map */
