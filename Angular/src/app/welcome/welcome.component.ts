@@ -14,6 +14,6 @@ export class WelcomeComponent {
 
   navToHome() {
     this._router.navigate(['/home']);
-    const atForm1:Boolean = true;
+    // const atForm1:Boolean = true;
   }
 }

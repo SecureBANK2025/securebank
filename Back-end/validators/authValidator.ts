@@ -7,7 +7,7 @@ export const signUpValidation = [
   check("name")
     .notEmpty().withMessage("Name is required")
     .trim()
-    .isLength({ min: 3 ,max: 50 }).withMessage("Name must be between 3 : 50 characters"),
+    .isLength({ min: 3 ,max: 50 }).withMessage("Name must be at least 4 characters"),
 
   check("email")
     .notEmpty().withMessage("Email is required")
@@ -20,7 +20,7 @@ export const signUpValidation = [
 
   check("PIN")
     .notEmpty().withMessage("PIN is required")
-    .isLength({  min: 6, max: 6  }).withMessage("PIN  must be 6"),  
+    .isLength({  min: 6, max: 6  }).withMessage("PIN  must be 6 "),  
 
     body('confirmPIN')
         .custom((value, { req }) => {

@@ -1,9 +1,20 @@
 class customErrors extends Error {
-    private status: string;
-    constructor(message: string, private statusCode: number) {
+  public status: string;
+  public statusCode: number;
+
+  constructor(message: string, statusCode: number) {
       super(message);
-      this.status = `${this.statusCode}`.startsWith('4') ? 'failed' : 'error';
-    };
+      this.statusCode = statusCode;
+      this.status = statusCode >= 400 && statusCode < 500 ? "failed" : "error";
+  }
+    toJSON() {
+      return {
+          success: false,
+          status: this.status,
+          statusCode: this.statusCode,
+          message: this.message
+      };
+  }
   }
   
   export default customErrors;

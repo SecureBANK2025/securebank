@@ -1,0 +1,172 @@
+// Variables
+$primary-color: #1a1a40;
+$secondary-color: #ffffff;
+$accent-color: #4a4aff;
+
+// Reset some default styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", serif;
+}
+
+// body {
+//     background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
+//     background-size: cover;
+//     background-position: center;
+//     color: $secondary-color;
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100vh;
+// }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+
+    .logo {
+        :first-child {
+            height: 50px;
+            top: 10px;
+            position: relative;
+        }
+        :last-child {
+            height: 30px;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+    }
+}
+
+.i-solar-archive-down-linear {
+    --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.3em' height='1.3em' xmlns='http://www.w3.org/2000/svg' %3E%3Cg fill='none' stroke='currentColor' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' d='M20.5 7v6c0 3.771 0 5.657-1.172 6.828S16.271 21 12.5 21h-1c-3.771 0-5.657 0-6.828-1.172S3.5 16.771 3.5 13V7'/%3E%3Cpath d='M2 5c0-.943 0-1.414.293-1.707S3.057 3 4 3h16c.943 0 1.414 0 1.707.293S22 4.057 22 5s0 1.414-.293 1.707S20.943 7 20 7H4c-.943 0-1.414 0-1.707-.293S2 5.943 2 5Z'/%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 7v9m0 0l3-3.333M12 16l-3-3.333'/%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask: var(--un-icon) no-repeat;
+    mask: var(--un-icon) no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    background-color: currentColor;
+    color: inherit;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+
+.i-solar-archive-up-linear {
+    --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1.3em' height='1.3em' xmlns='http://www.w3.org/2000/svg' %3E%3Cg fill='none' stroke='currentColor' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 21v-9m0 0l3 3.333M12 12l-3 3.333'/%3E%3Cpath stroke-linecap='round' d='M20.5 7v6c0 3.771 0 5.657-1.172 6.828S16.271 21 12.5 21h-1c-3.771 0-5.657 0-6.828-1.172S3.5 16.771 3.5 13V7'/%3E%3Cpath d='M2 5c0-.943 0-1.414.293-1.707S3.057 3 4 3h16c.943 0 1.414 0 1.707.293S22 4.057 22 5s0 1.414-.293 1.707S20.943 7 20 7H4c-.943 0-1.414 0-1.707-.293S2 5.943 2 5Z'/%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask: var(--un-icon) no-repeat;
+    mask: var(--un-icon) no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    background-color: currentColor;
+    color: inherit;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+
+.bi {
+    max-width: 1em;
+    max-height: 1em;
+    &::before{
+        position: relative;
+        top: -30px;
+    }
+}
+
+main {
+    .container {
+        max-width: 80%;
+        margin: 0 auto;
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 50px;
+        border: none;
+        height: 80vh;
+        color: $accent-color;
+
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 80dvw;
+            padding: 20px 70px;
+
+            .text {
+                h1 {
+                    font-style: italic;
+                    font-weight: 800;
+                }
+
+                h3 {
+                    color: gray;
+                    font-weight: 500;
+                    margin: -10px 0 0 5px;
+                }
+            }
+
+            button {
+                width: 200px;
+                height: 60px;
+                font-style: italic;
+                position: relative;
+                // padding: -50px 0px;
+                border: none;
+                color: $secondary-color;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                // text-align:start;
+                font-size: 35px;
+                font-weight: 600;
+                &:hover {
+                    background-color: darken($accent-color, 40%);
+                    // color: $accent-color;
+                }
+                top: 15px;
+                left: 70px;
+                border-radius: 9999rem 0 0 9999rem;
+                background-color: $accent-color;
+            }
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px 50px;
+            padding: 30px 70px 45px;
+            width: 100%;
+            height: 100%;
+            .card {
+                &:hover {
+                    background-color: $accent-color;
+                    color: $secondary-color;
+                }
+                cursor: pointer;
+                color: $accent-color;
+                border-radius: 30px;
+                border: solid 3px $accent-color;
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 25px;
+                font-weight: 800;
+                i {
+                    font-size: 90px;
+                    position: relative;
+                    top: 0px;
+                }
+            }
+        }
+    }
+}

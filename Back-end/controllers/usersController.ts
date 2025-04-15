@@ -34,7 +34,7 @@ export const deleteUser = asyncHandler(async (req: Request, res: Response, next:
             const user = await usersModel.findByIdAndDelete(req.params.id);
             return res.status(500).json({ message: "User and his finger id deleted" });
         } else {
-            res.status(200).json({ massege: "Can't delete user" });
+            res.status(200).json({ message: "Can't delete user" });
             console.log(user!.fingerId);
         }
     }

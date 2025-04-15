@@ -3,21 +3,19 @@
 <app-keyboard></app-keyboard>
 <div class="fotterNB">
     <button class="btn back" (click)="navToHome()">Back</button>
-    <!-- <button class="btn next" [disabled]="!isForm1Valid()" (click)="navToForm2()">Next</button> -->
-    <button class="btn next" (click)="navToForm2()">Next</button>
+    <button class="btn next" [disabled]="!isForm1Valid()" (click)="navToForm2()">Next</button>
+    <!-- <button class="btn next" (click)="navToForm2()">Next</button> -->
 </div>
 }
-
 
 @if (atForm2) {
 <app-form2></app-form2>
 <div class="fotterSB">
     <button class="btn back" (click)="navToForm1()">Back</button>
-    <!-- <button class="btn submit" [disabled]="!isForm2Valid()" (click)="navToScanFinger()">Next</button> -->
-    <button class="btn submit" (click)="[navToScanFinger(),submit(),signup(myData)]">Next</button>
+    <button class="btn submit" [disabled]="!isForm2Valid()" (click)="[navToScanFinger(),submit(),signup(myData)]">Next</button>
+    <!-- <button class="btn submit" (click)="[navToScanFinger(),submit(),signup(myData)]">Next</button> -->
 </div>
 }
-
 
 
 @if (atScanFinger) {
