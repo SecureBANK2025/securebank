@@ -7,7 +7,7 @@ export const signUpValidation = [
   check("name")
     .notEmpty().withMessage("Name is required")
     .trim()
-    .isLength({ min: 4 ,max: 16 }).withMessage("Name must be at least 4 characters"),
+    .isLength({ min: 3 ,max: 50 }).withMessage("Name must be at least 4 characters"),
 
   check("email")
     .notEmpty().withMessage("Email is required")

@@ -45,6 +45,6 @@ export class Form1Component {
 
   navToForm2() {
     this._router.navigate(['/signup/form2']);
-    const atForm2: Boolean = true;
+    // const atForm2: Boolean = true;
   }
 }

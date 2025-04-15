@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "UnicodeConverter",
+      "request": "launch",
+      "mainClass": "UnicodeConverter",
+      "projectName": "securebank_33079502"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

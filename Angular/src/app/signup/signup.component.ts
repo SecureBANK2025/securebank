@@ -8,7 +8,6 @@ import { ScanFingerComponent } from './scan-finger/scan-finger.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 
-
 @Component({
   selector: 'app-signup',
   imports: [Form1Component, Form2Component, KeyboardComponent, ScanFingerComponent, ReactiveFormsModule],
@@ -20,7 +19,7 @@ export class SignupComponent implements OnInit {
   myData: any;
   form2Data: any;
   form1Data: any;
-  atForm1: Boolean = true;
+  atForm1: boolean = true;
   atForm2: boolean = false;
   atScanFinger: boolean = false;
 
@@ -39,8 +38,6 @@ export class SignupComponent implements OnInit {
     this.atForm2 = false;
     this.atScanFinger = false;
   }
-
-
 
   isForm1Valid(): boolean {
     return this.form1Component ? this.form1Component.isValid() : false;
@@ -68,7 +65,6 @@ export class SignupComponent implements OnInit {
     this.atForm2 = false;
     this.atScanFinger = false;
   } submit(): void {
-    
     console.log('Submitting Data:', this.myData);
     this.atForm1 = false;
     this.atForm2 = false;
@@ -91,9 +87,10 @@ export class SignupComponent implements OnInit {
   signup(myData: object) {
     this._AuthService.singUp(myData).subscribe({
       next: (res) => {
-        this._router.navigate(['/welcome'])
+        this._router.navigate(['/login'])
       }, error: (err) => {
         err.error.errors.map((error: any) => {
+          // this.signup(this.myData);
           console.log(err)
         })
       }
