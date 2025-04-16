@@ -14,9 +14,13 @@ import { authGuard } from './gaurd/auth.guard';
 import { ManualSigninComponent } from './manual-signin/manual-signin.component';
 import { MoneyDepositComponent } from './money-deposit/money-deposit.component';
 import { MoneyTransfer1Component } from './money-transfer1/money-transfer1.component';
-// import { MoneyTransfer2Component } from './money-transfer2/money-transfer2.component';
-// import { MoneyTransfer3Component } from './money-transfer3/money-transfer3.component';
+import { MoneyTransfer2Component } from './money-transfer2/money-transfer2.component';
+import { MoneyTransfer3Component } from './money-transfer3/money-transfer3.component';
 import { MoneyWithdrawComponent } from './money-withdraw/money-withdraw.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
+import { MoreComponent } from './more/more.component';
+import { SignupSuccessComponent } from './signup-success/signup-success.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -27,9 +31,12 @@ export const routes: Routes = [
     { path: 'moneyDeposit', canActivate: [authGuard], component: MoneyDepositComponent },
     { path: 'moneyWithdraw', canActivate: [authGuard], component: MoneyWithdrawComponent },
     { path: 'moneyTransfer1', canActivate: [authGuard], component: MoneyTransfer1Component },
-    // { path: 'moneyTransfer2', component: MoneyTransfer2Component },
-    // { path: 'moneyTransfer3', component: MoneyTransfer3Component },
-    
+    { path: 'moneyTransfer2', component: MoneyTransfer2Component },
+    { path: 'moneyTransfer3', component: MoneyTransfer3Component },
+    { path: 'accountDetails', canActivate: [authGuard], component: AccountDetailsComponent },
+    { path: 'transactionsHistory', canActivate: [authGuard], component: TransactionsHistoryComponent },
+    { path: 'more', canActivate: [authGuard], component: MoreComponent },
+    { path: 'signupSuccess', component: SignupSuccessComponent },
 
     {
         path: 'login', component: SigninComponent

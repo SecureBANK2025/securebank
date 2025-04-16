@@ -16,12 +16,14 @@ export class MainOptionsComponent {
       this._AuthService.checkToken();
     }
 
-    // navigateTo(route: string) {
-    //   this._router.navigate([`/${route}`]);
-    // }
+    navigateTo(route: string) {
+      this._router.navigate([`/${route}`]);
+      console.log(route);
+      console.log(this._router);
 
-    navigateTo() {
-      this._router.navigate(['/moneyDeposit']);
     }
     
+    logout() {
+      this._AuthService.logout();
+    }
 }

@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
   signup(myData: object) {
     this._AuthService.singUp(myData).subscribe({
       next: (res) => {
-        this._router.navigate(['/login'])
+        this._router.navigate(['/signupSuccess'])
       }, error: (err) => {
         err.error.errors.map((error: any) => {
           // this.signup(this.myData);
