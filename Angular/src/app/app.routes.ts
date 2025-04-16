@@ -12,6 +12,11 @@ import { SigninFormComponent } from './signin/signin-form/signin-form.component'
 import { MainOptionsComponent } from './main-options/main-options.component';
 import { authGuard } from './gaurd/auth.guard';
 import { ManualSigninComponent } from './manual-signin/manual-signin.component';
+import { MoneyDepositComponent } from './money-deposit/money-deposit.component';
+import { MoneyTransfer1Component } from './money-transfer1/money-transfer1.component';
+// import { MoneyTransfer2Component } from './money-transfer2/money-transfer2.component';
+// import { MoneyTransfer3Component } from './money-transfer3/money-transfer3.component';
+import { MoneyWithdrawComponent } from './money-withdraw/money-withdraw.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -19,7 +24,13 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'mainOptions', canActivate: [authGuard], component: MainOptionsComponent },
     { path: 'manualSignin', component: ManualSigninComponent },
-    // { path: 'login/loginForm', component: SigninComponent },
+    { path: 'moneyDeposit', canActivate: [authGuard], component: MoneyDepositComponent },
+    { path: 'moneyWithdraw', canActivate: [authGuard], component: MoneyWithdrawComponent },
+    { path: 'moneyTransfer1', canActivate: [authGuard], component: MoneyTransfer1Component },
+    // { path: 'moneyTransfer2', component: MoneyTransfer2Component },
+    // { path: 'moneyTransfer3', component: MoneyTransfer3Component },
+    
+
     {
         path: 'login', component: SigninComponent
         , children: [
