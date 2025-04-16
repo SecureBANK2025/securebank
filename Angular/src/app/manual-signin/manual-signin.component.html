@@ -15,15 +15,15 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="PIN">PIN</label>
       <input
         type="password"
-        id="password"
-        formControlName="password"
-        placeholder="Enter your password"
+        id="PIN"
+        formControlName="PIN"
+        placeholder="Enter your PIN"
       />
-      <div *ngIf="signinForm.get('password')?.invalid && signinForm.get('password')?.touched" class="error-message">
-        Password is required
+      <div *ngIf="signinForm.get('PIN')?.invalid && signinForm.get('PIN')?.touched" class="error-message">
+        PIN is required
       </div>
     </div>
     <button type="submit" class="submit-button" [disabled]="signinForm.invalid">Sign In</button>

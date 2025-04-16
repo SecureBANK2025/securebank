@@ -38,6 +38,10 @@ export class AuthService {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/loginWithFinger`, null)
   }
 
+  manualLogin(myData: any): Observable<any> {
+    return this._HttpClient.post(`${this.hostName}${this.routeName}/login`, myData)
+  }
+
   verifyOTP(data: any): Observable<any> {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/verifyOTP`, data)
   }

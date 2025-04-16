@@ -44,7 +44,7 @@ export class SigninFormComponent {
     console.log(this.data);
     this._AuthService.verifyOTP(this.data).subscribe({
       next: (res) => {
-        console.log(res + "5555");
+        console.log(res);
         if (res.token) {
           localStorage.setItem('user', res.token);
           console.log(res.token);
