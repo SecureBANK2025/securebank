@@ -25,6 +25,7 @@ const usersSchema:Schema = new Schema<users>({
         city: { type: String },
         governorate: { type: String }
       },
+    
     accounts: [
       {
             _id: { type: Schema.Types.ObjectId, ref: 'Account' }, 
