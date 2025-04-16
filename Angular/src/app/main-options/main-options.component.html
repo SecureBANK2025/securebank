@@ -5,20 +5,20 @@
                 <h1>Yasseen A.</h1>
                 <h3>5078XXXXXXXXXXXX1254</h3>
             </div>
-            <button>Log out</button>
+            <button (click)="logout()">Log out</button>
         </div>
         <div class="services">
-            <button onclick="navigateTo()" class="card moneyDeposit"><i class="i-solar-archive-up-linear"></i>Money
+            <button (click)="navigateTo('moneyDeposit')" class="card moneyDeposit"><i class="i-solar-archive-up-linear"></i>Money
                 Deposit</button>
-            <button onclick="navigateTo()" class="card moneyTransfer"><i class="ti ti-transfer"></i>Money
+            <button (click)="navigateTo('moneyTransfer1')" class="card moneyTransfer"><i class="ti ti-transfer"></i>Money
                 Transfer</button>
-            <button onclick="navigateTo()" class="card moneyWithdraw"><i class="i-solar-archive-down-linear"></i>Money
+            <button (click)="navigateTo('moneyWithdraw')" class="card moneyWithdraw"><i class="i-solar-archive-down-linear"></i>Money
                 Withdraw</button>
-            <button onclick="navigateTo()" class="card accountDetails"><i class="bi bi-person-lines-fill"></i>Account
+            <button (click)="navigateTo('accountDetails')" class="card accountDetails"><i class="bi bi-person-lines-fill"></i>Account
                 Details</button>
-            <button onclick="navigateTo()" class="card transactionsHistory"><i
+            <button (click)="navigateTo('transactionsHistory')" class="card transactionsHistory"><i
                     class="ti ti-clock-dollar"></i>Transactions History</button>
-            <button onclick="navigateTo()" class="card more"><i class="ti ti-apps"></i>More</button>
+            <button (click)="navigateTo('more')" class="card more"><i class="ti ti-apps"></i>More</button>
         </div>
     </div>
 </main>
