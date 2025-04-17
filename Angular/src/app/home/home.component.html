@@ -5,8 +5,13 @@
             <img (click)="navToManualSignin()" src="/pics/insert-credit-card.svg" alt="insert-credit-card">
         <!-- </div> -->
         <h2>Please insert your card</h2>
-        <h2>New User?</h2>
+      
+
     </main>
+   <div class="options">
+    <h3>Sign in with</h3>
+    <h4>New User?</h4>
+   </div> 
     <footer>
         <button class="language-btn english" (click)="[navToLogin()]">
             Fingerprint
@@ -15,9 +20,6 @@
         <button class="language-btn register" (click)="navToSignup()">
             Register
         </button>
-        <button class="language-btn arabic">
-            Cardless
-            <i class="ti ti-credit-card-off"></i>
-        </button>
+        
     </footer>
 </section>

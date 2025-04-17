@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 body {
   background-image: url(/pics/back.jpg);
   background-size: cover;
@@ -5,14 +13,13 @@ body {
   color: #ffffff;
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
 }
 
 .form-container {
   max-width: 30%;
   max-height: 10vh;
   position: relative;
-  left: 235px;
+  left: 233px;
   top: 80px;
   display: flex;
 }
@@ -39,7 +46,7 @@ form input {
 }
 form input:focus {
   border-color: #4a4aff;
-  box-shadow: 0px 0px 8px rgba(74, 74, 255, 0.5);
+  box-shadow: 3px 3px 8px rgba(109, 109, 247, 0.5);
 }
 
 .pass {
@@ -93,7 +100,8 @@ form input:focus {
 
 .key:active {
   background: #dcdcdc;
-} 
+}
+
 p {
   font-size: 0.9rem;
   color: red;

@@ -13,39 +13,6 @@ $accent-color: #4a4aff;
 
 
 
-// body {
-//     // background-image: url(/pics/back.jpg) ;
-//     background-size: cover;
-//     background-position: center;
-//     color: $secondary-color;
-//     display: flex;
-//     flex-direction: column;
-//     min-height: 100vh;
-// }
-
-// header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 20px;
-//     font-size: 25px;
-
-//     .logo {
-//         :first-child{
-//             height: 50px;
-//             top: 10px;
-//             position: relative;
-//         }
-//         :last-child{
-//             height: 30px;
-//         }
-//     }
-
-//     .date {
-//         font-weight: bold;
-//     }
-// }
-
 main {
     flex: 1;
     display: flex;
@@ -63,19 +30,19 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    // background-color: rgba(0, 0, 0, 0.5);
 
     .language-btn {
         position: relative;
         padding: 5px 100px;
         border: none;
-        
+        width: 350px;
+
         cursor: pointer;
         transition: background-color 0.3s;
         // text-align:start;
         font-size: 35px;
         font-weight: 600;
-        &:hover {
+        &:active {
             background-color: $accent-color;
             color: $secondary-color;
         }
@@ -85,14 +52,14 @@ footer {
         left: -20px;
         border-radius: 0 9999rem 9999rem 0;
         background-color: $secondary-color;
-        color: $primary-color;
+        color: $accent-color;
     }
 
     .arabic {
         left: 20px;
         border-radius: 9999rem 0 0 9999rem;
         background-color: $secondary-color;
-        color: $primary-color;
+        color: $accent-color;
     }
 
     p {

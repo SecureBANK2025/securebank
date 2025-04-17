@@ -15,7 +15,9 @@ import { KeyboardComponent } from '../keyboard/keyboard.component';
 export class ManualSigninComponent implements OnInit {
   signinForm: FormGroup;
   myData: any;
-
+  navTohome() {
+    this._router.navigate(['/home']);
+  }
   constructor(
     private fb: FormBuilder,
     private _AuthService: AuthService,

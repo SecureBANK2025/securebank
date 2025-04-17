@@ -4,19 +4,20 @@
   align-items: center;
   padding: 20px;
   position: relative;
-  top: calc(100vh - 500px);
+  top: calc(98vh - 500px);
   z-index: 2;
 }
 
 .fotterSB {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 18px;
 }
 
 .btn {
   position: relative;
   padding: 5px 100px;
+  width: 350px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;

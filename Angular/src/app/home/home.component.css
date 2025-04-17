@@ -15,8 +15,18 @@ main img {
   cursor: pointer;
 }
 main :last-child {
-  margin-top: 150px;
+  margin-top: 25px;
   font-size: 25px;
+}
+
+.options {
+  padding-left: 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 1060px;
+}
+.options h4 {
+  font-weight: 500;
 }
 
 footer {
@@ -36,13 +46,9 @@ footer .language-btn {
   font-size: 35px;
   font-weight: 600;
 }
-footer .language-btn:hover {
+footer .language-btn:active {
   background-color: #4a4aff;
   color: #ffffff;
-}
-footer .register {
-  border-radius: 9999rem;
-  height: 70px;
 }
 footer .english {
   left: -20px;
@@ -54,12 +60,12 @@ footer .english i {
   font-size: 50px;
   top: 10px;
 }
-footer .arabic {
+footer .register {
   left: 20px;
   border-radius: 9999rem 0 0 9999rem;
   background-color: #ffffff;
 }
-footer .arabic i {
+footer .register i {
   position: relative;
   font-size: 50px;
   top: 10px;
