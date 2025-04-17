@@ -21,6 +21,14 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { TransactionsHistoryComponent } from './transactions-history/transactions-history.component';
 import { MoreComponent } from './more/more.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
+import { AuthFailedComponent } from './auth-failed/auth-failed.component';
+import { AuthSuccessComponent } from './auth-success/auth-success.component';
+import { DepositeSureComponent } from './deposite-sure/deposite-sure.component';
+import { DepositeCompletedComponent } from './deposite-completed/deposite-completed.component';
+import { DepositeNoRecieptComponent } from './deposite-no-reciept/deposite-no-reciept.component';
+import { DepositeRecieptComponent } from './deposite-reciept/deposite-reciept.component';
+import { AnotherOperationComponent } from './another-operation/another-operation.component';
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -37,13 +45,19 @@ export const routes: Routes = [
     { path: 'transactionsHistory', canActivate: [authGuard], component: TransactionsHistoryComponent },
     { path: 'more', canActivate: [authGuard], component: MoreComponent },
     { path: 'signupSuccess', component: SignupSuccessComponent },
-
+    { path: 'authFailed', component:AuthFailedComponent },
+    { path: 'authSuccess', component:AuthSuccessComponent },
+    { path: 'deposit-sure', component:DepositeSureComponent },
+    { path: 'deposite-completed', component:DepositeCompletedComponent },
+    { path: 'deposite-no-reciept', component:DepositeNoRecieptComponent },
+    { path: 'deposite-reciept', component:DepositeRecieptComponent },
+    { path: 'another-operation', component:AnotherOperationComponent },
     {
         path: 'login', component: SigninComponent
         , children: [
-        { path: 'loginFinger', component: SigninFingerComponent },
-        { path: 'loginForm', component: SigninFormComponent }
-    ]
+            { path: 'loginFinger', component: SigninFingerComponent },
+            { path: 'loginForm', component: SigninFormComponent }
+        ]
     },
 
     {

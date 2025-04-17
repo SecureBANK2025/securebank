@@ -150,6 +150,19 @@ main {
     // padding-left: 890px;
     align-items: center;
     justify-content: center;
+
+    ::ng-deep app-num-pad {
+        .numpad {
+            .key {
+                background-color: #4a4aff;
+                color: white;
+
+                &:hover {
+                    background-color: #04043a;
+                }
+            }
+        }
+    }
 }
 
 .numpad {

@@ -27,8 +27,8 @@ const char* password = "bahy2710";
 // const char* ssid = "NoInternet";       
 // const char* password = "bahy015015"; 
 
-// Firebase credentials
-// #define API_KEY "AIzaSyDVUrvoghtpxDUTrdKe9a1NB_KWxpTo5Ps"
+// // Firebase credentials
+// // #define API_KEY "AIzaSyDVUrvoghtpxDUTrdKe9a1NB_KWxpTo5Ps"
 // #define DATABASE_URL "https://esp-cloud-e6139.firebaseio.com/"
 
 // FirebaseData fbdo;

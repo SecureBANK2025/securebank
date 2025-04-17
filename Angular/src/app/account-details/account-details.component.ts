@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-details',
@@ -8,9 +9,13 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './account-details.component.scss'
 })
 export class AccountDetailsComponent {
-  constructor(private _AuthService: AuthService) {}
+  constructor(private _AuthService: AuthService, private router: Router) {}
 
   logout() {
     this._AuthService.logout();
+  }
+
+  back() {
+    this.router.navigate(['/mainOptions']);
   }
 }

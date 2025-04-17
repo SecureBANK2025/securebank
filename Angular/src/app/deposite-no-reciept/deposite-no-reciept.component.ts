@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposite-no-reciept',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './deposite-no-reciept.component.html',
   styleUrl: './deposite-no-reciept.component.scss'
 })
-export class DepositeNoRecieptComponent {
+export class DepositeNoRecieptComponent implements OnInit {
+  constructor(private router: Router) {}
 
+  ngOnInit() {
+    setTimeout(() => {
+      this.router.navigate(['/another-operation']);
+    }, 5000);
+  }
 }
