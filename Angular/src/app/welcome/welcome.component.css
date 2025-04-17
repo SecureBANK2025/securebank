@@ -26,12 +26,13 @@ footer .language-btn {
   position: relative;
   padding: 5px 100px;
   border: none;
+  width: 350px;
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 35px;
   font-weight: 600;
 }
-footer .language-btn:hover {
+footer .language-btn:active {
   background-color: #4a4aff;
   color: #ffffff;
 }
@@ -39,13 +40,13 @@ footer .english {
   left: -20px;
   border-radius: 0 9999rem 9999rem 0;
   background-color: #ffffff;
-  color: #1a1a40;
+  color: #4a4aff;
 }
 footer .arabic {
   left: 20px;
   border-radius: 9999rem 0 0 9999rem;
   background-color: #ffffff;
-  color: #1a1a40;
+  color: #4a4aff;
 }
 footer p {
   font-size: 0.9rem;
