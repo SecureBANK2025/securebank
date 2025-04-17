@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { KeyboardComponent } from '../keyboard/keyboard.component';
 
 @Component({
   selector: 'app-manual-signin',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, KeyboardComponent],
   templateUrl: './manual-signin.component.html',
   styleUrls: ['./manual-signin.component.scss']
 })
