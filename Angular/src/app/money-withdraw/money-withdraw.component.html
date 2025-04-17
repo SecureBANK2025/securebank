@@ -32,31 +32,11 @@
     <div class="divider"></div>
 
     <div class="numpad-container">
-        <div class="numpad">
-            <div class="row">
-                <button class="key">1</button>
-                <button class="key">2</button>
-                <button class="key">3</button>
-            </div>
-            <div class="row">
-                <button class="key">4</button>
-                <button class="key">5</button>
-                <button class="key">6</button>
-            </div>
-            <div class="row">
-                <button class="key">7</button>
-                <button class="key">8</button>
-                <button class="key">9</button>
-            </div>
-            <div class="row">
-                <button class="key">⌫</button>
-                <button class="key">0</button>
-            </div>
-        </div>
+        <app-num-pad></app-num-pad>
     </div>
 </main>
 
 <footer>
     <button class="language-btn confirm">Confirm</button>
-    <button class="language-btn cancel">Cancel</button>
+    <button class="language-btn cancel" (click)="cancel()">Cancel</button>
 </footer>

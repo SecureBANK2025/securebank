@@ -126,6 +126,13 @@ main .container .footer button:hover {
   align-items: center;
   justify-content: center;
 }
+.numpad-container ::ng-deep app-num-pad .numpad .key {
+  background-color: #4a4aff;
+  color: white;
+}
+.numpad-container ::ng-deep app-num-pad .numpad .key:hover {
+  background-color: #04043a;
+}
 
 .numpad {
   display: grid;

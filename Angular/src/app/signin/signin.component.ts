@@ -36,20 +36,20 @@ export class SigninComponent implements OnInit {
   log_in() {
     console.log("login works");
     this._AuthService.login().subscribe({
+
       next: (res) => {
 
-        this.toggleAtFingerToValue(false);
         this.email = res.email;
         // Send the email to the UserEmailService
         this.emailService.setEmail(this.email);
         console.log(this.email);
+        // this._router.navigate(['/authSuccess']);
+        this.toggleAtFingerToValue(false);
       }, error: (err) => {
-        err.error.errors.map((error: any) => {
-          this._router.navigate(['/login/loginFinger'])
-          this.log_in();
-          console.log(err)
-        })
+        console.log(err);
+        this._router.navigate(['/authFailed']);
       }
+
     })
   }
 
@@ -61,12 +61,10 @@ export class SigninComponent implements OnInit {
   toggleAtFingerToValue(value: boolean) {
     this.atFinger = value;
     this.atForm = !value;
-    this._router.navigate(['/login/loginForm'])
+    this._router.navigate(['/login/loginForm']);
     console.log("toggleAtFingerToValue works");
     console.log("atFinger is " + value);
     console.log("atForm is " + !value);
   }
-
-
 
 }

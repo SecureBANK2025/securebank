@@ -12,6 +12,7 @@ main h1 {
 main img {
   width: 400px;
   height: auto;
+  cursor: pointer;
 }
 main :last-child {
   margin-top: 150px;

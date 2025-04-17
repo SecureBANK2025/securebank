@@ -53,9 +53,9 @@ export class SigninFormComponent {
         this._router.navigate(['/mainOptions']);
       },
       error: (err) => {
+        console.log(err);
         err.error.errors.map((error: any) => {
-          this._router.navigate(['/login/loginFinger']);
-          console.log(err);
+          this._router.navigate(['/authFailed']);
         })
       }
     })

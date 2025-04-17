@@ -13,6 +13,6 @@ export class SignupSuccessComponent {
   ngOnInit(): void {
     setTimeout(() => {
       this._router.navigate(['/login'])
-    }, 3000)
+    }, 5000)
   }
 }
