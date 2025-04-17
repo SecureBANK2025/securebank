@@ -2,20 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0;
   position: relative;
   top: calc(98vh - 500px);
   z-index: 2;
+  width: 100dvw;
 }
 
 .fotterSB {
   display: flex;
   justify-content: space-between;
-  padding: 18px;
+  padding: 18px 0;
+  width: 100dvw;
 }
 
 .btn {
-  position: relative;
   padding: 5px 100px;
   width: 350px;
   border: none;
@@ -26,7 +27,6 @@
 }
 
 .back {
-  left: -20px;
   border-radius: 0 9999rem 9999rem 0;
   background-color: #ffffff;
   color: #4a4aff;
@@ -48,7 +48,6 @@
 }
 
 .submit {
-  left: 20px;
   border-radius: 9999rem 0 0 9999rem;
   background-color: #4a4aff;
   color: #ffffff;

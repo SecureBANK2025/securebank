@@ -41,8 +41,10 @@ main {
   align-items: center;
 }
 main h1 {
+  margin-top: 210px;
   font-size: 6rem;
   text-align: center;
+  margin-bottom: 190px;
 }
 
 footer {
