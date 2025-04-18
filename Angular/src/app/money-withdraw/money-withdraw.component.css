@@ -67,7 +67,7 @@ footer .language-btn {
 footer .confirm {
   left: 930px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
-  background-color: #4F46E5;
+  background-color: #4f46e5;
   color: #ffffff;
 }
 
@@ -75,7 +75,7 @@ footer .cancel {
   left: -20px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
   background-color: #ffffff;
-  color: #4F46E5;
+  color: #4f46e5;
 }
 
 footer p {
@@ -86,22 +86,13 @@ footer p {
 .language-btn.confirm:active {
   background: #ffffff;
   transition: 50ms;
-  color: #4A4AFF;
+  color: #4a4aff;
 }
 
 .language-btn.cancel:active {
-  background: #4A4AFF;
+  background: #4a4aff;
   transition: 50ms;
   color: #ffffff;
-}
-
-.numpad-container {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  padding-left: 890px;
-  align-items: center;
-  justify-content: center;
 }
 
 .numpad {
@@ -121,10 +112,10 @@ footer p {
   color: #fff;
   padding: 15px 0;
   font-size: 35px;
-  border: 2px solid white;
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 20px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.8s ease-in-out;
   text-align: center;
   width: 13vh;
   height: 13vh;
@@ -148,14 +139,16 @@ footer p {
   gap: 20px;
   position: fixed;
   margin-left: 70px;
+  margin-top: 109px;
 }
 
 .enter-pin {
-  color: #4F46E5;
-  font-size: 40px;
+  color: #4a4aff;
+  font-size: 45px;
   font-style: normal;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .upper {
@@ -165,7 +158,7 @@ footer p {
 
 .divider {
   position: absolute;
-  top: 19%;
+  top: 29%;
   left: 60%;
   width: 2px;
   height: 440px;
@@ -181,7 +174,7 @@ footer p {
 .input-wrapper {
   display: flex;
   align-items: center;
-  border: 1px solid #4A4AFF;
+  border: 1px solid #4a4aff;
   border-radius: 8px;
   padding: 9px;
   background-color: white;
@@ -199,7 +192,7 @@ label {
 }
 
 .currency {
-  color: #4A4AFF;
+  color: #4a4aff;
   font-weight: bold;
   opacity: 50%;
 }
@@ -213,7 +206,7 @@ label {
 
 .divider2 {
   position: absolute;
-  top: 46%;
+  top: 42%;
   left: 40%;
   width: 170px;
   height: 1px;
@@ -231,7 +224,7 @@ label {
 }
 
 .amount-btn {
-  background: #4A4AFF;
+  background: #4a4aff;
   color: white;
   font-size: 22px;
   font-weight: bold;
@@ -250,6 +243,16 @@ label {
 
 .amount-btn:active {
   background: #ffffff;
-  transition: 50ms;
-  color: #4A4AFF;
+  transition: 90ms;
+  color: #4a4aff;
+}
+
+.numpad-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding-left: 890px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
 }/*# sourceMappingURL=money-withdraw.component.css.map */
