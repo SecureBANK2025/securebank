@@ -34,32 +34,27 @@ header .date {
     font-weight: bold;
 }
 .white-container {
-    background: white;
-    width: 832px;
-    height: 530px;
-    border-radius: 49px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    justify-content: flex-start;
-    padding-top: 30px;
+  background: white;
+  width: 832px;
+  height: 450px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  justify-content: space-evenly;
+  padding: 30px 20px;
+  margin-top: 90px;
 }
 
-.ti-xbox-x{
-  padding-top: 80px; 
-    font-size: 9rem;
-    color: #ff1010;
-}
 
 .fail{
  
   color: #ff1010;
     font-size: 40px;
-    font-weight:bolder;
-    text-align: center;
-    margin-top: 10px;
+font-weight: bold;    text-align: center;
+    margin-top: 180px;
 
 }
 .btn-back{
@@ -67,7 +62,7 @@ header .date {
     font-size: 30px;
         left: -50px;
         padding: 5px 100px;
-        margin-top: -15px;
+        margin-top: 8%;
 border: 0px;
 font-weight: 900;
         border-radius: 0 9999rem 9999rem 0;
@@ -77,3 +72,10 @@ font-weight: 900;
             background-color: $accent-color;
             color: $primary-color;
         }}
+ .lottie-fixed {
+  position: absolute;
+  top: 230px;
+
+  right: 670px;
+  z-index: 10;
+}
