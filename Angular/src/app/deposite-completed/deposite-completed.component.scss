@@ -92,6 +92,7 @@ main {
                 p {
                     font-size: 25px;
                     font-style: italic;
+                    margin-bottom: 55px;
                 }
             }
             .cards {
@@ -130,9 +131,9 @@ main {
                     color: #ffffff;
                     transition: box-shadow 0.2s ease-in-out;
 
-                    &:hover {
+                    &:active{
                         cursor: pointer;
-                        box-shadow: -20px 20px 10px 0px rgba(97, 97, 97, 0.75);
+                        box-shadow: -20px 20px 10px 0px rgba(209, 209, 209, 0.75);
                     }
                 }
 
@@ -152,11 +153,12 @@ main {
                     }
                     transition: box-shadow 0.2s ease-in-out;
 
-                    &:hover {
+                    &:active{
                         cursor: pointer;
-                        box-shadow: 20px 20px 10px 0px rgba(97, 97, 97, 0.75);
+                        box-shadow: -20px 20px 10px 0px rgba(209, 209, 209, 0.75);
                     }
                 }
+                margin-bottom: 90px;
             }
 
             .footer {

@@ -6,23 +6,29 @@ $input-bg: #ffffff; // White input fields
 $input-border: #cccccc; // Light gray border
 $input-text: #333333; // Dark text for inputs
 
+
+
 .fotterNB {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     position: relative;
     top: calc(98vh - 500px);
     z-index: 2;
+    width: 100dvw;
+
 }
+
+
 .fotterSB {
     display: flex;
     justify-content: space-between;
-    padding: 18px;
+    padding: 18px 0;
+    width: 100dvw;
 }
 
 .btn {
-    position: relative;
     padding: 5px 100px;
     width: 350px;
 
@@ -34,7 +40,7 @@ $input-text: #333333; // Dark text for inputs
 }
 
 .back {
-    left: -20px;
+    //  left: -20px;
     border-radius: 0 9999rem 9999rem 0;
     background-color: $secondary-color;
     color: $accent-color;
@@ -60,7 +66,7 @@ $input-text: #333333; // Dark text for inputs
 .submit {
     // z-index: 200;
 
-    left: 20px;
+    // left: ;
     border-radius: 9999rem 0 0 9999rem;
     background-color: $accent-color;
     color: $secondary-color;

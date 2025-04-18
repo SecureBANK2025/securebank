@@ -44,6 +44,7 @@ header .date {
   flex-direction: column;
   align-items: center;
   margin: auto;
+  margin-top: 94px;
   justify-content: center;
 }
 
@@ -53,22 +54,26 @@ header .date {
   font-style: italic;
   font-weight: 1000;
   text-align: center;
-  margin-top: 60px;
-}
-
-.ti-receipt {
-  font-size: 9rem;
-  color: #4F46E5;
-  margin-top: 10px;
-  font-weight: 400px;
-  margin-bottom: 60px;
+  margin-top: 230px;
 }
 
 .succ2 {
   color: #4F46E5;
-  font-size: 25px;
+  font-size: 20px;
   font-style: italic;
   text-align: center;
   margin-top: 10px;
   font-weight: light;
+}
+
+.lottie-fixed {
+  position: absolute;
+  top: 220px;
+  right: 635px;
+  z-index: 10;
+}
+
+.lottie-animation {
+  width: 290px;
+  height: 290px;
 }/*# sourceMappingURL=deposite-reciept.component.css.map */

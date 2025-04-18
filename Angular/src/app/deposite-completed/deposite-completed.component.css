@@ -76,6 +76,7 @@ main .container .details {
 main .container .details .before p {
   font-size: 25px;
   font-style: italic;
+  margin-bottom: 55px;
 }
 main .container .details .cards {
   width: 100%;
@@ -83,6 +84,7 @@ main .container .details .cards {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 90px;
 }
 main .container .details .cards .card {
   margin: 30px;
@@ -111,9 +113,9 @@ main .container .details .cards .noReceipt {
   color: #ffffff;
   transition: box-shadow 0.2s ease-in-out;
 }
-main .container .details .cards .noReceipt:hover {
+main .container .details .cards .noReceipt:active {
   cursor: pointer;
-  box-shadow: -20px 20px 10px 0px rgba(97, 97, 97, 0.75);
+  box-shadow: -20px 20px 10px 0px rgba(209, 209, 209, 0.75);
 }
 main .container .details .cards .divider {
   width: 3px;
@@ -129,9 +131,9 @@ main .container .details .cards .receipt p {
   position: relative;
   top: -20px;
 }
-main .container .details .cards .receipt:hover {
+main .container .details .cards .receipt:active {
   cursor: pointer;
-  box-shadow: 20px 20px 10px 0px rgba(97, 97, 97, 0.75);
+  box-shadow: -20px 20px 10px 0px rgba(209, 209, 209, 0.75);
 }
 main .container .details .footer {
   width: 100%;

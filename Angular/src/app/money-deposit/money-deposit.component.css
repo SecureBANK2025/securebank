@@ -95,15 +95,6 @@ footer p {
   color: #ffffff;
 }
 
-.numpad-container {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  padding-left: 890px;
-  align-items: center;
-  justify-content: center;
-}
-
 .numpad {
   display: grid;
   justify-content: center;
@@ -148,14 +139,16 @@ footer p {
   gap: 20px;
   position: fixed;
   margin-left: 70px;
+  margin-top: 109px;
 }
 
 .enter-pin {
-  color: #4f46e5;
-  font-size: 40px;
+  color: #4a4aff;
+  font-size: 45px;
   font-style: normal;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .upper {
@@ -165,7 +158,7 @@ footer p {
 
 .divider {
   position: absolute;
-  top: 19%;
+  top: 29%;
   left: 60%;
   width: 2px;
   height: 440px;
@@ -213,7 +206,7 @@ label {
 
 .divider2 {
   position: absolute;
-  top: 46%;
+  top: 42%;
   left: 40%;
   width: 170px;
   height: 1px;
@@ -252,4 +245,14 @@ label {
   background: #ffffff;
   transition: 50ms;
   color: #4a4aff;
+}
+
+.numpad-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding-left: 890px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
 }/*# sourceMappingURL=money-deposit.component.css.map */
