@@ -16,6 +16,6 @@ export class DepositeRecieptComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/another-operation']);
-    }, 99999999);
+    }, 6000);
   }
 }
