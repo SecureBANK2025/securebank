@@ -15,6 +15,6 @@ export class DepositeSureComponent {
   }
 
   confirm() {
-    this.router.navigate(['/deposite-completed']);
+    this.router.navigate(['/deposite-insert']);
   }
 }

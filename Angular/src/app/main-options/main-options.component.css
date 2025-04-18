@@ -104,8 +104,10 @@ main .container .title button {
   border-radius: 9999rem 0 0 9999rem;
   background-color: #4a4aff;
 }
-main .container .title button:hover {
-  background-color: #00007d;
+main .container .title button:active {
+  background-color: #ffffff;
+  border: 3px solid #4a4aff;
+  color: #4a4aff;
 }
 main .container .services {
   display: grid;
@@ -128,9 +130,11 @@ main .container .services .card {
   font-size: 25px;
   font-weight: 800;
 }
-main .container .services .card:hover {
+main .container .services .card:active {
   background-color: #4a4aff;
   color: #ffffff;
+  transition: 0.3s;
+  transition: ease-in-out;
 }
 main .container .services .card i {
   font-size: 90px;

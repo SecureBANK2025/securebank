@@ -13,7 +13,6 @@
 <div class="fotterSB">
     <button class="btn back" (click)="navToForm1()">Back</button>
     <button class="btn submit" [disabled]="!isForm2Valid()" (click)="[navToScanFinger(),submit(),signup(myData)]">Next</button>
-    <!-- <button class="btn submit" (click)="[navToScanFinger(),submit(),signup(myData)]">Next</button> -->
 </div>
 }
 
@@ -21,7 +20,5 @@
 @if (atScanFinger) {
 <app-scan-finger></app-scan-finger>
 <div class="fotterSB">
-    <!-- <button class="btn back" (click)="navToForm2()">Back</button> -->
-    <!-- <button class="btn submit" (click)="[submit(),signup(myData)]" >Submit</button> -->
 </div>
 }

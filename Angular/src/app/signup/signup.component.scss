@@ -6,13 +6,7 @@ $input-bg: #ffffff; // White input fields
 $input-border: #cccccc; // Light gray border
 $input-text: #333333; // Dark text for inputs
 
-// * {
-//     box-sizing: border-box;
-// }
 
-// body {
-//     overflow-x: hidden;
-// }
 
 .fotterNB {
     display: flex;
@@ -22,7 +16,7 @@ $input-text: #333333; // Dark text for inputs
     position: relative;
     top: calc(98vh - 500px);
     z-index: 2;
-    // width: 100dvw;
+    width: 100dvw;
 
 }
 
@@ -31,13 +25,13 @@ $input-text: #333333; // Dark text for inputs
     display: flex;
     justify-content: space-between;
     padding: 18px 0;
-    // width: 100dvw;
+    width: 100dvw;
 }
 
 .btn {
-    // position: relative;
     padding: 5px 100px;
     width: 350px;
+
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -46,7 +40,7 @@ $input-text: #333333; // Dark text for inputs
 }
 
 .back {
-    // left: -20px;
+    //  left: -20px;
     border-radius: 0 9999rem 9999rem 0;
     background-color: $secondary-color;
     color: $accent-color;
