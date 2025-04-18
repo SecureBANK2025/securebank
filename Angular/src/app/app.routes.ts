@@ -29,7 +29,6 @@ import { DepositeNoRecieptComponent } from './deposite-no-reciept/deposite-no-re
 import { DepositeRecieptComponent } from './deposite-reciept/deposite-reciept.component';
 import { AnotherOperationComponent } from './another-operation/another-operation.component';
 import { DepositeInsertComponent } from './deposite-insert/deposite-insert.component';
-import { TestComponent } from './test/test.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -54,7 +53,6 @@ export const routes: Routes = [
     { path: 'deposite-reciept', component:DepositeRecieptComponent },
     { path: 'another-operation', component:AnotherOperationComponent },
     { path: 'deposite-insert', component:DepositeInsertComponent },
-    { path: 'test', component:TestComponent },
 
     {
         path: 'login', component: SigninComponent

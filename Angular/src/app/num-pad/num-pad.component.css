@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-  color: #fff;
+  color: #ffffff;
 }
 
 body {
@@ -36,24 +36,22 @@ body {
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   background: transparent;
-  color: #fff;
+  color: #ffffff;
   padding: 15px 0;
   font-size: 55px;
   line-height: 0px;
   font-weight: 900;
-  border: 1px solid white;
+  border: 2px solid white;
   border-radius: 20px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.05s ease-in;
   text-align: center;
   width: 12vh;
   height: 12vh;
   box-sizing: border-box;
   white-space: nowrap;
 }
-.key:hover {
-  background: #555555;
-}
 .key:active {
-  background: #a2a2a2;
+  background-color: #ffffff;
+  color: #4f46e5;
 }/*# sourceMappingURL=num-pad.component.css.map */

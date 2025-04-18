@@ -1,9 +1,7 @@
 // Color and style variables for easy customization
 $bg-color: #222;
 $key-color: transparent;
-$key-hover: lighten($bg-color, 20%);
-$key-active: lighten($bg-color, 50%);
-$text-color: #fff;
+$text-color: #ffffff;
 
 * {
     margin: 0;
@@ -52,25 +50,23 @@ body {
     backdrop-filter: blur(50px);
     background: $key-color;
     color: $text-color;
-    //border: none;
     padding: 15px 0;
     font-size: 55px;
     line-height: 0px;
     font-weight: 900;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 20px;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    transition: background 0.05s ease-in;
     text-align: center;
     width: 12vh;
     height: 12vh;
     box-sizing: border-box;
     white-space: nowrap;
     &:hover {
-        background: $key-hover;
     }
 
     &:active {
-        background: $key-active;
-    }
+background-color: #ffffff;
+color: #4f46e5;    }
 }

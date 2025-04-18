@@ -74,17 +74,21 @@ body {
 .main .pin-container .field input::-moz-placeholder {
   text-align: center;
   font-weight: 100;
+  color: #cacaca;
+  font-size: 40px;
 }
 .main .pin-container .field input::placeholder {
   text-align: center;
   font-weight: 100;
+  color: #cacaca;
+  font-size: 40px;
 }
 .main .numpad-container {
   display: flex;
   flex-direction: column;
   place-items: center;
   padding-right: 70px;
-  padding-top: 23px;
+  padding-top: 60px;
   justify-content: center;
   gap: 15px;
 }
@@ -138,8 +142,8 @@ body {
 
 .Btns .confirm {
   border-radius: 9999rem 9999rem 9999rem 9999rem;
-  background-color: #ffffff;
-  color: #4f46e5;
+  background-color: #4f46e5;
+  color: #ffffff;
 }
 
 .Btns .cancel {
@@ -148,7 +152,26 @@ body {
   color: #4f46e5;
 }
 
-.Btns :active {
-  background-color: #4f46e5;
+.language-btn.confirm:active {
+  background: #ffffff;
+  transition: 160ms;
+  transition: ease-in-out;
+  color: #4a4aff;
+}
+
+.language-btn.cancel:active {
+  background: #4a4aff;
+  transition: 160ms;
+  transition: ease-in-out;
   color: #ffffff;
+}
+
+.divider {
+  position: absolute;
+  top: 24%;
+  left: 60%;
+  width: 2px;
+  height: 440px;
+  background: white;
+  border-radius: 30px;
 }/*# sourceMappingURL=signin-form.component.css.map */
