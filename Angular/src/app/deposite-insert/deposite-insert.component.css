@@ -61,7 +61,7 @@ header .date {
 
 .lottie-fixed {
   position: absolute;
-  top: 300px;
+  top: 285px;
   right: 560px;
   z-index: 10;
 }
@@ -69,5 +69,4 @@ header .date {
 .lottie-animation {
   width: 280px;
   height: 280px;
-  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.3));
 }/*# sourceMappingURL=deposite-insert.component.css.map */
