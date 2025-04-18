@@ -54,22 +54,27 @@ header .date {
   font-style: italic;
   font-weight: 1000;
   text-align: center;
-  margin-top: 60px;
-}
-
-.ti-receipt {
-  font-size: 9rem;
-  color: #4F46E5;
-  margin-top: 10px;
-  font-weight: 400px;
-  margin-bottom: 60px;
+  margin-top: 230px;
 }
 
 .succ2 {
   color: #4F46E5;
-  font-size: 25px;
+  font-size: 20px;
   font-style: italic;
   text-align: center;
   margin-top: 10px;
   font-weight: light;
+}
+
+.lottie-fixed {
+  position: absolute;
+  top: 250px;
+  right: 655px;
+  z-index: 10;
+}
+
+.lottie-animation {
+  width: 220px;
+  height: 220px;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
 }/*# sourceMappingURL=deposite-reciept.component.css.map */
