@@ -251,7 +251,7 @@ main .content form .form-row.amount-row .amount label {
   margin-bottom: 5px;
 }
 main .content form .form-row.amount-row .amount input {
-  width: 78%;
+  width: 87%;
   padding-left: 10px;
   height: 60px;
   border-radius: 10px;
@@ -269,10 +269,11 @@ main .content form .form-row.amount-row .amount input:focus {
 main .content form .form-row.amount-row .confirm-btn {
   height: 60px;
   padding: 0 60px;
+  margin-right: 40px;
   font-size: 20px;
   font-weight: bold;
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   background-color: #4a4aff;
   color: white;
   cursor: pointer;

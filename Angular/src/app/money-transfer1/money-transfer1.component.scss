@@ -296,7 +296,7 @@ main {
                 }
 
                 input {
-                  width: 78%;
+                  width: 87%;
                   padding-left: 10px;
                   height: 60px;
                   border-radius: 10px;
@@ -317,10 +317,11 @@ main {
               .confirm-btn {
                 height: 60px;
                 padding: 0 60px;
+                margin-right: 40px;
                 font-size: 20px;
                 font-weight: bold;
                 border: none;
-                border-radius: 30px;
+                border-radius: 15px;
                 background-color: $accent-color;
                 color: white;
                 cursor: pointer;
