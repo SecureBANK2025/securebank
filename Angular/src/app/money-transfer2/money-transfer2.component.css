@@ -77,7 +77,10 @@ main .container .details div {
   justify-content: space-around;
 }
 main .container .details div h3 {
-  line-height: 25px;
+  line-height: 35px;
+  font-weight: 600;
+  font-size: 26px;
+  margin: 8px;
 }
 main .container .details i {
   font-size: 80px;
@@ -99,11 +102,11 @@ main .container .buttons button {
 }
 main .container .buttons :first-child {
   background-color: transparent;
-  border: solid 4px #4a4aff;
+  border: solid 2px #4a4aff;
   color: #4a4aff;
 }
-main .container .buttons :first-child:hover {
-  background-color: #0000b0;
+main .container .buttons :first-child:active {
+  background-color: #4a4aff;
   border: none;
   color: white;
 }
@@ -112,6 +115,8 @@ main .container .buttons :last-child {
   border: none;
   color: white;
 }
-main .container .buttons :last-child:hover {
-  background-color: #0000b0;
+main .container .buttons :last-child:active {
+  background-color: white;
+  color: #4a4aff;
+  border: solid 2px #4a4aff;
 }/*# sourceMappingURL=money-transfer2.component.css.map */
