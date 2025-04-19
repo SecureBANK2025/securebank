@@ -14,7 +14,9 @@ export class MoneyTransfer1Component {
   Back() {
     this.router.navigate(['/mainOptions']);
   }
-
+  Transfer() {
+    this.router.navigate(['/moneyTransfer2']);
+  }
   logout() {
     this._AuthService.logout();
   }

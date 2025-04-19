@@ -30,6 +30,7 @@ import { DepositeRecieptComponent } from './deposite-reciept/deposite-reciept.co
 import { AnotherOperationComponent } from './another-operation/another-operation.component';
 import { DepositeInsertComponent } from './deposite-insert/deposite-insert.component';
 
+
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: 'welcome', component: WelcomeComponent },
@@ -53,6 +54,7 @@ export const routes: Routes = [
     { path: 'deposite-reciept', component:DepositeRecieptComponent },
     { path: 'another-operation', component:AnotherOperationComponent },
     { path: 'deposite-insert', component:DepositeInsertComponent },
+
 
     {
         path: 'login', component: SigninComponent
