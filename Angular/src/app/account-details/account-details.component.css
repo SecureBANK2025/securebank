@@ -95,21 +95,23 @@ main .container .content {
 }
 main .container .content h1 {
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 600;
+  margin-top: -20px;
+  margin-bottom: 50px;
 }
 main .container .content .details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 35px;
   width: 100%;
 }
 main .container .content .details h3 {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 25px;
+  font-weight: 900;
 }
 main .container .content .details h3:nth-child(even) {
   color: black;
-  font-weight: 600;
+  font-weight: 800;
 }
 main .container .content .details h3:nth-child(even) span {
   margin-left: 50px;
