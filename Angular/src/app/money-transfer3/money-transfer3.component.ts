@@ -18,6 +18,6 @@ export class MoneyTransfer3Component {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/another-operation']);
-    }, 5000);
+    }, 4500);
   }
 }
