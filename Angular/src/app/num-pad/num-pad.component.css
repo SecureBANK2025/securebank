@@ -34,17 +34,17 @@ body {
 
 .key {
   -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(100px);
   background: transparent;
   color: #ffffff;
-  padding: 15px 0;
-  font-size: 55px;
+  padding: 20px 0;
+  font-size: 50px;
   line-height: 0px;
   font-weight: 900;
   border: 2px solid white;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background 0.05s ease-in;
+  transition: 0.05s ease-in-out;
   text-align: center;
   width: 12vh;
   height: 12vh;
@@ -54,4 +54,5 @@ body {
 .key:active {
   background-color: #ffffff;
   color: #4f46e5;
+  transition: background 0.15s ease-in-out;
 }/*# sourceMappingURL=num-pad.component.css.map */
