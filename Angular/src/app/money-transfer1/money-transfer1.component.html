@@ -1,4 +1,3 @@
-
 <main>
     <div class="container">
         <div class="title">
@@ -14,33 +13,53 @@
                     <h1>Transfer Money</h1>
                 </div>
                 <form>
-                    <div class="iban">
-                        <label for="iban">Receive's IBAN:</label>
-                        <input type="text" title="iban" id="iban">
-                    </div>
-                    <div class="bank">
+                    <div class="form-row">
+                      <div class="bank">
                         <label for="bank">Receiver's Bank:</label>
                         <select id="bank">
                             <option value="" disabled selected>Select Bank</option>
-                            <option value="01">01</option>
+                            <option value="01">Banque Misr</option>
+                            <option value="02">Banque du Caire</option>
+                            <option value="03">National Bank of Egypt</option>
+                            <option value="04">CIB – Commercial International Bank</option>
+                            <option value="05">QNB Al Ahli</option>
+                            <option value="06">HSBC Egypt</option>
+                            <option value="07">AlexBank</option>
+                            <option value="08">SAIB Bank</option>
+                            <option value="09">Abu Dhabi Islamic Bank (ADIB)</option>
+                            <option value="10">Faisal Islamic Bank</option>
+                            <option value="11">Credit Agricole Egypt</option>
+                            <option value="12">Housing and Development Bank</option>
+                            <option value="13">Al Ahli Bank of Kuwait (ABK)</option>
+                            <option value="14">Union National Bank</option>
+
                         </select>
+                      </div>
+                  
+                      <div class="iban">
+                        <label for="iban">Receiver's IBAN:</label>
+                        <input type="text" title="iban" id="iban">
+                      </div>
                     </div>
-                    <div class="amount">
-                        <label for="amount">Amount:</label>
-                        <input type="text" title="amount" id="amount">
-                    </div>
-                </form>
+                  
+                    <div class="form-row amount-row">
+                        <div class="amount">
+                          <label for="amount">Amount:</label>
+                          <input type="text" title="amount" id="amount">
+                        </div>
+                        <button class="confirm-btn" (click)="Transfer()">Transfer now</button>
+
+                      </div>
+                  </form>
+                
             </div>
-
             <div class="divider"></div>
-
             <div class="numpad-container">
                 <app-num-pad></app-num-pad>
-
             </div>
         </div>
         <div class="footer">
-            <button>Back</button>
+    <button (click)="Back()">Back</button>
         </div>
     </div>
 </main>

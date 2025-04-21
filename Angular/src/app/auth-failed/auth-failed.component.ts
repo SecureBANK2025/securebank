@@ -18,7 +18,7 @@ constructor(private _router: Router) {}
 ngOnInit(): void {
   setTimeout(() => {
     this._router.navigate(['/login/loginFinger'])
-  }, 2500)
+  }, 3500)
 }
 
 }

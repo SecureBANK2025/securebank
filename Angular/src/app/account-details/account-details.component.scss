@@ -112,18 +112,20 @@ main {
 
             h1 {
                 font-size: 40px;
-                font-weight: 500;
+                font-weight: 600;
+                margin-top: -20px;
+                margin-bottom: 50px;
             }
 
             .details {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: 35px;
                 width: 100%;
                 h3 {
                     &:nth-child(even) {
                         color: black;
-                        font-weight: 600;
+                        font-weight: 800;
 
                         span {
                             margin-left: 50px;
@@ -133,8 +135,8 @@ main {
                     &:nth-child(odd) {
                         font-style: italic;
                     }
-                    font-size: 20px;
-                    font-weight: 800;
+                    font-size: 25px;
+                    font-weight: 900;
                 }
             }
         }

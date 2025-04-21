@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router,  } from '@angular/router';
 // import { AuthService } from '../services/auth.service';
 // import { SigninComponent } from '../signin/signin.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

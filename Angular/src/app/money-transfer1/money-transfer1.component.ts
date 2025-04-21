@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 
 @Component({
@@ -9,9 +10,20 @@ import { numPadComponent } from '../num-pad/num-pad.component';
   styleUrl: './money-transfer1.component.scss'
 })
 export class MoneyTransfer1Component {
-  constructor(private _AuthService: AuthService) {}
-
+  constructor(private _AuthService: AuthService, private router: Router) {}
+  Back() {
+    this.router.navigate(['/mainOptions']);
+  }
+  Transfer() {
+    this.router.navigate(['/moneyTransfer2']);
+  }
   logout() {
     this._AuthService.logout();
   }
 }
+
+
+
+ 
+
+
