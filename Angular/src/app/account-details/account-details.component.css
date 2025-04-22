@@ -143,6 +143,7 @@ main .container .footer button {
   border-radius: 0 9999rem 9999rem 0;
   background-color: black;
 }
-main .container .footer button:hover {
-  background-color: #00007d;
+main .container .footer button:active {
+  background-color: #4a4aff;
+  color: #ffffff;
 }/*# sourceMappingURL=account-details.component.css.map */
