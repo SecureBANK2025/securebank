@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-more',
+  selector: 'app-certificates',
   imports: [],
-  templateUrl: './more.component.html',
-  styleUrl: './more.component.scss'
+  templateUrl: './certificates.component.html',
+  styleUrl: './certificates.component.scss'
 })
-export class MoreComponent {
+export class CertificatesComponent {
   constructor(
     private _AuthService: AuthService,
     private _router: Router) { }
@@ -27,6 +26,6 @@ export class MoreComponent {
       this._AuthService.logout();
     }
     back() {
-      this._router.navigate(['/mainOptions']);
+      this._router.navigate(['/more']); //مش شغاله حاططها بس عشان تعملها 
     }
 }

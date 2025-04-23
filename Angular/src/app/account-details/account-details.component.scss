@@ -159,9 +159,11 @@ main {
                 transition: background-color 0.3s;
                 font-size: 35px;
                 font-weight: 600;
-                &:hover {
-                    background-color: darken($accent-color, 40%);
-                }
+                &:active {
+                   
+                  
+                        background-color: #4a4aff;
+                        color: #ffffff;        }
                 top: -15px;
                 left: -70px;
                 border-radius: 0 9999rem 9999rem 0;

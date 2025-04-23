@@ -111,43 +111,32 @@ main .container .title button:active {
 }
 main .container .services {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px 50px;
-  padding: 220px 120px;
-  margin-top: -90px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+  padding: 230px 100px;
+  margin-top: -65px;
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 main .container .services .card {
   cursor: pointer;
   color: #4a4aff;
   border-radius: 30px;
-  border: solid 3px #4a4aff;
-  background-color: transparent;
+  background-color: #4a4aff;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 40px;
+  font-style: italic;
   font-weight: bolder;
 }
 main .container .services .card:active {
-  background-color: #4a4aff;
-  color: #ffffff;
+  color: #4a4aff;
+  background-color: #ffffff;
+  border: 3px solid #4a4aff;
   transition: all 0.15s ease-in-out;
-}
-main .container .services .card i {
-  font-size: 90px;
-  position: relative;
-  top: 0px;
-}
-main .container .services .card.transactionsHistory {
-  color: red;
-  border-color: red;
-}
-main .container .services .card.transactionsHistory.transactionsHistory:active {
-  background-color: red;
-  color: white;
 }
 
 .buttonn {
@@ -169,4 +158,4 @@ main .container .services .card.transactionsHistory.transactionsHistory:active {
 .buttonn:active {
   background-color: #4a4aff;
   color: #ffffff;
-}/*# sourceMappingURL=more.component.css.map */
+}/*# sourceMappingURL=certificates.component.css.map */

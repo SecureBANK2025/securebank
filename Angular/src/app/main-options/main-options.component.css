@@ -133,8 +133,7 @@ main .container .services .card {
 main .container .services .card:active {
   background-color: #4a4aff;
   color: #ffffff;
-  transition: 0.3s;
-  transition: ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 main .container .services .card i {
   font-size: 90px;
