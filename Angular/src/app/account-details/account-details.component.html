@@ -2,7 +2,7 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                <h1>Yasseen A.</h1>
+                <h1>{{ userData?.name }}</h1>
                 <h3>5078XXXXXXXXXXXX1254</h3>
             </div>
             <button (click)="logout()">Log out</button>
@@ -13,7 +13,7 @@
                 <h3>Account number :</h3>
                 <h3 id="accNum">5078125486481254</h3>
                 <h3>Account balance :</h3>
-                <h3 id="accBalance">230,000<span>EGP</span></h3>
+                <h3 id="accBalance">{{ userData?.balance }}<span>EGP</span></h3>
                 <h3>IBAN :</h3>
                 <h3 id="IBAN">1258954610497464</h3>
                 <h3>Swift code :</h3>
