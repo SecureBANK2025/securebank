@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -23,7 +24,6 @@ export class MoneyTransfer1Component implements OnInit {
       this.userData = user;
     });
   }
-
   logout() {
     this._AuthService.logout();
   }
@@ -32,3 +32,9 @@ export class MoneyTransfer1Component implements OnInit {
     this.router.navigate(['/mainOptions']);
   }
 }
+
+
+
+ 
+
+

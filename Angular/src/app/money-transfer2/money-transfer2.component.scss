@@ -89,7 +89,10 @@ main {
                 font-style: italic;
                 justify-content: space-around;
                 h3 {
-                    line-height: 25px;
+                    line-height: 35px;
+                    font-weight: 600;
+                    font-size: 26px;
+                    margin: 8px;
                 }
             }
 
@@ -104,9 +107,7 @@ main {
             gap: 100px;
 
             button {
-                // background-color: $primary-color;
-                // color: $secondary-color;
-                // border: none;
+              
                 width: 270px;
                 height: 65px;
                 padding: 5px 0px;
@@ -118,10 +119,10 @@ main {
             }
             :first-child {
                 background-color: transparent;
-                border: solid 4px $accent-color;
+                border: solid 2px $accent-color;
                 color: $accent-color;
-                &:hover {
-                    background-color: darken($accent-color, 30%);
+                &:active {
+                    background-color: darken($accent-color, 0%);
                     border: none;
                     color: white;
                 }
@@ -130,10 +131,11 @@ main {
                 background-color: $accent-color;
                 border: none;
                 color: white;
-                &:hover {
-                    background-color: darken($accent-color, 30%);
-                    // border: solid 4px $accent-color;
-                    // color: $accent-color;
+                &:active {
+                    background-color: darken($secondary-color, 0%);
+                    color: #4a4aff;
+                    border: solid 2px $accent-color;
+                    
                 }
             }
         }

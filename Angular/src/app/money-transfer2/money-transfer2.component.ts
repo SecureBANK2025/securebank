@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -26,5 +27,4 @@ export class MoneyTransfer2Component implements OnInit {
   back() {
     this.router.navigate(['/moneyTransfer1']);
   }
-
 }

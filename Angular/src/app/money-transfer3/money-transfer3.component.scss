@@ -64,8 +64,9 @@ main {
                 display: flex;
                 // justify-content: center;
                 align-items: center;
-                font-size: 45px;
+                font-size: 55px;
                 font-weight: 900;
+                margin-top: 50px;
                 width: 100%;
                 text-align: center;
                 padding: 0 200px;
@@ -92,74 +93,20 @@ main {
                 p {
                     font-size: 25px;
                     font-style: italic;
+                    margin-bottom: 55px;
                 }
             }
-            .cards {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-                .card {
-                    // background-color: #1a1a40;
-                    margin: 30px;
-                    height: 200px;
-                    width: 300px;
-                    border-radius: 30px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 10px 20px 20px 20px;
-                    box-shadow: 0px 5px 4px 0px rgba(97, 97, 97, 0.75);
+          
 
-                    i {
-                        font-size: 100px;
-                    }
-                    p {
-                        font-size: 25px;
-                        font-weight: 800;
-                        text-align: center;
-                        line-height: 30px;
-                        font-style: italic;
-                    }
-                }
-
-                .noReceipt {
-                    background-color: $accent-color;
-                    color: #ffffff;
-                    transition: box-shadow 0.2s ease-in-out;
-
-                    &:hover {
-                        cursor: pointer;
-                        box-shadow: -20px 20px 10px 0px rgba(97, 97, 97, 0.75);
-                    }
-                }
-
-                .divider {
-                    width: 3px;
-                    height: 90%;
-                    background-color: $accent-color;
-                    border-radius: 100%;
-                    // margin: 0 20px;
-                }
-
-                .receipt {
-                    background-color: #e8e7fc;
-                    p {
-                        position: relative;
-                        top: -20px;
-                    }
-                    transition: box-shadow 0.2s ease-in-out;
-
-                    &:hover {
-                        cursor: pointer;
-                        box-shadow: 20px 20px 10px 0px rgba(97, 97, 97, 0.75);
-                    }
-                }
-            }
+.lottie-fixed {
+    position: absolute;
+    top: 150px;
+    z-index: 10;
+  }
+  
 
             .footer {
+               margin-top: 400px;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -169,7 +116,7 @@ main {
                 // text-align: center;
 
                 h1 {
-                    font-size: 45px;
+                    font-size: 25px;
                     font-weight: 900;
                 }
 
@@ -180,6 +127,7 @@ main {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    border-radius: 10px;
 
                     p {
                         color: black;
@@ -190,3 +138,5 @@ main {
         }
     }
 }
+
+  
