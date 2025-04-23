@@ -2,7 +2,7 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                <h1>Yasseen A.</h1>
+                <h1>{{ userData?.name }}</h1>
                 <h3>5078XXXXXXXXXXXX1254</h3>
             </div>
             <button (click)="logout()">Log out</button>
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="footer">
-    <button (click)="Back()">Back</button>
+            <button (click)="back()">Back</button>
         </div>
     </div>
 </main>

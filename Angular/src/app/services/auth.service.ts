@@ -6,6 +6,10 @@ import { Signup } from '../interfaces/auth';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
+interface DecodedToken {
+  _id: string;
+  exp: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +32,17 @@ export class AuthService {
 
   saveCurrentUser() {
     const token: any = localStorage.getItem('user');
-    this.currentUser.next(jwtDecode(token));
+    const decodedToken = jwtDecode<DecodedToken>(token);
+    // Fetch complete user data using the ID from the token
+    this._HttpClient.get(`${this.hostName}/api/v1/users/${decodedToken._id}`).subscribe({
+      next: (res: any) => {
+        this.currentUser.next(res.data);
+      },
+      error: (err) => {
+        console.error('Error fetching user data:', err);
+        this.logout();
+      }
+    });
   }
   singUp(myData: any): Observable<any> {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/signup`, myData)
@@ -49,7 +63,7 @@ export class AuthService {
 
   checkToken() {
     const token: any = localStorage.getItem('user');
-    const decodedToken = jwtDecode(token);
+    const decodedToken = jwtDecode<DecodedToken>(token);
     if (decodedToken.exp! < Date.now() / 1000) {
       this.logout()
       this._Router.navigate(['/home'])

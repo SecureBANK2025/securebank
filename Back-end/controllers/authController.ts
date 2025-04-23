@@ -15,8 +15,8 @@ import { sendOTP } from '../Utils/emailService';
 export const signUp = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 
 
-    // const fingerId = await enrollFingerprint();
-    const fingerId = 5;
+    const fingerId = await enrollFingerprint();
+    // const fingerId = 7;
 
     if (!fingerId) {
         return next(new customErrors("Fingerprint enrollment failed no Id found", 400));
