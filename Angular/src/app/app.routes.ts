@@ -29,6 +29,9 @@ import { DepositeNoRecieptComponent } from './deposite-no-reciept/deposite-no-re
 import { DepositeRecieptComponent } from './deposite-reciept/deposite-reciept.component';
 import { AnotherOperationComponent } from './another-operation/another-operation.component';
 import { DepositeInsertComponent } from './deposite-insert/deposite-insert.component';
+import { WithdrawSureComponent } from './withdraw-sure/withdraw-sure.component';
+import { CertificatesComponent } from './certificates/certificates.component';
+import { ViewAvailableComponent } from './view-available/view-available.component';
 
 
 export const routes: Routes = [
@@ -40,20 +43,23 @@ export const routes: Routes = [
     { path: 'moneyDeposit', canActivate: [authGuard], component: MoneyDepositComponent },
     { path: 'moneyWithdraw', canActivate: [authGuard], component: MoneyWithdrawComponent },
     { path: 'moneyTransfer1', canActivate: [authGuard], component: MoneyTransfer1Component },
-    { path: 'moneyTransfer2', component: MoneyTransfer2Component },
-    { path: 'moneyTransfer3', component: MoneyTransfer3Component },
+    { path: 'moneyTransfer2', canActivate: [authGuard], component: MoneyTransfer2Component },
+    { path: 'moneyTransfer3', canActivate: [authGuard], component: MoneyTransfer3Component },
     { path: 'accountDetails', canActivate: [authGuard], component: AccountDetailsComponent },
     { path: 'transactionsHistory', canActivate: [authGuard], component: TransactionsHistoryComponent },
     { path: 'more', canActivate: [authGuard], component: MoreComponent },
     { path: 'signupSuccess', component: SignupSuccessComponent },
     { path: 'authFailed', component:AuthFailedComponent },
     { path: 'authSuccess', component:AuthSuccessComponent },
-    { path: 'deposit-sure', component:DepositeSureComponent },
-    { path: 'deposite-completed', component:DepositeCompletedComponent },
-    { path: 'deposite-no-reciept', component:DepositeNoRecieptComponent },
-    { path: 'deposite-reciept', component:DepositeRecieptComponent },
-    { path: 'another-operation', component:AnotherOperationComponent },
-    { path: 'deposite-insert', component:DepositeInsertComponent },
+    { path: 'deposit-sure', canActivate: [authGuard], component:DepositeSureComponent },
+    { path: 'deposite-completed', canActivate: [authGuard], component:DepositeCompletedComponent },
+    { path: 'deposite-no-reciept', canActivate: [authGuard], component:DepositeNoRecieptComponent },
+    { path: 'deposite-reciept', canActivate: [authGuard], component:DepositeRecieptComponent },
+    { path: 'another-operation', canActivate: [authGuard], component:AnotherOperationComponent },
+    { path: 'deposite-insert', canActivate: [authGuard], component:DepositeInsertComponent },
+    { path: 'withdraw-sure', canActivate: [authGuard], component:WithdrawSureComponent },
+    { path: 'certificates', canActivate: [authGuard], component:CertificatesComponent },
+    { path: 'view-available', canActivate: [authGuard], component:ViewAvailableComponent },
 
 
     {

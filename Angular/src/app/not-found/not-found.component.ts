@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { KeyboardComponent } from '../keyboard/keyboard.component';
+import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-not-found',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss'
 })
 export class NotFoundComponent {
+  constructor(private location: Location) {}
 
+  goBack() {
+    this.location.back();
+  }
 }

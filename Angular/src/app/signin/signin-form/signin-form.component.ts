@@ -49,13 +49,13 @@ export class SigninFormComponent {
           localStorage.setItem('user', res.token);
           console.log(res.token);
           this._AuthService.saveCurrentUser();
+          this._router.navigate(['/mainOptions']);
         }
-        this._router.navigate(['/mainOptions']);
       },
       error: (err) => {
-        console.log(err);
         err.error.errors.map((error: any) => {
-          this._router.navigate(['/authFailed']);
+          this._router.navigate(['/login/loginFinger']);
+          console.log(err);
         })
       }
     })

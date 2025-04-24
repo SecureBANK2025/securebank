@@ -88,11 +88,13 @@ export class SignupComponent implements OnInit {
     this._AuthService.singUp(myData).subscribe({
       next: (res) => {
         this._router.navigate(['/signupSuccess'])
-      }, error: (err) => {
-        err.error.errors.map((error: any) => {
-          // this.signup(this.myData);
-          console.log(err)
-        })
+      }, 
+      error: (err) => {
+        console.error('Signup failed:', err);
+        // Navigate to auth-failed with a flag to indicate we're in signup flow
+        this._router.navigate(['/authFailed'], { 
+          queryParams: { from: 'signup' }
+        });
       }
     })
   }

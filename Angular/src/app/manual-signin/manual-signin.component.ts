@@ -52,14 +52,24 @@ export class ManualSigninComponent implements OnInit {
         if (res.token) {
           localStorage.setItem('user', res.token);
           console.log(res.token);
+          this._AuthService.currentUser.subscribe(user => {
+            if (user) {
+              this._router.navigate(['/mainOptions']);
+            }
+          });
           this._AuthService.saveCurrentUser();
+        } else {
+          console.error('No token received from server');
+          alert('Login failed. Please try again.');
         }
-        this._router.navigate(['/mainOptions'])
-      }, error: (err) => {
-        console.log(err);
-        // err.error.errors.map((error: any) => {
-        //   console.log(err)
-        // })
+      }, 
+      error: (err) => {
+        console.error('Login failed:', err);
+        if (err.error?.message) {
+          alert(err.error.message);
+        } else {
+          alert('Invalid email or PIN. Please try again.');
+        }
       }
     })
   }

@@ -7,18 +7,18 @@
             <div class="from">
                 <h3>Transferring From:<br><span>5078XXXXXXXX1254</span></h3>
                 <h3>BTBank</h3>
-                <h3>Sent Amount: <span>15,000</span> <span>EGP</span></h3>
+                <h3>Sent Amount: <span>{{transferData.amount}}</span> <span>EGP</span></h3>
             </div>
             <i class="ti ti-transfer"></i>
             <div class="to">
-                <h3>Transferred To:<br><span>3020929130211500</span></h3>
-                <h3>Banque du caire</h3>
-                <h3>Recieved Amount: <span>14,980</span> <span>EGP</span></h3>
+                <h3>Transferred To:<br><span>{{transferData.iban}}</span></h3>
+                <h3>{{transferData.bank}}</h3>
+                <h3>Recieved Amount:<span class="currency">{{transferData.amount}}</span><span class="currency">EGP</span></h3>
             </div>
         </div>
         <div class="buttons">
             <button (click)="back()">Back</button>
-            <button>Confirm</button>
+            <button (click)="confirm()">Confirm</button>
         </div>
     </div>
 </main>

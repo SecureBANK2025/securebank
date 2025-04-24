@@ -14,44 +14,43 @@
                 </div>
                 <form>
                     <div class="form-row">
-                      <div class="bank">
-                        <label for="bank">Receiver's Bank:</label>
-                        <select id="bank">
-                            <option value="" disabled selected>Select Bank</option>
-                            <option value="01">Banque Misr</option>
-                            <option value="02">Banque du Caire</option>
-                            <option value="03">National Bank of Egypt</option>
-                            <option value="04">CIB – Commercial International Bank</option>
-                            <option value="05">QNB Al Ahli</option>
-                            <option value="06">HSBC Egypt</option>
-                            <option value="07">AlexBank</option>
-                            <option value="08">SAIB Bank</option>
-                            <option value="09">Abu Dhabi Islamic Bank (ADIB)</option>
-                            <option value="10">Faisal Islamic Bank</option>
-                            <option value="11">Credit Agricole Egypt</option>
-                            <option value="12">Housing and Development Bank</option>
-                            <option value="13">Al Ahli Bank of Kuwait (ABK)</option>
-                            <option value="14">Union National Bank</option>
+                        <div class="bank">
+                            <label for="bank">Receiver's Bank:</label>
+                            <select id="bank" [(ngModel)]="bank" name="bank">
+                                <option value="" disabled selected>Select Bank</option>
+                                <option value="Banque Misr">Banque Misr</option>
+                                <option value="Banque du Caire">Banque du Caire</option>
+                                <option value="National Bank of Egypt">National Bank of Egypt</option>
+                                <option value="CIB – Commercial International Bank">CIB – Commercial International Bank</option>
+                                <option value="QNB Al Ahli">QNB Al Ahli</option>
+                                <option value="HSBC Egypt">HSBC Egypt</option>
+                                <option value="AlexBank">AlexBank</option>
+                                <option value="SAIB Bank">SAIB Bank</option>
+                                <option value="Abu Dhabi Islamic Bank (ADIB)">Abu Dhabi Islamic Bank (ADIB)</option>
+                                <option value="Faisal Islamic Bank">Faisal Islamic Bank</option>
+                                <option value="Credit Agricole Egypt">Credit Agricole Egypt</option>
+                                <option value="Housing and Development Bank">Housing and Development Bank</option>
+                                <option value="Al Ahli Bank of Kuwait (ABK)">Al Ahli Bank of Kuwait (ABK)</option>
+                                <option value="Union National Bank">Union National Bank</option>
+                            </select>
+                        </div>
 
-                        </select>
-                      </div>
-                  
-                      <div class="iban">
-                        <label for="iban">Receiver's IBAN:</label>
-                        <input type="text" title="iban" id="iban">
-                      </div>
+                        <div class="iban">
+                            <label for="iban">Receiver's IBAN:</label>
+                            <input type="text" title="iban" id="iban" [(ngModel)]="iban" name="iban">
+                        </div>
                     </div>
-                  
+
                     <div class="form-row amount-row">
                         <div class="amount">
-                          <label for="amount">Amount:</label>
-                          <input type="text" title="amount" id="amount">
+                            <label for="amount">Amount:</label>
+                            <input type="text" title="amount" id="amount" [(ngModel)]="amount" name="amount">
                         </div>
-                        <button class="confirm-btn" (click)="Transfer()">Transfer now</button>
+                        <button (click)="transfer()" class="confirm-btn">Transfer now</button>
 
-                      </div>
-                  </form>
-                
+                    </div>
+                </form>
+
             </div>
             <div class="divider"></div>
             <div class="numpad-container">
