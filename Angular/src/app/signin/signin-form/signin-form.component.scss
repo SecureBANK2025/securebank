@@ -83,13 +83,50 @@ body {
         &::placeholder {
           text-align: center; // Ensures placeholder text is also centered
           font-weight: 100;
-          color: #cacaca;
-          font-size: 40px;
         }
       }
     }
 
-  
+    // .pin-boxes {
+    //   display: flex;
+    //   flex-direction: row;
+    //   gap: 25px;
+    //   padding-top: 1px;
+    //   margin-bottom: 100px;
+    // }
+
+    // .pin-box {
+    //   width: 73px;
+    //   height: 73px;
+    //   background: rgb(227, 227, 227);
+    //   border-radius: 18px;
+    // }
+
+    // .didnt {
+    //   color: #4f46e5;
+    //   font-size: 16px;
+    //   font-style: italic;
+    //   font-weight: lighter;
+    //   text-align: center;
+    // }
+
+    // .resend {
+    //   position: relative;
+    //   padding: 0px 16px;
+    //   border: none;
+    //   transition: background-color 0.3s;
+    //   font-size: 25px;
+    //   font-weight: 600;
+    //   align-items: center;
+    //   justify-content: center;
+    //   border-radius: 9999rem 9999rem 9999rem 9999rem;
+    //   background-color: #4f46e5;
+    //   color: #ffffff;
+    // }
+    // .resend:active {
+    //   background: #342f99;
+    //   transition: 3ms ease-in-out;
+    // }
   }
 
   .numpad-container {
@@ -97,7 +134,7 @@ body {
     flex-direction: column;
     place-items: center;
     padding-right: 70px;
-    padding-top: 60px;
+    padding-top: 23px;
 
     justify-content: center;
     gap: 15px;
@@ -157,33 +194,16 @@ body {
 
 .Btns .confirm {
   border-radius: 9999rem 9999rem 9999rem 9999rem;
-  background-color: #4f46e5;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #4f46e5;
 }
 .Btns .cancel {
   border-radius: 9999rem 9999rem 9999rem 9999rem;
   background-color: #ffffff;
   color: #4f46e5;
 }
-.language-btn.confirm:active {
-  background: #ffffff;
-  transition: 160ms;
-  transition: ease-in-out;  color: #4a4aff;
-}
 
-.language-btn.cancel:active {
-  background: #4a4aff;
-  transition: 160ms;
-  transition: ease-in-out;
+.Btns :active {
+  background-color: #4f46e5;
   color: #ffffff;
-
-}
-.divider {
-  position: absolute;
-  top: 24%;
-  left: 60%;
-  width: 2px;
-  height: 440px;
-  background: white;
-  border-radius: 30px;
 }

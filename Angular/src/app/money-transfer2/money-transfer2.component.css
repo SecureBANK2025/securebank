@@ -119,4 +119,8 @@ main .container .buttons :last-child:active {
   background-color: white;
   color: #4a4aff;
   border: solid 2px #4a4aff;
+}
+
+.currency {
+  margin-left: 10px;
 }/*# sourceMappingURL=money-transfer2.component.css.map */

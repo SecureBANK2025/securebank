@@ -2,7 +2,7 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                <h1>Yasseen A.</h1>
+                <h1>{{userData?.name}}</h1>
                 <h3>5078XXXXXXXXXXXX1254</h3>
             </div>
             <button (click)="logout()">Log out</button>
@@ -12,7 +12,7 @@
 
             <button (click)="navigateTo('cardservices')" class="card moneyWithdraw"><i class="bi bi-credit-card-2-front"></i>
                 Card Services</button>
-            <button (click)="navigateTo('Certificates')" class="card certificates"><i class="bi bi-bank"></i>
+            <button (click)="navigateTo('certificates')" class="card certificates"><i class="bi bi-bank"></i>
                 Certificates  </button>
             <button (click)="navigateTo('ReportanIssue')" class="card transactionsHistory"><i class="bi bi-flag"></i>Report an Issue</button>
         </div>

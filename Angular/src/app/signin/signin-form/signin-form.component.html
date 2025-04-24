@@ -7,17 +7,15 @@
         <div class="middle">
             <div class="enterotp">Enter the OTP Sent to Your Email</div>
             <div class="field">
-                <input id="PIN" type="text" placeholder="Enter PIN">
+                <input id="PIN" type="text" placeholder="Enter PIN" [(ngModel)]="otp">
             </div>
         </div>
-        <div class="divider"></div>
-
     </div>
     <div class="numpad-container">
         <app-num-pad></app-num-pad>
         <div class="Btns">
-            <button class="language-btn confirm">Confirm</button>
-            <button class="language-btn cancel">Cancel</button>
+            <button class="language-btn confirm" (click)="verify_OTP()">Confirm</button>
+            <button class="language-btn cancel" (click)="navToHome()">Cancel</button>
         </div>
     </div>
 </main>
