@@ -32,6 +32,8 @@ import { DepositeInsertComponent } from './deposite-insert/deposite-insert.compo
 import { WithdrawSureComponent } from './withdraw-sure/withdraw-sure.component';
 import { CertificatesComponent } from './certificates/certificates.component';
 import { ViewAvailableComponent } from './view-available/view-available.component';
+import {WithdrawCollectComponent} from './withdraw-collect/withdraw-collect.component';
+import {WithdrawCompletedComponent} from './withdraw-completed/withdraw-completed.component';
 
 
 export const routes: Routes = [
@@ -60,6 +62,8 @@ export const routes: Routes = [
     { path: 'withdraw-sure', canActivate: [authGuard], component:WithdrawSureComponent },
     { path: 'certificates', canActivate: [authGuard], component:CertificatesComponent },
     { path: 'view-available', canActivate: [authGuard], component:ViewAvailableComponent },
+    { path: 'withdraw-collect', canActivate: [authGuard], component:WithdrawCollectComponent },
+    { path: 'withdraw-completed', canActivate: [authGuard], component:WithdrawCompletedComponent },
 
 
     {

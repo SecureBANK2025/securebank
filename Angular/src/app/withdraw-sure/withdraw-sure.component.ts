@@ -33,6 +33,7 @@ export class WithdrawSureComponent implements OnInit {
   }
 
   confirm() {
-    this.router.navigate(['/mainOptions']);
+    this.router.navigate(['/withdraw-collect']);
   }
 } 
+
