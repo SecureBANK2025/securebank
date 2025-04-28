@@ -1,1 +1,52 @@
-<p>transactions-history works!</p>
+<main>
+    <div class="container">
+        <div class="title">
+            <div class="text">
+                <h1>{{ userData?.name }}</h1>
+            </div>
+            <button (click)="logout()">Log out</button>
+        </div>
+        <div class="content">
+            <h1>Transactions History</h1>
+            
+            <div class="table-box">
+                <div class="table-row table-head">
+                    <div class="table-cell first-cell"><p>Transaction ID</p></div>
+                    <div class="table-cell"><p>Date</p></div>
+                    <div class="table-cell"><p>Type</p></div>
+                    <div class="table-cell"><p>Amount</p></div>
+                    <div class="table-cell last-cell"></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell first-cell"><p>51897942</p></div>
+                    <div class="table-cell"><p>23/09/2024</p></div>
+                    <div class="table-cell"><p>Deposit</p></div>
+                    <div class="table-cell"><p>+$15000</p></div>
+                    <div class="table-cell last-cell">
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell first-cell"><p>68555100</p></div>
+                    <div class="table-cell"><p>06/01/2024</p></div>
+                    <div class="table-cell"><p>Withdraw</p></div>
+                    <div class="table-cell"><p>-$1350</p></div>
+                    <div class="table-cell last-cell">
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell first-cell"><p>66621040</p></div>
+                    <div class="table-cell"><p>11/03/2025</p></div>
+                    <div class="table-cell"><p>Transfer</p></div>
+                    <div class="table-cell"><p>-$9500</p></div>
+                    <div class="table-cell last-cell">
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        <div class="footer">
+            <button class="back-btn" (click)="back()">Back</button>
+        </div>
+    </div>
+</main>
