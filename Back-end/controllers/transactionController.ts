@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import TransactionModel from '../Models/transactionModel';
 import usersModel from '../Models/usersModel';
+import AccountModel from '../Models/accountModel';
+import customErrors from '../Utils/Errors';
 import asyncHandler from "express-async-handler";
 
-export const depositMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { amount } = req.body;
+export const depositMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    const { amount , accountId } = req.body;
     const userId = req.params.id;
 
     if (!userId || !amount || amount <= 0) {
@@ -17,8 +19,20 @@ export const depositMoney = asyncHandler(async (req: Request, res: Response, nex
         res.status(404).json({ message: "User not found" });
         return;
     }
-    user.balance += amount;
+    
     await user.save();
+    //-----------------------> new <----------------------------
+    if (!accountId) {
+            return new customErrors("Create Account first", 400);
+    }
+        
+    const account = await AccountModel.findById(accountId);
+    if (!account) {
+        return new customErrors("Create Account first", 400);
+    }
+
+    account.balance += amount;
+    await account.save();
 
     const transaction = await TransactionModel.create({
         userId,
@@ -30,12 +44,12 @@ export const depositMoney = asyncHandler(async (req: Request, res: Response, nex
     res.status(200).json({
         message: "Deposit successful",
         transaction,
-        balance: user.balance,
+        balance: account.balance,
     });
 });
 
-export const withdrawMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { amount } = req.body;
+export const withdrawMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    const { amount , accountId} = req.body;
     const userId = req.params.id;
 
     if (!userId || !amount || amount <= 0) {
@@ -48,13 +62,19 @@ export const withdrawMoney = asyncHandler(async (req: Request, res: Response, ne
         return;
     }
 
-     if (user.balance! < amount) {
-        res.status(400).json({ message: "Insufficient balance" });
-        return;
-    }
-
-     user.balance! -= amount;
     await user.save();
+    //--------------------------> new
+    if (!accountId) {
+            return new customErrors("No Account ID Found", 400);
+        }
+            
+    const account = await AccountModel.findById(accountId);
+    if (!account) {
+            return new customErrors("Create Account first", 400);
+        }
+
+    account.balance -= amount;
+    await account.save();
 
      const transaction = await TransactionModel.create({
         userId,
@@ -66,70 +86,69 @@ export const withdrawMoney = asyncHandler(async (req: Request, res: Response, ne
     res.status(200).json({
         message: "Withdrawal successful",
         transaction,
-        balance: user.balance,
+        balance: account.balance,
     });
 });
 
 
-//transferMoney
+//transferMoney 
 
 export const transferMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { amount, username } = req.body;
-    const senderId = req.params.id;
+    const { userId , amount , accountId , accountNum } = req.body;
      
-    if (!senderId || !username || !amount || amount <= 0) {
+    if (!amount || !accountNum|| amount <= 0) {
         res.status(400).json({ message: "Invalid request parameters" });
         return;
     }
 
-     const sender = await usersModel.findById(senderId);
-    const recipient = await usersModel.findOne({ username: username });
+     const senderAccount = await AccountModel.findById(accountId);
+    const recipientAccount = await AccountModel.findOne({accountNum});
 
-    if (!sender) {
+    if (!senderAccount) {
         res.status(404).json({ message: "Sender not found" });
         return;
     }
-    if (!recipient) {
+    if (!recipientAccount) {
         res.status(404).json({ message: "Recipient not found" });
         return;
     }
 
-     if (sender.balance! < amount) {
+     if (senderAccount.balance! < amount) {
         res.status(400).json({ message: "Insufficient balance" });
         return;
     }
 
-     sender.balance! -= amount;
-     recipient.balance += amount;
+    senderAccount.balance! -= amount;
+    recipientAccount.balance += amount;
 
-    await sender.save();
-    await recipient.save();
+    await senderAccount.save();
+    await recipientAccount.save();
 
      await TransactionModel.create([
         {
-            userId: sender._id,
+            userId: senderAccount.userId,
             type: "transfer",
             direction:"sent",
             amount: amount,  
             date: new Date(),
-            receiverId: recipient._id, 
+            receiverId: recipientAccount.userId, 
             
         },
         {
-            userId: recipient._id,
+            userId: recipientAccount.userId,
             type: "transfer",
             direction:"received",
             amount: amount,  
             date: new Date(),
-            receiverId: sender._id, 
+            receiverId: senderAccount.userId, 
             
         }
     ]);
 
     res.status(200).json({
         message: "Transfer successful",
-        senderBalance: sender.balance,
-        recipientBalance: recipient.balance,
+        senderBalance: senderAccount.balance,
+        recipientBalance: recipientAccount.balance,
     });
 });
 

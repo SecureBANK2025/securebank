@@ -18,7 +18,7 @@ const usersSchema:Schema = new Schema<users>({
     fingerId: { type: Number, unique:true,required: true },
     phoneNum: { type: String, required: true,unique: true },
     nationalId: { type: String, required: true },
-    balance: { type: Number,  default: 0 },
+    // balance: { type: Number,  default: 0 },remove it
     birthDate: { type: Date, required: true },
     address: {
         street: { type: String },
@@ -30,9 +30,11 @@ const usersSchema:Schema = new Schema<users>({
       {
             _id: { type: Schema.Types.ObjectId, ref: 'Account' }, 
             type: { type: String, enum: ['current', 'savings', 'foreign_currency'], required: true } 
-      } ]
-    
+      } ],
 
+     cardId: { type: Schema.Types.ObjectId, ref: "Card" },   //new
+     cardFrozen:{type: Boolean , default: false} ,           //new
+     certificateId: [{ type: Schema.Types.ObjectId, ref: "Certificate" }]  //new
 },{timestamps:true});
 
 usersSchema.pre<users>('save', async function (next) {

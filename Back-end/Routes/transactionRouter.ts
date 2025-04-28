@@ -1,5 +1,5 @@
 import express from 'express';
-import { depositMoney, transferMoney, getTransactionHistory,withdrawMoney } from '../controllers/transactionController';
+import { depositMoney, transferMoney,getTransactionHistory,withdrawMoney } from '../controllers/transactionController';
 import { transactionValidationRules } from '../validators/transactionValidator';
 import validatorMiddleware from '../validators/validatorMiddleware';
 

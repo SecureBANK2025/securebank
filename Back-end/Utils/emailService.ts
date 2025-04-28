@@ -16,7 +16,7 @@ export const sendOTP = (email: string, otp: string) => {
     from: process.env.SMTP_USER,
     to: email,
     subject: "Your OTP Code",
-    text: `Your OTP is: ${otp}. It is valid for 2 minutes.`,
+    text: `Your OTP is: ${otp}. It is valid for 5 minutes.`,
   };
 
   return transporter.sendMail(mailOptions).then(() => {
