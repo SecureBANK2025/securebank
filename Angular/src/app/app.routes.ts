@@ -37,6 +37,7 @@ import {WithdrawCompletedComponent} from './withdraw-completed/withdraw-complete
 import {BuyCertificateComponent} from './buy-certificate//buy-certificate.component';
 import {BuyFingerComponent} from './buy-finger/buy-finger.component';
 import { BuyDoneComponent } from './buy-done/buy-done.component';
+import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -68,7 +69,9 @@ export const routes: Routes = [
     { path: 'withdraw-completed', canActivate: [authGuard], component:WithdrawCompletedComponent },
     { path: 'buy-certificate', canActivate: [authGuard], component:BuyCertificateComponent },
     { path: 'buy-finger', canActivate: [authGuard], component:BuyFingerComponent },
-    { path: 'buy-done.', canActivate: [authGuard], component:BuyDoneComponent },
+    { path: 'buy-done', canActivate: [authGuard], component:BuyDoneComponent },
+    { path: 'my-certificates', canActivate: [authGuard], component:MyCertificatesComponent },
+
 
 
     {

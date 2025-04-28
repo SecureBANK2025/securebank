@@ -19,5 +19,9 @@ export class BuyFingerComponent {
     back() {
     this.router.navigate(['/buy-certificate']);
   }
-
+  ngOnInit() {
+    setTimeout(() => {
+      this.router.navigate(['/buy-done']);
+    }, 5500);
+  }
 }
