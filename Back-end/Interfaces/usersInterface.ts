@@ -1,4 +1,4 @@
-import{Document,Types}from 'mongoose';
+import  mongoose,{Document,Types}from 'mongoose';
 
 type Role = 'user' | 'admin'| 'manager' ;
 type AccountType = 'current' | 'savings' | 'foreign_currency';
@@ -6,19 +6,18 @@ export interface users extends Document{
     email: string;
     PIN: string;
     name: string;
-    // username: string;  
     fingerId: number;
     role: Role;
     active: boolean;
     nationalId: string;
-    // cardNum: string;
     address: Address[];
-    // IBAN: string;
     phoneNum: string;
-    // cvv: string ;
-    balance? :number ;
+    cardFrozen?: boolean;
+    // balance? :number ; remove it 
     birthDate: Date;
     accounts?: Account[];
+    cardId?: mongoose.Types.ObjectId; //new
+    certificateId?: mongoose.Types.ObjectId[]; //new;
 
 }
 

@@ -33,15 +33,15 @@ export const createAccount = asyncHandler(async (req: Request, res: Response) =>
         return;
     }
 
-    const cardNum = generateCardNumber();
+    const accountNum = generateCardNumber();
     const IBAN = generateIBAN(userId);
 
     const newAccount = await AccountModel.create({
         userId,
         type,
-        balance: 0,
+        balance:0,
         currency,
-        cardNum,
+        accountNum,
         IBAN
     });
 
