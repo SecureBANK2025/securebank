@@ -27,4 +27,8 @@ export class MyCertificatesComponent implements OnInit {
   back() {
     this.router.navigate(['/certificates']);
   }
+  redeem(){
+    this.router.navigate(['/redeem-finger']);
+
+  }
 }

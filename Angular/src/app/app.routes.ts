@@ -38,6 +38,10 @@ import {BuyCertificateComponent} from './buy-certificate//buy-certificate.compon
 import {BuyFingerComponent} from './buy-finger/buy-finger.component';
 import { BuyDoneComponent } from './buy-done/buy-done.component';
 import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
+import { RedeemFingerComponent } from './redeem-finger/redeem-finger.component';
+import { RedeemDoneComponent } from './redeem-done/redeem-done.component';
+
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -71,6 +75,8 @@ export const routes: Routes = [
     { path: 'buy-finger', canActivate: [authGuard], component:BuyFingerComponent },
     { path: 'buy-done', canActivate: [authGuard], component:BuyDoneComponent },
     { path: 'my-certificates', canActivate: [authGuard], component:MyCertificatesComponent },
+    { path: 'redeem-finger', canActivate: [authGuard], component:RedeemFingerComponent },
+    { path: 'redeem-done', canActivate: [authGuard], component:RedeemDoneComponent },
 
 
 
