@@ -46,8 +46,10 @@ export class SigninComponent implements OnInit {
         // this._router.navigate(['/authSuccess']);
         this.toggleAtFingerToValue(false);
       }, error: (err) => {
-        console.log(err);
-        this._router.navigate(['/authFailed']);
+        if (this._router.url === '/login/loginFinger') {
+          console.log(err);
+          this._router.navigate(['/authFailed']);
+        }
       }
 
     })
