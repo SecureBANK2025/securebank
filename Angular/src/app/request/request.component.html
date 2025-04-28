@@ -1,0 +1,36 @@
+<main>
+    <div class="pin-container">
+        <div class="upper">
+            <div class="enter-pin">Request a new card</div>
+            <div class="Cert">
+                <img src="/pics/cardpng.png" alt="Elite Certificate" class="certificate-image">
+            </div>
+
+          
+        </div>  
+        <div class="input-container">
+            <div class="input-wrapper">
+                <label for="createPassword">Create New Password</label>
+                <input type="text"id="amount"  [(ngModel)]="amount1" readonly>
+            </div>
+        
+            <div class="input-wrapper">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="text" id="amount"  [(ngModel)]="amount2" readonly>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="numpad-container">
+        <app-num-pad></app-num-pad>
+    </div>
+</main>
+
+<footer>
+    <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+    <button class="language-btn cancel" (click)="cancel()">Cancel</button>
+</footer>

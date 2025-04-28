@@ -1,0 +1,24 @@
+<main>
+    <div class="pin-container">
+        <div class="upper">
+            <div class="enter-pin">Activate Card</div>
+            <div class="input-container">
+                <label for="amount">Create New Password</label>
+                <div class="input-wrapper">
+                    <input type="text" id="amount"  [(ngModel)]="amount" readonly>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="numpad-container">
+        <app-num-pad></app-num-pad>
+    </div>
+</main>
+
+<footer>
+    <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+    <button class="language-btn cancel" (click)="cancel()">Cancel</button>
+</footer>
