@@ -111,11 +111,11 @@ main .container .title button:active {
 }
 main .container .services {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px 50px;
-  padding: 220px 120px;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 80px;
+  padding: 220px 100px;
   margin-top: -90px;
-  width: 100%;
+  width: 80%;
   height: 100%;
 }
 main .container .services .card {
