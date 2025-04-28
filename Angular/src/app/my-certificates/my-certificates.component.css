@@ -182,7 +182,7 @@ main .container .content .redeem-btn:active {
   transition: background-color 0.3s;
   font-size: 35px;
   font-weight: 600;
-  top: -15px;
+  top: -10px;
   left: -70px;
   border-radius: 0 9999rem 9999rem 0;
   background-color: black;
@@ -190,4 +190,4 @@ main .container .content .redeem-btn:active {
 .footer button:active {
   background-color: #4a4aff;
   color: #ffffff;
-}/*# sourceMappingURL=transactions-history.component.css.map */
+}/*# sourceMappingURL=my-certificates.component.css.map */

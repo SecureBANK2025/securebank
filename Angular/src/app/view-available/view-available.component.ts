@@ -26,4 +26,7 @@ export class ViewAvailableComponent {
   back() {
     this._router.navigate(['/certificates']);
   }
+  buy() {
+    this._router.navigate(['/buy-certificate'])
+  }
 }

@@ -40,7 +40,7 @@ button.btnn {
   font-style: italic;
   position: absolute;
   top: 78%;
-  left: 151px;
+  left: 153px;
   border: none;
   color: #ffffff;
   font-size: 35px;
@@ -52,6 +52,28 @@ button.btnn {
 }
 button.btnn:active {
   background-color: #4a4aff;
+}
+
+button.buy {
+  width: 200px;
+  height: 60px;
+  font-style: italic;
+  position: absolute;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 35px;
+  font-weight: 600;
+  top: 78%;
+  left: 77%;
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #4a4aff;
+}
+button.buy:active {
+  background-color: #ffffff;
+  border: 3px solid #4a4aff;
+  color: #4a4aff;
 }
 
 main .container {
@@ -105,49 +127,32 @@ main .container .title button.topp:active {
   color: #4a4aff;
 }
 
-.cards-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .card {
   background-color: #ffffff;
-  margin-top: 50px;
+  margin-top: 30px;
+  border: none;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  width: 300px;
+  width: 400px;
   text-align: center;
 }
 
 .card img {
-  width: 275px;
+  width: 355px;
   border-radius: 15px;
   margin-bottom: 25px;
+  margin-left: 13px;
 }
 
 .card-content p {
   margin: 5px 0;
-  font-size: 16px;
+  font-size: 22px;
   text-align: left;
   font-weight: 500;
   color: #000000;
   font-style: italic;
   padding-left: 30px;
-}
-
-.purchase {
-  width: 50%;
-  padding: 5px 0;
-  font-size: 19px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  font-weight: 400;
 }
 
 .basic {
@@ -157,25 +162,5 @@ main .container .title button.topp:active {
 .basic:active {
   transition: background-color 0.2s ease-in-out;
   background-color: #4a4aff;
-  color: #ffffff;
-}
-
-.elite {
-  background-color: #d9d9d9;
-  color: #000;
-}
-.elite:active {
-  transition: background-color 0.2s ease-in-out;
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.plus {
-  background-color: rgba(255, 102, 0, 0.1058823529);
-  color: #ff6600;
-}
-.plus:active {
-  transition: background-color 0.2s ease-in-out;
-  background-color: #ff6600;
   color: #ffffff;
 }/*# sourceMappingURL=view-available.component.css.map */

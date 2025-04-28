@@ -34,6 +34,13 @@ import { CertificatesComponent } from './certificates/certificates.component';
 import { ViewAvailableComponent } from './view-available/view-available.component';
 import {WithdrawCollectComponent} from './withdraw-collect/withdraw-collect.component';
 import {WithdrawCompletedComponent} from './withdraw-completed/withdraw-completed.component';
+import {BuyCertificateComponent} from './buy-certificate//buy-certificate.component';
+import {BuyFingerComponent} from './buy-finger/buy-finger.component';
+import { BuyDoneComponent } from './buy-done/buy-done.component';
+import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
+import { RedeemFingerComponent } from './redeem-finger/redeem-finger.component';
+import { RedeemDoneComponent } from './redeem-done/redeem-done.component';
+
 
 
 export const routes: Routes = [
@@ -64,6 +71,13 @@ export const routes: Routes = [
     { path: 'view-available', canActivate: [authGuard], component:ViewAvailableComponent },
     { path: 'withdraw-collect', canActivate: [authGuard], component:WithdrawCollectComponent },
     { path: 'withdraw-completed', canActivate: [authGuard], component:WithdrawCompletedComponent },
+    { path: 'buy-certificate', canActivate: [authGuard], component:BuyCertificateComponent },
+    { path: 'buy-finger', canActivate: [authGuard], component:BuyFingerComponent },
+    { path: 'buy-done', canActivate: [authGuard], component:BuyDoneComponent },
+    { path: 'my-certificates', canActivate: [authGuard], component:MyCertificatesComponent },
+    { path: 'redeem-finger', canActivate: [authGuard], component:RedeemFingerComponent },
+    { path: 'redeem-done', canActivate: [authGuard], component:RedeemDoneComponent },
+
 
 
     {

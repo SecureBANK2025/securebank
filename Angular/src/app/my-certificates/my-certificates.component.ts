@@ -6,10 +6,10 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-account-details',
   imports: [CommonModule],
-  templateUrl: './transactions-history.component.html',
-  styleUrl: './transactions-history.component.scss'
+  templateUrl: './my-certificates.component.html',
+  styleUrl: './my-certificates.component.scss'
 })
-export class TransactionsHistoryComponent implements OnInit {
+export class MyCertificatesComponent implements OnInit {
   userData: any;
 
   constructor(private _AuthService: AuthService, private router: Router) {}
@@ -25,6 +25,10 @@ export class TransactionsHistoryComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/mainOptions']);
+    this.router.navigate(['/certificates']);
+  }
+  redeem(){
+    this.router.navigate(['/redeem-finger']);
+
   }
 }

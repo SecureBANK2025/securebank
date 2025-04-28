@@ -1,0 +1,39 @@
+<main>
+    <div class="pin-container">
+        <div class="upper">
+            <div class="enter-pin">Buy a Certificate</div>
+            <div class="input-container">
+                <label for="amount">Enter the certificate amount </label>
+                <div class="input-wrapper">
+                    <input type="text" id="amount" [(ngModel)]="amount" readonly>
+                    <span class="currency">EGP</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider2"></div>
+
+        <div class="select">Or Select the Amount</div>
+        <div class="middle">
+            <div class="up">
+                <button class="amount-btn" (click)="selectAmount(20000)"><em>20000</em> EGP</button>
+                <button class="amount-btn" (click)="selectAmount(60000)"><em>60000</em> EGP</button>
+            </div>
+            <div class="down">
+                <button class="amount-btn" (click)="selectAmount(40000)"><em>40000</em> EGP</button>
+                <button class="amount-btn" (click)="selectAmount(80000)"><em>80000</em> EGP</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="numpad-container">
+        <app-num-pad></app-num-pad>
+    </div>
+</main>
+
+<footer>
+    <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+    <button class="language-btn cancel" (click)="cancel()">Cancel</button>
+</footer>
