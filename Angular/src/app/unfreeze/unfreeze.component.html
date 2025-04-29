@@ -1,0 +1,36 @@
+<main>
+    <div class="pin-container">
+      <div class="upper">
+        <div class="enter-pin red">Freeze Card</div>
+  
+        <div class="Certf">
+          <img src="/pics/cardpng.png" alt="Freeze Card" class="certificate-image">
+        </div>
+  
+        <div class="warning-box">
+          Warning: Freezing your card will disable all transactions.
+          <br>
+          Unfreeze option will be available after 48 hours.
+        </div>
+  
+        <div class="input-container">
+          <div class="input-wrapper">
+            <label for="password">Enter Password</label>
+            <input type="text" id="password" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="divider"></div>
+  
+    <div class="numpad-container">
+      <app-num-pad></app-num-pad>
+    </div>
+  </main>
+  
+  <footer>
+    <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+    <button class="language-btn cancel" (click)="cancel()">Cancel</button>
+  </footer>
+  

@@ -40,6 +40,16 @@ import { BuyDoneComponent } from './buy-done/buy-done.component';
 import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
 import { RedeemFingerComponent } from './redeem-finger/redeem-finger.component';
 import { RedeemDoneComponent } from './redeem-done/redeem-done.component';
+import { CardServicesComponent } from './card-services/card-services.component';
+import { ActivateComponent } from './activate/activate.component';
+import { ActivateDoneComponent } from './activate-done/activate-done.component';
+import { RequestComponent } from './request/request.component';
+import { RequestDoneComponent } from './request-done/request-done.component';
+import { RequestFingerComponent } from './request-finger/request-finger.component';
+import { FreezeDoneComponent } from './freeze-done/freeze-done.component';
+import { UnfreezeComponent } from './unfreeze/unfreeze.component';
+import { FreezeComponent } from './freeze/freeze.component';
+
 
 
 
@@ -77,6 +87,18 @@ export const routes: Routes = [
     { path: 'my-certificates', canActivate: [authGuard], component:MyCertificatesComponent },
     { path: 'redeem-finger', canActivate: [authGuard], component:RedeemFingerComponent },
     { path: 'redeem-done', canActivate: [authGuard], component:RedeemDoneComponent },
+    { path: 'card-services', canActivate: [authGuard], component:CardServicesComponent},
+    { path: 'activate', canActivate: [authGuard], component:ActivateComponent},
+    { path: 'activate-done', canActivate: [authGuard], component:ActivateDoneComponent},
+    { path: 'request', canActivate: [authGuard], component:RequestComponent},
+    { path: 'request-done', canActivate: [authGuard], component:RequestDoneComponent},
+    { path: 'request-finger', canActivate: [authGuard], component:RequestFingerComponent},
+    { path: 'freeze', canActivate: [authGuard], component:FreezeComponent},
+    { path: 'ufreeze', canActivate: [authGuard], component:UnfreezeComponent},
+    { path: 'freeze-done', canActivate: [authGuard], component:FreezeDoneComponent},
+
+
+
 
 
 

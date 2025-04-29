@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", serif;
+}
+
+body {
+  background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 25px;
+}
+header .logo :first-child {
+  height: 50px;
+  top: 10px;
+  position: relative;
+}
+header .logo :last-child {
+  height: 30px;
+}
+header .date {
+  font-weight: bold;
+}
+
+main .container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50px;
+  border: none;
+  height: 80vh;
+  color: #4a4aff;
+}
+main .container .title h1 {
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+  font-weight: 900;
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 0 200px;
+  color: black;
+  line-height: 45px;
+}
+main .container .title h1 i {
+  margin-left: 10px;
+  color: #4a4aff;
+  font-size: 50px;
+}
+main .container .details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 50px;
+}
+main .container .details .before p {
+  font-size: 25px;
+  font-style: italic;
+  margin-bottom: 55px;
+}
+main .container .details .lottie-fixed {
+  position: absolute;
+  top: 200px;
+  right: 460px;
+  z-index: 10;
+}
+main .container .details .footer {
+  margin-top: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+main .container .details .footer h1 {
+  font-size: 25px;
+  font-weight: 900;
+}
+main .container .details .footer div {
+  width: 60%;
+  background-color: #e8e7fc;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+main .container .details .footer div p {
+  color: black;
+  font-weight: 900;
+}/*# sourceMappingURL=activate-done.component.css.map */
