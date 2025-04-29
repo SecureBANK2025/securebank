@@ -71,7 +71,8 @@ export class ManualSigninComponent implements OnInit {
           alert('Invalid email or PIN. Please try again.');
         }
       }
-    })
+    }
+  )
   }
 }
 

@@ -28,6 +28,8 @@ export class AuthService {
   }
 
   currentUser = new BehaviorSubject(null);
+  currentAccountID = new BehaviorSubject(null);
+  currentAccountData = new BehaviorSubject(null);
 
 
   saveCurrentUser() {
@@ -37,6 +39,14 @@ export class AuthService {
     this._HttpClient.get(`${this.hostName}/api/v1/users/${decodedToken._id}`).subscribe({
       next: (res: any) => {
         this.currentUser.next(res.data);
+        // console.log(res.data);
+        this.currentAccountID.next(res.data.accounts[0]._id);
+        // console.log(res.data.accounts[0]._id);
+        this.saveCurrentAccountData();
+        localStorage.setItem('accountID', res.data.accounts[0]._id);
+        console.log(res.data.accounts[0]._id + "saved");
+        // this.currentAccountData.next(res);
+        // console.log(res);
       },
       error: (err) => {
         console.error('Error fetching user data:', err);
@@ -44,6 +54,37 @@ export class AuthService {
       }
     });
   }
+
+  // saveCurrentAccountID() {
+  //   const token: any = localStorage.getItem('user');
+  //   const decodedToken = jwtDecode<DecodedToken>(token);
+  //   // Fetch complete user data using the ID from the token
+  //   this._HttpClient.get(`${this.hostName}/api/v1/auth/chooseAccount/${decodedToken._id}`).subscribe({
+  //     next: (res: any) => {
+  //       this.currentAccountID.next(res.accounts[0]._id);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching user data:', err);
+  //       this.logout();
+  //     }
+  //   });
+  // }
+  saveCurrentAccountData() {
+    const token: any = localStorage.getItem('user');
+    const decodedToken = jwtDecode<DecodedToken>(token);
+    // Fetch complete user data using the ID from the token
+    this._HttpClient.get(`${this.hostName}/api/v1/accounts/myAccount/${decodedToken._id}`,).subscribe({
+      next: (res: any) => {
+        this.currentAccountData.next(res.data[0]);
+        console.log(res.data[0]);
+      },
+      error: (err) => {
+        console.error('Error fetching user data:', err);
+        this.logout();
+      }
+    });
+  }
+
   singUp(myData: any): Observable<any> {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/signup`, myData)
   }

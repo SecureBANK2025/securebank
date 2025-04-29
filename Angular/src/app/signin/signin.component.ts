@@ -51,7 +51,6 @@ export class SigninComponent implements OnInit {
           this._router.navigate(['/authFailed']);
         }
       }
-
     })
   }
 
