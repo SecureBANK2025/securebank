@@ -12,6 +12,8 @@ import { AuthService } from '../services/auth.service';
 export class WithdrawSureComponent implements OnInit {
   withdrawAmount: string = '';
   userData: any;
+  accountData: any;
+
 
   constructor(
     private router: Router,
@@ -25,6 +27,9 @@ export class WithdrawSureComponent implements OnInit {
     // Get user data
     this._AuthService.currentUser.subscribe(user => {
       this.userData = user;
+    });
+    this._AuthService.currentAccountData.subscribe(account => {
+      this.accountData = account;
     });
   }
 
