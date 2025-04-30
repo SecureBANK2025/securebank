@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class MainOptionsComponent implements OnInit {
   userData: any;
+  accountData: any;
+
 
   constructor(
     private _AuthService: AuthService,
@@ -23,6 +25,9 @@ export class MainOptionsComponent implements OnInit {
     this._AuthService.currentUser.subscribe(user => {
       console.log('User data received:', user);
       this.userData = user;
+    });
+    this._AuthService.currentAccountData.subscribe(account => {
+      this.accountData = account;
     });
   }
 

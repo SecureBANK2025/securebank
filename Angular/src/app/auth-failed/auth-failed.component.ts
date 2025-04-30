@@ -21,12 +21,15 @@ export class AuthFailedComponent implements OnInit {
       const from = params['from'];
       
       setTimeout(() => {
-        if (from === 'signup') {
-          // If we came from signup, go back to scan finger
-          this._router.navigate(['/signup/scanFinger']);
-        } else {
-          // Default behavior: go back to login
-          this._router.navigate(['/login/loginFinger']);
+        // Check if the current route is still 'auth-failed'
+        if (this._router.url === '/auth-failed') {
+          if (from === 'signup') {
+            // If we came from signup, go back to scan finger
+            this._router.navigate(['/signup/scanFinger']);
+          } else {
+            // Default behavior: go back to login
+            this._router.navigate(['/login/loginFinger']);
+          }
         }
       }, 3500);
     });

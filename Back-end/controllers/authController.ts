@@ -16,7 +16,7 @@ export const signUp = asyncHandler(async (req: Request, res: Response, next: Nex
 
 
     const fingerId = await enrollFingerprint();
-    // const fingerId = 7;
+    // const fingerId =5;
 
     if (!fingerId) {
         return next(new customErrors("Fingerprint enrollment failed no Id found", 400));
@@ -45,7 +45,7 @@ export const biometricLogin = asyncHandler(async (req: Request, res: Response, n
 
     const finger_Id = await verifyFingerprint();
     if (!finger_Id) {
-        return next(new customErrors("Fingerprint not found -auth-", 400));
+        return next(new customErrors("Fingerprint not found -auth-", 400)); //eeeeeeeeeeeeeeeeeeee
     }
 
     const user = await usersModel.findOne({ fingerId: finger_Id });
@@ -57,7 +57,7 @@ export const biometricLogin = asyncHandler(async (req: Request, res: Response, n
     // }
     const otp = crypto.randomInt(100000, 999999).toString();
     otpStorage.set(user.email, otp);
-    setTimeout(() => otpStorage.delete(user.email), 2 * 60 * 1000); //2 minutes
+    setTimeout(() => otpStorage.delete(user.email), 5 * 60 * 1000); //5 minutes
 
     sendOTP(user.email, otp)
         .then(() => {
@@ -131,4 +131,34 @@ export const verifyOtp = async (req: Request, res: Response, next: NextFunction)
     otpStorage.delete(email);
 
     res.status(200).json({ success: true, token, message: "OTP verified, logged in successfully" });
+};
+
+export const chooseAccount = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    const { type } = req.body;
+    const userId = req.params.id;
+
+    if (!userId) {
+        res.status(400).json({ success: false, message: "user ID not found" });
+        return;
+    }
+    const user = await usersModel.findById(userId);
+    if (!user) {
+        res.status(404).json({ message: "User not found" });
+        return;
+    }
+    const accounts = user.accounts;
+
+    if (!accounts || accounts.length === 0) {
+        res.status(404).json({ success: false, message: "No accounts found for user" });
+        return;
+    }
+
+    const chosenAccount = accounts.find((account: any) => account.type === type);
+
+    if (!chosenAccount) {
+        res.status(404).json({ success: false, message: "No account found for the selected type" });
+        return;
+    }
+
+    res.status(200).json({ success: true, accountId: chosenAccount._id });
 };

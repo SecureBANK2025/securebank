@@ -49,6 +49,8 @@ export class SigninFormComponent {
           localStorage.setItem('user', res.token);
           console.log(res.token);
           this._AuthService.saveCurrentUser();
+          // this._AuthService.saveCurrentAccountID();
+          // this._AuthService.saveCurrentAccountData();
           this._router.navigate(['/mainOptions']);
         }
       },

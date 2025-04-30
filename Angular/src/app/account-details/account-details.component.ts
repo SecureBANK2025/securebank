@@ -11,12 +11,16 @@ import { CommonModule } from '@angular/common';
 })
 export class AccountDetailsComponent implements OnInit {
   userData: any;
+  accountData: any;
 
   constructor(private _AuthService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this._AuthService.currentUser.subscribe(user => {
       this.userData = user;
+    });
+    this._AuthService.currentAccountData.subscribe(account => {
+      this.accountData = account;
     });
   }
 

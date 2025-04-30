@@ -10,14 +10,15 @@
             <h1>Account details</h1>
             <div class="details">
                 <h3>Account number :</h3>
-                <h3 id="accNum">5078125486481254</h3>
+                <h3 id="accNum">{{ accountData?.accountNum }}</h3>
                 <h3>Account balance :</h3>
-                <h3 id="accBalance">{{ userData?.balance }}<span>EGP</span></h3>
+                <h3 id="accBalance">{{ accountData?.balance }}<span> EGP</span></h3>
                 <h3>IBAN :</h3>
-                <h3 id="IBAN">1258954610497464</h3>
-               
+                <h3 id="IBAN">{{ accountData?.IBAN }}</h3>
+                <!-- <h3>Swift code :</h3>
+                <h3 id="swiftCode">{{ accountData?.swiftCode }}</h3> -->
                 <h3>Account type:</h3>
-                <h3 id="accType">Saving</h3>
+                <h3 id="accType">{{ accountData?.type }}</h3>
             </div>
         </div>
         <div class="footer">
