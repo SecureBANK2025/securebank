@@ -1,6 +1,7 @@
+
+
 export const enrollFingerprint = (): Promise<number | null> => {
     return fetch(`http://${process.env.ESP_IP}/enroll`, {
-    // return fetch(`http://${process.env.ESP_LINK}/enroll`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
     })
@@ -21,7 +22,6 @@ export const enrollFingerprint = (): Promise<number | null> => {
 
 export const verifyFingerprint = (): Promise<number | null> => {
     return fetch(`http://${process.env.ESP_IP}/verify`, {
-    // return fetch(`http://${process.env.ESP_LINK}/verify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
     })
@@ -41,7 +41,6 @@ export const verifyFingerprint = (): Promise<number | null> => {
 
 export const deleteFingerprint = (fingerId: number): Promise<boolean> => {
     return fetch(`http://${process.env.ESP_IP}/clearOne?id=${fingerId}`, {
-    // return fetch(`http://${process.env.ESP_LINK}/clearOne?id=${fingerId}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         

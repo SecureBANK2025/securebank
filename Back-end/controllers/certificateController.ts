@@ -12,9 +12,9 @@ const calculateValidUntil = (): Date => {
     return endDate;
 };
 
-export const doToCertificate = asyncHandler(async (req: Request, res: Response): Promise<any> => {
-    const { userId, operation , accountId , certificateId} = req.body;
-
+export const doToCertificate = asyncHandler(async (req: any, res: Response): Promise<any> => {
+    const { operation , accountId , certificateId} = req.body;
+    const userId = req.user?._id;
     
 
     if (!operation) {
@@ -89,8 +89,10 @@ export const doToCertificate = asyncHandler(async (req: Request, res: Response):
 });
 
 // Buy Certificate
-export const buyCertificate = asyncHandler(async (req: Request, res: Response): Promise<any> => {
-    const { userId, purchaseAmount , accountId  } = req.body;
+export const buyCertificate = asyncHandler(async (req: any, res: Response): Promise<any> => {
+    const { purchaseAmount , accountId  } = req.body;
+    const userId = req.user?._id;
+
     const certificateType = "Yearly";
     const interestRate = 15 ;
 
@@ -144,9 +146,8 @@ export const buyCertificate = asyncHandler(async (req: Request, res: Response): 
 });
 
 // Get User Certificates
-export const getUserCertificates = asyncHandler(async (req: Request, res: Response): Promise<any> => {
-    const { userId } = req.body;
-
+export const getUserCertificates = asyncHandler(async (req: any, res: Response): Promise<any> => {
+    const userId = req.user?._id;
     if (!userId) {
         return res.status(400).json({success: false , message :"user id is required" });
     }

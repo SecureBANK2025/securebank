@@ -7,11 +7,12 @@ import {
     
 } from "../controllers/certificateController";
 import validatorMiddleware from "../validators/validatorMiddleware";
+import { protectRoute } from "../controllers/authController";
 
 const router = express.Router();
 
 
-router.post("/buy", validatorMiddleware, buyCertificate);
-router.post("/redeem", validatorMiddleware, doToCertificate);
-router.get("/getCertificates", validatorMiddleware, getUserCertificates);
+router.post("/buy", protectRoute, buyCertificate);
+router.post("/redeem", protectRoute, doToCertificate);
+router.get("/getCertificates", protectRoute, getUserCertificates);
 export default router;

@@ -5,10 +5,10 @@ import AccountModel from '../Models/accountModel';
 import customErrors from '../Utils/Errors';
 import asyncHandler from "express-async-handler";
 
-export const depositMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+export const depositMoney = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<any> => {
     const { amount , accountId } = req.body;
-    const userId = req.params.id;
-
+    // const userId = req.params.id;
+    const userId = req.user?._id; // from token
     if (!userId || !amount || amount <= 0) {
         res.status(400).json({ message: "Invalid amount" });
         return;
@@ -48,9 +48,9 @@ export const depositMoney = asyncHandler(async (req: Request, res: Response, nex
     });
 });
 
-export const withdrawMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+export const withdrawMoney = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<any> => {
     const { amount , accountId} = req.body;
-    const userId = req.params.id;
+    const userId = req.user?._id;
 
     if (!userId || !amount || amount <= 0) {
         res.status(400).json({ message: "Invalid amount" });
@@ -93,10 +93,11 @@ export const withdrawMoney = asyncHandler(async (req: Request, res: Response, ne
 
 //transferMoney 
 
-export const transferMoney = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { userId , amount , accountId , accountNum } = req.body;
-     
-    if (!amount || !accountNum|| amount <= 0) {
+export const transferMoney = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
+    const { amount , accountId , accountNum } = req.body;
+    const userId = req.user?._id;
+  
+    if (!userId ||!amount || !accountNum|| amount <= 0) {
         res.status(400).json({ message: "Invalid request parameters" });
         return;
     }
@@ -154,8 +155,8 @@ export const transferMoney = asyncHandler(async (req: Request, res: Response, ne
 
 //get history of transactions
 
-export const getTransactionHistory = asyncHandler(async (req: Request, res: Response) => {
-    const  userId  = req.params.id; 
+export const getTransactionHistory = asyncHandler(async (req: any, res: Response) => {
+    const userId = req.user?._id;
     const transactions = await TransactionModel.find({ userId }).sort({ date: -1 });
     
     res.status(200).json({data : transactions });
