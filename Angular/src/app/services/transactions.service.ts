@@ -29,4 +29,7 @@ export class transactionsService {
   transfer(depositeData:any): Observable<any> {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/transfer`, depositeData , { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } });
   }
+  getAllTransacions(): Observable<any> {
+    return this._HttpClient.get(`${this.hostName}${this.routeName}/history` , { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } });
+  }
 }

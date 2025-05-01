@@ -5,7 +5,7 @@ export interface transactions extends Document {
   type: "deposit" | "withdraw" | "transfer";
   amount: number;
   date: Date;
-  sender?: mongoose.Types.ObjectId;
-  recipient?: mongoose.Types.ObjectId;
+  senderAccount?: string;
+  recipientAccount?: string;
   direction?: "sent" | "received"; // NEW FIELD
 }
