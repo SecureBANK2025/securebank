@@ -3,8 +3,8 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
-// import { TransferService } from '../services/transfer.service';
 import { FormsModule } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-money-transfer1',
@@ -15,24 +15,55 @@ import { FormsModule } from '@angular/forms';
 export class MoneyTransfer1Component implements OnInit {
   userData: any;
   bank: string = '';
-  iban: string = '';
-  amount: string = '';
+  accountNum: string = '';
+  amount: number = 0;
   accountData: any;
-
+  accountId: string = '';
+  userName: string = '';
+  userAccountNumber: string = '';
+  formValid: boolean = false;
 
   constructor(
     private _AuthService: AuthService,
     private router: Router,
-    // private transferService: TransferService
-  ) {}
+    private _DataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this._AuthService.checkToken();
+
+    // Refresh all data from the backend
+    this._DataService.refreshAllData();
+
+    // Subscribe to user data from DataService
+    this._DataService.currentUserName.subscribe(name => {
+      this.userName = name;
+      console.log('Transfer1 - User name updated:', name);
+    });
+
+    // Subscribe to account data from DataService
+    this._DataService.currentAccountNumber.subscribe(accountNum => {
+      this.userAccountNumber = accountNum;
+    });
+
+    // Get account ID
+    this._DataService.currentId.subscribe(id => {
+      this.accountId = id;
+    });
+
+    // For backward compatibility
     this._AuthService.currentUser.subscribe(user => {
-      this.userData = user;
+      if (user) {
+        this.userData = user;
+      }
     });
-    this._AuthService.currentAccountData.subscribe(account => {
-      this.accountData = account;
-    });
+  }
+
+  validateForm(): boolean {
+    return this.bank !== '' &&
+      this.accountNum !== '' &&
+      this.amount > 0 &&
+      this.accountId !== '';
   }
 
   logout() {
@@ -44,15 +75,19 @@ export class MoneyTransfer1Component implements OnInit {
   }
 
   transfer() {
-    const transferData = {
-      amount: this.amount,
-      bank: this.bank,
-      iban: this.iban
-    };
-    localStorage.setItem('accountNum', transferData.iban);
-    localStorage.setItem('transferAmount', transferData.amount);
-    localStorage.setItem('bank', transferData.bank);
-    // this.transferService.setTransferData(transferData);
+    if (!this.validateForm()) {
+      console.log('Form validation failed');
+      return;
+    }
+
+    // Store transfer data in DataService
+    this._DataService.setAmount(this.amount);
+
+    // Store additional transfer data in localStorage for now
+    // In a real implementation, you would add these to DataService
+    localStorage.setItem('recipientAccountNum', this.accountNum);
+    localStorage.setItem('recipientBank', this.bank);
+
     this.router.navigate(['/moneyTransfer2']);
   }
 }

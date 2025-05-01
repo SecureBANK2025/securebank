@@ -2,13 +2,18 @@
     <div class="white-container">
         <p class="confirmation-text">Please Choose Your Account Type</p>
 
-        <div class="buttons">
-            <button class="back" (click)="savings()">Savings</button>
-            <button class="confirm" (click)="current()">Current</button>
-            <button class="confirm" (click)="foreigncurrency()">foreign_currency</button>
-            
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+        </div>
 
+        <div class="buttons" [class.disabled]="loading">
+            <button type="button" class="back" (click)="savings()" [disabled]="loading">Savings</button>
+            <button type="button" class="confirm" (click)="current()" [disabled]="loading">Current</button>
+            <button type="button" class="confirm" (click)="foreignCurrency()" [disabled]="loading">Foreign Currency</button>
+        </div>
 
+        <div *ngIf="loading" class="loading">
+            <p>Loading...</p>
         </div>
     </div>
 </main>

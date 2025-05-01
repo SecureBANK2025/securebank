@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { TransferService } from '../services/transfer.service';
+import { DataService } from '../services/data.service';
+import { transactionsService } from '../services/transactions.service';
 
 @Component({
   selector: 'app-money-transfer2',
@@ -13,25 +14,53 @@ import { TransferService } from '../services/transfer.service';
 export class MoneyTransfer2Component implements OnInit {
   userData: any;
   transferData: any = {
-    iban: localStorage.getItem('accountNum'),
-    amount: localStorage.getItem('transferAmount'),
-    bank: localStorage.getItem('bank')
+    accountNum: localStorage.getItem('recipientAccountNum') || '',
+    amount: 0,
+    bank: localStorage.getItem('recipientBank') || ''
   };
-  accountData: any;
-
+  accountId: string = '';
+  userName: string = '';
+  userAccountNumber: string = '';
+  data: any;
 
   constructor(
     private _AuthService: AuthService,
     private router: Router,
-    private TransferService: TransferService
+    private _DataService: DataService,
+    private _transactionsService: transactionsService
   ) { }
 
   ngOnInit(): void {
-    this._AuthService.currentUser.subscribe(user => {
-      this.userData = user;
+    this._AuthService.checkToken();
+
+    // Refresh all data from the backend
+    this._DataService.refreshAllData();
+
+    // Get the transfer amount from DataService
+    this._DataService.currentAmount.subscribe(amount => {
+      this.transferData.amount = amount;
     });
-    this._AuthService.currentAccountData.subscribe(account => {
-      this.accountData = account;
+
+    // Get account ID
+    this._DataService.currentId.subscribe(id => {
+      this.accountId = id;
+    });
+
+    // Subscribe to user data from DataService
+    this._DataService.currentUserName.subscribe(name => {
+      this.userName = name;
+    });
+
+    // Subscribe to account data from DataService
+    this._DataService.currentAccountNumber.subscribe(accountNum => {
+      this.userAccountNumber = accountNum;
+    });
+
+    // For backward compatibility
+    this._AuthService.currentUser.subscribe(user => {
+      if (user) {
+        this.userData = user;
+      }
     });
   }
 
@@ -40,8 +69,20 @@ export class MoneyTransfer2Component implements OnInit {
   }
 
   confirm() {
-    this.TransferService.transfer();
-    console.log('Transfer confirmed');
-    this.router.navigate(['/moneyTransfer3']);
+    this.data = {
+      amount: this.transferData.amount,
+      accountId: this.accountId,
+      accountNum: this.transferData.accountNum
+    };
+
+    this._transactionsService.transfer(this.data).subscribe({
+      next: () => {
+        console.log('Transfer successful');
+        this.router.navigate(['/moneyTransfer3']);
+      },
+      error: (err) => {
+        console.log('Transfer error:', err);
+      }
+    });
   }
 }

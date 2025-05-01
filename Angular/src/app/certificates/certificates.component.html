@@ -2,8 +2,8 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                <h1>{{userData?.name}}</h1>
-                <h3>5078XXXXXXXXXXXX1254</h3>
+                <h1>{{userName || userData?.name}}</h1>
+                <h3>{{accountNumber || 'No account number'}}</h3>
             </div>
             <button (click)="logout()">Log out</button>
         </div>
