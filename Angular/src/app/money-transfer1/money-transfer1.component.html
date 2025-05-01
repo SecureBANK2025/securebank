@@ -12,11 +12,12 @@
                 <div class="title">
                     <h1>Transfer Money</h1>
                 </div>
-                <form>
+
+                <form [formGroup]="transferForm">
                     <div class="form-row">
                         <div class="bank">
                             <label for="bank">Receiver's Bank:</label>
-                            <select id="bank" [(ngModel)]="bank" name="bank">
+                            <select id="bank"  name="bank" formControlName="bank">
                                 <option value="" disabled selected>Select Bank</option>
                                 <option value="Banque Misr">Banque Misr</option>
                                 <option value="Banque du Caire">Banque du Caire</option>
@@ -38,16 +39,18 @@
 
                         <div class="iban">
                             <label for="accountNum">Receiver's Account Number:</label>
-                            <input type="text" title="accountNum" id="accountNum" [(ngModel)]="accountNum" name="accountNum">
+                            <input type="text" title="accountNum" id="accountNum"  name="accountNum" formControlName="accountNum">
                         </div>
                     </div>
 
                     <div class="form-row amount-row">
                         <div class="amount">
                             <label for="amount">Amount:</label>
-                            <input type="text" title="amount" id="amount" [(ngModel)]="amount" name="amount" readonly>
+                            <input type="text" title="amount" id="amount"  name="amount" formControlName="amount" >
                         </div>
-                        <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button>
+                        <!-- <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button> -->
+                        <button type="button" (click)="transfer()" class="confirm-btn" >Transfer now</button>
+
                     </div>
                 </form>
 

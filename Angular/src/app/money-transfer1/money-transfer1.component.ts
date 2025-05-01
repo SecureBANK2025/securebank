@@ -3,16 +3,21 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule ,FormControl,ReactiveFormsModule ,Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-money-transfer1',
-  imports: [numPadComponent, CommonModule, FormsModule],
+  imports: [numPadComponent, CommonModule, FormsModule,ReactiveFormsModule],
   templateUrl: './money-transfer1.component.html',
   styleUrl: './money-transfer1.component.scss'
 })
 export class MoneyTransfer1Component implements OnInit {
+  transferForm = new FormGroup ({
+    bank: new FormControl(null, [Validators.required]),
+    accountNum: new FormControl(null, [Validators.required,]),
+    amount: new FormControl(null, [Validators.required]),
+  })
   userData: any;
   bank: string = '';
   accountNum: string = '';
@@ -75,13 +80,16 @@ export class MoneyTransfer1Component implements OnInit {
   }
 
   transfer() {
-    if (!this.validateForm()) {
-      console.log('Form validation failed');
-      return;
-    }
+    // if (!this.validateForm()) {
+    //   console.log('Form validation failed');
+    //   return;
+    // }
 
     // Store transfer data in DataService
     this._DataService.setAmount(this.amount);
+    // -----------------------------------------------------------> bahy
+    this._DataService.setFormdata(this.transferForm.value)
+    console.log(this.transferForm.value)
 
     // Store additional transfer data in localStorage for now
     // In a real implementation, you would add these to DataService

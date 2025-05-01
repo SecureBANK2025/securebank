@@ -96,7 +96,11 @@ export const withdrawMoney = asyncHandler(async (req: any, res: Response, next: 
 export const transferMoney = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
     const { amount , accountId , accountNum } = req.body;
     const userId = req.user?._id;
-  
+    console.log(amount)
+    console.log(accountId)
+    console.log(accountNum)
+    console.log(userId)
+
     if (!userId ||!amount || !accountNum|| amount <= 0) {
         res.status(400).json({ message: "Invalid request parameters" });
         return;

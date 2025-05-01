@@ -275,4 +275,14 @@ export class DataService {
       console.error('Error decoding token:', error);
     }
   }
+
+
+
+
+  // -------------------------------------------------------------------------> Bahy <-----------------------------------------
+  private formSource = new BehaviorSubject<any>(null);
+  currentFormdata = this.formSource.asObservable();
+  setFormdata(data: any) {
+    this.formSource.next(data);
+  }
 }
