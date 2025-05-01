@@ -22,21 +22,11 @@ uint32_t sensorAddress = 0xFFFFFFFF;
 
 
 const char* ssid = "2024";       
-const char* password = "19971995"; 
-
-// const char* ssid = "2024";       
-// const char* password = "bahy2710"; 
+const char* password = "bahy2710"; 
 
 // const char* ssid = "NoInternet";       
 // const char* password = "bahy015015"; 
 
-// Firebase credentials
-// #define API_KEY "AIzaSyDVUrvoghtpxDUTrdKe9a1NB_KWxpTo5Ps"
-// #define DATABASE_URL "https://esp-cloud-e6139.firebaseio.com/"
-
-// FirebaseData fbdo;
-// FirebaseAuth auth;
-// FirebaseConfig config;
 
 const int serverPort = 80;
 WebServer server(serverPort);
@@ -70,31 +60,12 @@ void setup() {
   }
 
 
-  //newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-// Setup Firebase
-// config.api_key = API_KEY;
-// config.database_url = DATABASE_URL;
 
-// Optional: if you're not using user email/password login
-// auth.user.email = "adelbahy11@gmail.com";
-// auth.user.password = "01501525700";
-
-// Initialize Firebase
-  // Firebase.begin(&config, &auth);
-  // Firebase.reconnectWiFi(true);
-
-  // Send data
-  // if (Firebase.RTDB.setString(&fbdo, "/fingerprint/status", "ready")) {
-  //   Serial.println("Data sent to Firebase");
-  // } else {
-  //   Serial.println("Error: " + fbdo.errorReason());
-  // }
 
   Serial.println("\nConnected to WiFi!");
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
-  // server.begin();
-  // Serial.println("Server started");
+  
   server.on("/enroll", HTTP_POST, handleEnroll);
   server.on("/verify", HTTP_POST, searchFingerprint);
   server.on("/clear", HTTP_GET, clearAllFingers);

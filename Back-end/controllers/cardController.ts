@@ -21,11 +21,11 @@ const generateExpiryDate = () => {
   return `${month}/${year}`;
 };
 
-export const requestNewCard = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const requestNewCard = async (req: any, res: Response, next: NextFunction): Promise<void> => {
   try {
     
-    const { userId, password, confirmPassword } = req.body;
-
+    const { password, confirmPassword } = req.body;
+    const userId = req.user?._id;
     const user = await User.findById(userId);
     if (!user) {
       res.status(404).json({ message: "User not found" });
@@ -81,11 +81,11 @@ export const requestNewCard = async (req: Request, res: Response, next: NextFunc
   }
 };
 
-export const activateCard = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const activateCard = async (req: any, res: Response, next: NextFunction): Promise<void> => {
   try {
     // const  cardId  = req.params;
-    const {userId, password } = req.body; //new
-
+    const { password } = req.body; //new
+    const userId = req.user?._id;
     const user = await User.findById(userId);
     if (!user) {
       res.status(404).json({ message: "User not found-Login again" });
@@ -113,10 +113,10 @@ export const activateCard = async (req: Request, res: Response, next: NextFuncti
 };
 
 
-export const toggleFreezeCard = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const toggleFreezeCard = async (req: any, res: Response, next: NextFunction): Promise<void> => {
 
-    const {userId, password } = req.body;
-
+    const { password } = req.body;
+    const userId = req.user?._id;
     const user = await User.findById(userId);
     if (!user) {
       res.status(404).json({ message: "User not found-Login again" });

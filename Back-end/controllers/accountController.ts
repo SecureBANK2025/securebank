@@ -12,9 +12,9 @@ const generateIBAN = (userId: string) => {
     return `EG${Math.floor(1000000000000000 + Math.random() * 9000000000000000)}`;
 };
 
-export const createAccount = asyncHandler(async (req: Request, res: Response) => {
+export const createAccount = asyncHandler(async (req: any, res: Response) => {
     const { type, currency } = req.body;
-    const  userId  = req.params.id;
+    const  userId  = req.user?._id;
 
     if (!userId || !type || !currency) {
         res.status(400).json({ message: "All fields are required" });
@@ -51,9 +51,8 @@ export const createAccount = asyncHandler(async (req: Request, res: Response) =>
     res.status(201).json({ message: "Account created successfully", account: newAccount });
 });
 
-export const getUserAccounts = asyncHandler(async (req: Request, res: Response) => {
-    const userId  = req.params.id;
+export const getUserAccounts = asyncHandler(async (req: any, res: Response) => {
+    const userId  = req.user?._id;
     const accounts = await AccountModel.find({ userId });
-
     res.status(200).json({ data : accounts });
 });
