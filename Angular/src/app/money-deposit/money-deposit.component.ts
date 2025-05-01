@@ -4,6 +4,7 @@ import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-money-deposit',
@@ -12,26 +13,25 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './money-deposit.component.scss'
 })
 export class MoneyDepositComponent implements OnInit {
-  amount: string = '';
+  amount: number = 0;
   userData: any;
 
-  constructor(
-    private router: Router,
-    private _AuthService: AuthService
-  ) {}
+  constructor(private router: Router,private _AuthService: AuthService,private _dataService:DataService) {
+    
+  }
 
   ngOnInit(): void {
     this._AuthService.currentUser.subscribe(user => {
       this.userData = user;
     });
   }
-
-  setAmount(value: string) {
-    this.amount = value;
+  sendAmount() {
+    this._dataService.setAmount(this.amount);
   }
+  
 
   selectAmount(value: number) {
-    this.amount = value.toString();
+    this.amount = value;
   }
 
   cancel() {
@@ -39,10 +39,7 @@ export class MoneyDepositComponent implements OnInit {
   }
 
   confirm() {
-    if (this.amount) {
-      // Store the amount in localStorage to pass it to the next component
-      localStorage.setItem('depositAmount', this.amount);
-      this.router.navigate(['/deposit-sure']);
-    }
+  this.sendAmount()
+  this.router.navigate(['/deposit-sure']);
   }
 }

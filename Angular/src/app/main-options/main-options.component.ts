@@ -21,9 +21,9 @@ export class MainOptionsComponent implements OnInit {
 
   ngOnInit(): void {
     this._AuthService.checkToken();
-    console.log('Current user from service:', this._AuthService.currentUser.getValue());
+    // console.log('Current user from service:', this._AuthService.currentUser.getValue());
     this._AuthService.currentUser.subscribe(user => {
-      console.log('User data received:', user);
+      // console.log('User data received:', user);
       this.userData = user;
     });
     this._AuthService.currentAccountData.subscribe(account => {

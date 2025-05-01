@@ -15,7 +15,7 @@ export class RequestDoneComponent {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/another-operation']);
-    }, 3000);
+    }, 5500);
   }
 }
 
