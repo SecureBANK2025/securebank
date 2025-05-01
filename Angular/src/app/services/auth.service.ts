@@ -27,41 +27,32 @@ export class AuthService {
     }
   }
 
+  // getUserIdFromToken(): any {
+  //   const token = localStorage.getItem('token');
+  //   if (!token) return;
+  //     const decoded = jwtDecode<DecodedToken>(token);
+  //     return decoded._id;
+  // }
+
   currentUser = new BehaviorSubject(null);
   currentAccountID = new BehaviorSubject(null);
   currentAccountData = new BehaviorSubject(null);
 
 
-  saveCurrentUser() {
+saveCurrentUser() {
     const token: any = localStorage.getItem('user');
-    const decodedToken = jwtDecode<DecodedToken>(token);
-    // Fetch complete user data using the ID from the token
-    this._HttpClient.get(`${this.hostName}/api/v1/users/${decodedToken._id}`).subscribe({
-      next: (res: any) => {
-        this.currentUser.next(res.data);
-        // console.log(res.data);
-        this.currentAccountID.next(res.data.accounts[0]._id);
-        // console.log(res.data.accounts[0]._id);
-        this.saveCurrentAccountData();
-        localStorage.setItem('accountID', res.data.accounts[0]._id);
-        console.log(res.data.accounts[0]._id + "saved");
-        // this.currentAccountData.next(res);
-        // console.log(res);
-      },
-      error: (err) => {
-        console.error('Error fetching user data:', err);
-        this.logout();
-      }
-    });
+    this.currentUser.next(jwtDecode(token));
   }
 
-  // saveCurrentAccountID() {
+
+  // saveCurrentAccountData() {
   //   const token: any = localStorage.getItem('user');
   //   const decodedToken = jwtDecode<DecodedToken>(token);
   //   // Fetch complete user data using the ID from the token
-  //   this._HttpClient.get(`${this.hostName}/api/v1/auth/chooseAccount/${decodedToken._id}`).subscribe({
+  //   this._HttpClient.get(`${this.hostName}/api/v1/accounts/myAccount/${decodedToken._id}`,).subscribe({
   //     next: (res: any) => {
-  //       this.currentAccountID.next(res.accounts[0]._id);
+  //       this.currentAccountData.next(res.data[0]);
+  //       console.log(res.data[0]);
   //     },
   //     error: (err) => {
   //       console.error('Error fetching user data:', err);
@@ -69,21 +60,6 @@ export class AuthService {
   //     }
   //   });
   // }
-  saveCurrentAccountData() {
-    const token: any = localStorage.getItem('user');
-    const decodedToken = jwtDecode<DecodedToken>(token);
-    // Fetch complete user data using the ID from the token
-    this._HttpClient.get(`${this.hostName}/api/v1/accounts/myAccount/${decodedToken._id}`,).subscribe({
-      next: (res: any) => {
-        this.currentAccountData.next(res.data[0]);
-        console.log(res.data[0]);
-      },
-      error: (err) => {
-        console.error('Error fetching user data:', err);
-        this.logout();
-      }
-    });
-  }
 
   singUp(myData: any): Observable<any> {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/signup`, myData)
@@ -116,4 +92,9 @@ export class AuthService {
     this.currentUser.next(null);
     this._Router.navigate(['/welcome']);
   }
+
+  chooseAccount(type :any):Observable<any>{
+    console.log(type);
+    return this._HttpClient.post(`${this.hostName}${this.routeName}/chooseAccount`, {type} ,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } } )
+}
 }

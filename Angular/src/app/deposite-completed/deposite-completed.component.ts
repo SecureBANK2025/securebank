@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';import { DepositeService } from '../services/deposite.service';
+import { Router } from '@angular/router';
 '../services/auth.service';
 
 @Component({
@@ -9,10 +9,10 @@ import { Router } from '@angular/router';import { DepositeService } from '../ser
   styleUrl: './deposite-completed.component.scss'
 })
 export class DepositeCompletedComponent {
-  constructor(private _DepositeService: DepositeService,private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this._DepositeService.deposite();
+   
   }
 
   noReceipt() {

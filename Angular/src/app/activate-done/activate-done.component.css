@@ -82,7 +82,7 @@ main .container .details .before p {
 main .container .details .lottie-fixed {
   position: absolute;
   top: 200px;
-  right: 465px;
+  right: 460px;
   z-index: 10;
 }
 main .container .details .footer {
