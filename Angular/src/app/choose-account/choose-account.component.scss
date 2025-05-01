@@ -119,3 +119,32 @@ button {
     background-color: white;
     border: 2px solid #4a4aff;
 }
+
+.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+}
+
+.loading {
+    margin-top: 20px;
+    color: #4a4aff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.buttons.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

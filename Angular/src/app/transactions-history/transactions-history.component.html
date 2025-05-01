@@ -2,13 +2,14 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                <h1>{{ userData?.name }}</h1>
+                <h1>{{ userName || userData?.name }}</h1>
+                <h3>{{ accountNumber || 'No account number' }}</h3>
             </div>
-            <button (click)="logout()">Log out</button>
+            <button type="button" (click)="logout()">Log out</button>
         </div>
         <div class="content">
             <h1>Transactions History</h1>
-            
+
             <div class="table-box">
                 <div class="table-row table-head">
                     <div class="table-cell first-cell"><p>Transaction ID</p></div>
@@ -43,10 +44,10 @@
                 </div>
 
             </div>
-            
+
         </div>
         <div class="footer">
-            <button class="back-btn" (click)="back()">Back</button>
+            <button type="button" class="back-btn" (click)="back()">Back</button>
         </div>
     </div>
 </main>

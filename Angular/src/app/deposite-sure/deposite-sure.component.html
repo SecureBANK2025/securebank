@@ -3,14 +3,14 @@
         <p class="confirmation-text">Are you sure that the amount has been entered correctly?</p>
 
         <div class="details-box">
-            <p><strong>Account Number:</strong> {{ accountData?.accountNum}}</p>
+            <p><strong>Account Number:</strong> {{ accountData?.accountNum || 'No account number' }}</p>
             <p><strong>Amount:</strong> {{ amount }} EGP</p>
         </div>
 
         <div class="buttons">
             <button class="back" (click)="back()">Back</button>
             <button class="confirm" (click)="confirm()">Confirm</button>
-        
+
         </div>
     </div>
 </main>

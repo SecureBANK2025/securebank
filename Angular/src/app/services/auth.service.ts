@@ -27,16 +27,9 @@ export class AuthService {
     }
   }
 
-  // getUserIdFromToken(): any {
-  //   const token = localStorage.getItem('token');
-  //   if (!token) return;
-  //     const decoded = jwtDecode<DecodedToken>(token);
-  //     return decoded._id;
-  // }
-
   currentUser = new BehaviorSubject(null);
   currentAccountID = new BehaviorSubject(null);
-  currentAccountData = new BehaviorSubject(null);
+  // currentAccountData = new BehaviorSubject(null);
 
 
 saveCurrentUser() {

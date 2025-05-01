@@ -51,9 +51,6 @@ import { UnfreezeComponent } from './unfreeze/unfreeze.component';
 import { FreezeComponent } from './freeze/freeze.component';
 import { ChooseAccountComponent } from './choose-account/choose-account.component';
 
-
-
-
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: 'welcome', component: WelcomeComponent },
@@ -98,9 +95,6 @@ export const routes: Routes = [
     { path: 'ufreeze', canActivate: [authGuard], component:UnfreezeComponent},
     { path: 'freeze-done', canActivate: [authGuard], component:FreezeDoneComponent},
     { path: 'chooseAccount', canActivate: [authGuard], component:ChooseAccountComponent},
-
-
-
 
 
 

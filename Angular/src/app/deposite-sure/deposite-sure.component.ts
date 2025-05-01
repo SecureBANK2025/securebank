@@ -16,7 +16,7 @@ export class DepositeSureComponent implements OnInit {
   depositAmount: string = '';
   userData: any;
   accountData: any;
-  
+
   //new
   amount: number = 0;
   accountId: string = '';
@@ -30,21 +30,40 @@ export class DepositeSureComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
-    // this._AuthService.currentUser.subscribe(user => {
-    //   this.userData = user;
-    // });
+    this._AuthService.checkToken();
 
-    // this._AuthService.currentAccountData.subscribe(account => {
-    //   this.accountData = account;
-    // });
+    // Refresh all data from the backend
+    this._dataService.refreshAllData();
 
+    // Subscribe to user data from DataService
+    this._dataService.currentUserName.subscribe(name => {
+      if (name) {
+        this.userData = { ...this.userData, name };
+        console.log('Deposite - User name updated:', name);
+      }
+    });
+
+    // Subscribe to account data from DataService
+    this._dataService.currentAccountNumber.subscribe(accountNum => {
+      if (accountNum) {
+        this.accountData = { ...this.accountData, accountNum };
+      }
+    });
+
+    // For transaction data
     this._dataService.currentAmount.subscribe(amount => {
       this.amount = amount;
     });
 
     this._dataService.currentId.subscribe(id => {
       this.accountId = id;
+    });
+
+    // For backward compatibility
+    this._AuthService.currentUser.subscribe(user => {
+      if (user) {
+        this.userData = user;
+      }
     });
   }
 
@@ -58,13 +77,13 @@ export class DepositeSureComponent implements OnInit {
       accountId: this.accountId
     }
     this._transactionsService.deposite(this.data).subscribe({
-      next: (res) => {
+      next: () => {
         this.router.navigate(['/deposite-insert']);
       },
       error: (err) => {
         console.log(err);
       }
     })
-    
+
   }
 }

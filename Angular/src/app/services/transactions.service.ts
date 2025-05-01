@@ -26,7 +26,7 @@ export class transactionsService {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/withdraw`, depositeData , { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } });
   }
 
-  transfere(depositeData:any): Observable<any> {
+  transfer(depositeData:any): Observable<any> {
     return this._HttpClient.post(`${this.hostName}${this.routeName}/transfer`, depositeData , { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } });
   }
 }

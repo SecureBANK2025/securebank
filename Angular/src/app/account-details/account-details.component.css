@@ -120,6 +120,37 @@ main .container .content .details h3:nth-child(even) span {
 main .container .content .details h3:nth-child(odd) {
   font-style: italic;
 }
+main .container .content .no-data {
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+}
+main .container .content .no-data h3 {
+  font-size: 25px;
+  color: #ff4a4a;
+  font-weight: 600;
+}
+main .container .content .error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  font-size: 18px;
+}
+main .container .content .loading {
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+}
+main .container .content .loading p {
+  font-size: 22px;
+  color: #4a4aff;
+  font-weight: 600;
+}
 main .container .footer {
   display: flex;
   justify-content: start;

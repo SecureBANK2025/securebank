@@ -2,10 +2,10 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                <h1>{{ userData?.name }}</h1>
-                <h3>{{ accountData?.accountNum}}</h3>
+                <h1>{{ userName || userData?.name }}</h1>
+                <h3>{{ userAccountNumber || 'No account number' }}</h3>
             </div>
-            <button (click)="logout()">Log out</button>
+            <button type="button" (click)="logout()">Log out</button>
         </div>
         <div class="content">
             <div class="left">
@@ -37,18 +37,17 @@
                         </div>
 
                         <div class="iban">
-                            <label for="iban">Receiver's IBAN:</label>
-                            <input type="text" title="iban" id="iban" [(ngModel)]="iban" name="iban">
+                            <label for="accountNum">Receiver's Account Number:</label>
+                            <input type="text" title="accountNum" id="accountNum" [(ngModel)]="accountNum" name="accountNum">
                         </div>
                     </div>
 
                     <div class="form-row amount-row">
                         <div class="amount">
                             <label for="amount">Amount:</label>
-                            <input type="text" title="amount" id="amount" [(ngModel)]="amount" name="amount">
+                            <input type="text" title="amount" id="amount" [(ngModel)]="amount" name="amount" readonly>
                         </div>
-                        <button (click)="transfer()" class="confirm-btn">Transfer now</button>
-
+                        <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button>
                     </div>
                 </form>
 
@@ -59,7 +58,7 @@
             </div>
         </div>
         <div class="footer">
-            <button (click)="back()">Back</button>
+            <button type="button" (click)="back()">Back</button>
         </div>
     </div>
 </main>
