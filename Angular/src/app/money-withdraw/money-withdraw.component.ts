@@ -37,6 +37,9 @@ export class MoneyWithdrawComponent implements OnInit {
     // Refresh all data from the backend
     this._dataService.refreshAllData();
   }
+  selectAmount(value: number) {
+    this.amount = value;
+  }
 
   sendAmount() {
     this._dataService.setAmount(this.amount);
@@ -46,14 +49,10 @@ export class MoneyWithdrawComponent implements OnInit {
     this.router.navigate(['/mainOptions']);
   }
 
-  selectAmount(value: number) {
-    this.amount = value;
-  }
+  
 
   confirm() {
-    if (this.amount) {
-      this.sendAmount();
-      this.router.navigate(['/withdraw-sure']);
-    }
+    this.sendAmount();
+    this.router.navigate(['/withdraw-sure']);
   }
 }

@@ -1,13 +1,13 @@
 <main>
     <div class="pin-container">
 
-
+        
         <div class="upper">
             <div class="enter-pin">Money Withdraw</div>
             <div class="input-container">
                 <label for="amount">Enter the Amount (Cash)</label>
                 <div class="input-wrapper">
-                    <input type="text" id="amount" [(ngModel)]="amount" placeholder="Enter the amount" readonly>
+                    <input type="text" id="amount" [(ngModel)]="amount" placeholder="Enter the amount" >
                     <span class="currency">EGP</span>
                 </div>
             </div>
@@ -26,6 +26,7 @@
                 <button class="amount-btn" (click)="selectAmount(10000)"><em>10000</em> EGP</button>
             </div>
         </div>
+    
     </div>
 
 

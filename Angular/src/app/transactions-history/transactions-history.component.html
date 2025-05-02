@@ -12,36 +12,41 @@
 
             <div class="table-box">
                 <div class="table-row table-head">
-                    <div class="table-cell first-cell"><p>Transaction ID</p></div>
+                    <div class="table-cell first-cell"><p>Reference Code</p></div>
                     <div class="table-cell"><p>Date</p></div>
                     <div class="table-cell"><p>Type</p></div>
                     <div class="table-cell"><p>Amount</p></div>
                     <div class="table-cell last-cell">
-                        @for(transaction of transactions; track transactions._id){
-                             @if(transaction.type == 'transfer'){
-                                 @if(transaction.direction =='sent'){
-                                         <p>Recipient Account</p>
-                                }@else {<p>Sender Account</p>}  
-                          }
-                        }
+                        <p>Sender Account</p>
+                    </div>
+                    <div class="table-cell last-cell">
+                        <p>Recipient Account</p>
                     </div>
                 </div>
                 @for(transaction of transactions; track transactions._id){
                 <div class="table-row">
-                    <div class="table-cell first-cell"><p>{{ transaction._id|| 'No data found' }}</p></div>
-                    <div class="table-cell"><p>{{ transaction.date || 'No data found' |date}}</p></div>
+                    <div class="table-cell first-cell"><p>{{ transaction.refCode|| 'No data found' }}</p></div>
+                    <div class="table-cell"><p>{{ transaction.date || 'No data found' |egyptTime}}</p></div>
                     <div class="table-cell"><p>{{ transaction.type || 'No data found' }}</p>
+                                            @if(transaction.direction){
                                             <p>{{ transaction.direction  || 'No data found' }}</p>
+                                        }
                     </div>
-                    <div class="table-cell"><p>{{ transaction.amount || 'No data found' |currency }}</p></div>  
+                    <div class="table-cell"><p>{{ transaction.amount || 'No data found' |egyptcurrency }}</p></div>  
                     <div class="table-cell last-cell">
-                        @if(transaction.type == 'transfer'){
-                            @if(transaction.direction =='sent'){
-                                <p>{{ transaction.recipientAccount || ' ' }}</p>
-                           }@else {<p>{{ transaction.senderAccount || ' ' }}</p>} 
-                        
+                        @if(transaction.type=='transfer'){
+                        <p>{{ transaction.senderAccount || 'You sent' }}</p> 
+                        }@else {
+                            <p>{{''}}</p>
                         }
                     </div>
+                    <div class="table-cell last-cell">
+                        @if(transaction.type=='transfer'){
+                            <p>{{ transaction.recipientAccount || 'You recieved' }}</p> 
+                        }@else {
+                            <p>{{''}}</p>
+                        }
+                    </div>     
                 </div>
                 }
            

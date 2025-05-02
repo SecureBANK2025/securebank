@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../services/data.service';
 import { transactionsService } from '../services/transactions.service';
+import { EgyptTimePipe } from '../pipes/egypt-time.pipe';
+import { EgyptcurrencyPipe } from '../pipes/egyptcurrency.pipe';
 
 @Component({
   selector: 'app-account-details',
-  imports: [CommonModule],
+  imports: [CommonModule,EgyptTimePipe,EgyptcurrencyPipe],
   templateUrl: './transactions-history.component.html',
   styleUrl: './transactions-history.component.scss'
 })
