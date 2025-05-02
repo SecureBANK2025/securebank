@@ -51,17 +51,15 @@
     flex-direction: row;
   }
   
-  // Divider
   .divider {
-    position: absolute;
-    top: 29%;
+    position: relative;
+  margin-top: 100px;
     left: 60%;
     width: 2px;
     height: 440px;
     background: white;
     border-radius: 30px;
   }
-  
   // Pin Container
   .pin-container {
     background: white;

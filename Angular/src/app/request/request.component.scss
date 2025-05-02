@@ -152,17 +152,17 @@ footer p {
     margin-bottom: 90px;
 }
 .divider {
-    position: absolute;
-    top: 29%;
+    position: relative;
+  margin-top: 100px;
     left: 60%;
     width: 2px;
     height: 440px;
     background: white;
     border-radius: 30px;
-}
+  }
 .input-container {
     display: flex;
-    flex-direction: row; /* جنب بعض */
+    flex-direction: row; 
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
@@ -171,7 +171,7 @@ footer p {
 
 .input-wrapper {
     display: flex;
-    flex-direction: column; /* الليبل فوق الإنبت */
+    flex-direction: column; 
     align-items: flex-start;
     width: 220px;
 }
@@ -185,7 +185,7 @@ label {
 
 input {
     width: 100%;
-    height: 40px; /* هنا خففت الإنبوت */
+    height: 40px; 
     border: 2px solid #4a4aff;
     border-radius: 8px;
     background: white;

@@ -24,7 +24,7 @@ export class CardServicesComponent {
   }
 
   back() {
-    this._router.navigate(['/certificates']);
+    this._router.navigate(['/more']);
   }
   activate() {
     this._router.navigate(['/activate'])
