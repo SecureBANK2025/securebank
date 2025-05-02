@@ -15,7 +15,7 @@ import { DataService } from '../services/data.service';
 export class MoneyTransfer1Component implements OnInit {
   transferForm = new FormGroup ({
     bank: new FormControl(null, [Validators.required]),
-    accountNum: new FormControl(null, [Validators.required,]),
+    accountNum: new FormControl(null, [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
   userData: any;
@@ -80,21 +80,12 @@ export class MoneyTransfer1Component implements OnInit {
   }
 
   transfer() {
-    // if (!this.validateForm()) {
-    //   console.log('Form validation failed');
-    //   return;
-    // }
-
-    // Store transfer data in DataService
+   
+   
     this._DataService.setAmount(this.amount);
     // -----------------------------------------------------------> bahy
-    this._DataService.setFormdata(this.transferForm.value)
+    this._DataService.setFormdata(this.transferForm.value.accountNum)
     console.log(this.transferForm.value)
-
-    // Store additional transfer data in localStorage for now
-    // In a real implementation, you would add these to DataService
-    // localStorage.setItem('recipientAccountNum', this.accountNum);
-    // localStorage.setItem('recipientBank', this.bank);
 
     this.router.navigate(['/moneyTransfer2']);
   }
