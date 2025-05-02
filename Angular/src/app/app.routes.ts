@@ -50,6 +50,8 @@ import { FreezeDoneComponent } from './freeze-done/freeze-done.component';
 import { UnfreezeComponent } from './unfreeze/unfreeze.component';
 import { FreezeComponent } from './freeze/freeze.component';
 import { ChooseAccountComponent } from './choose-account/choose-account.component';
+import { UnreezeDoneComponent } from './unfreeze-done/unfreeze-done.component';
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -92,9 +94,10 @@ export const routes: Routes = [
     { path: 'request-done', canActivate: [authGuard], component:RequestDoneComponent},
     { path: 'request-finger', canActivate: [authGuard], component:RequestFingerComponent},
     { path: 'freeze', canActivate: [authGuard], component:FreezeComponent},
-    { path: 'ufreeze', canActivate: [authGuard], component:UnfreezeComponent},
+    { path: 'unfreeze', canActivate: [authGuard], component:UnfreezeComponent},
     { path: 'freeze-done', canActivate: [authGuard], component:FreezeDoneComponent},
     { path: 'chooseAccount', canActivate: [authGuard], component:ChooseAccountComponent},
+    { path: 'unfreeze-done', canActivate: [authGuard], component:UnreezeDoneComponent},
 
 
 
