@@ -15,9 +15,9 @@
 
                 <form [formGroup]="transferForm">
                     <div class="form-row">
-                        <div class="bank">
+                        <!-- <div class="bank">
                             <label for="bank">Receiver's Bank:</label>
-                            <select id="bank"  name="bank" formControlName="bank">
+                            <select id="bank" name="bank" formControlName="bank">
                                 <option value="" disabled selected>Select Bank</option>
                                 <option value="Banque Misr">Banque Misr</option>
                                 <option value="Banque du Caire">Banque du Caire</option>
@@ -35,23 +35,28 @@
                                 <option value="Al Ahli Bank of Kuwait (ABK)">Al Ahli Bank of Kuwait (ABK)</option>
                                 <option value="Union National Bank">Union National Bank</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="iban">
                             <label for="accountNum">Receiver's Account Number:</label>
-                            <input type="text" title="accountNum" id="accountNum"  name="accountNum" formControlName="accountNum">
+                            <input type="text" title="accountNum" id="accountNum" name="accountNum"
+                                formControlName="accountNum">
+                                @if ( !formValid ) {
+                                <p class="error-message">You cannot transfer to your own account</p>
+                                }
+                                <!-- <div class="form-row amount-row"> -->
+                                    <div class="amount">
+                                        <label for="amount">Amount:</label>
+                                        <input type="text" title="amount" id="amount" name="amount" formControlName="amount">
+                                    </div>
+                                    <!-- <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button> -->
+                                    <button type="button" (click)="transfer()" class="confirm-btn">Transfer now</button>
+            
+                                <!-- </div> -->
                         </div>
+
                     </div>
 
-                    <div class="form-row amount-row">
-                        <div class="amount">
-                            <label for="amount">Amount:</label>
-                            <input type="text" title="amount" id="amount"  name="amount" formControlName="amount" >
-                        </div>
-                        <!-- <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button> -->
-                        <button type="button" (click)="transfer()" class="confirm-btn" >Transfer now</button>
-
-                    </div>
                 </form>
 
             </div>

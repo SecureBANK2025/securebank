@@ -3,19 +3,19 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormsModule ,FormControl,ReactiveFormsModule ,Validators } from '@angular/forms';
+import { FormGroup, FormsModule, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-money-transfer1',
-  imports: [numPadComponent, CommonModule, FormsModule,ReactiveFormsModule],
+  imports: [numPadComponent, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './money-transfer1.component.html',
   styleUrl: './money-transfer1.component.scss'
 })
 export class MoneyTransfer1Component implements OnInit {
-  transferForm = new FormGroup ({
+  transferForm = new FormGroup({
     bank: new FormControl(null, [Validators.required]),
-    accountNum: new FormControl(null, [Validators.required,]),
+    accountNum: new FormControl(null, [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
   userData: any;
@@ -26,7 +26,7 @@ export class MoneyTransfer1Component implements OnInit {
   accountId: string = '';
   userName: string = '';
   userAccountNumber: string = '';
-  formValid: boolean = false;
+  formValid: boolean = true;
 
   constructor(
     private _AuthService: AuthService,
@@ -35,6 +35,8 @@ export class MoneyTransfer1Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.formValid = true;
+
     this._AuthService.checkToken();
 
     // Refresh all data from the backend
@@ -80,22 +82,31 @@ export class MoneyTransfer1Component implements OnInit {
   }
 
   transfer() {
-    // if (!this.validateForm()) {
-    //   console.log('Form validation failed');
-    //   return;
-    // }
+    if (this.userAccountNumber !== this.transferForm.value.accountNum!) {
+      // if (!this.validateForm()) 
+      //   console.log('Form validation failed');
+      //   return;
+      // }
 
-    // Store transfer data in DataService
-    this._DataService.setAmount(this.amount);
-    // -----------------------------------------------------------> bahy
-    this._DataService.setFormdata(this.transferForm.value)
-    console.log(this.transferForm.value)
+      console.log(this.accountNum);
+      console.log(this.userAccountNumber);
+      console.log(this.transferForm.value);
+      // Store transfer data in DataService
+      this._DataService.setAmount(this.amount);
+      // -----------------------------------------------------------> bahy
+      this._DataService.setFormdata(this.transferForm.value)
+      // console.log(this.transferForm.value)
 
-    // Store additional transfer data in localStorage for now
-    // In a real implementation, you would add these to DataService
-    // localStorage.setItem('recipientAccountNum', this.accountNum);
-    // localStorage.setItem('recipientBank', this.bank);
-
-    this.router.navigate(['/moneyTransfer2']);
+      // Store additional transfer data in localStorage for now
+      // In a real implementation, you would add these to DataService
+      // localStorage.setItem('recipientAccountNum', this.accountNum);
+      // localStorage.setItem('recipientBank', this.bank);
+      this.formValid = true;
+      this.router.navigate(['/moneyTransfer2']);
+    }
+    else {
+      this.formValid = false;
+      // alert('You cannot transfer to your own account');
+    }
   }
 }
