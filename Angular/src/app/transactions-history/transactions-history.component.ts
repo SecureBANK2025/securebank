@@ -3,25 +3,29 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../services/data.service';
+import { transactionsService } from '../services/transactions.service';
+import { EgyptTimePipe } from '../pipes/egypt-time.pipe';
+import { EgyptcurrencyPipe } from '../pipes/egyptcurrency.pipe';
 
 @Component({
   selector: 'app-account-details',
-  imports: [CommonModule],
+  imports: [CommonModule,EgyptTimePipe,EgyptcurrencyPipe],
   templateUrl: './transactions-history.component.html',
   styleUrl: './transactions-history.component.scss'
 })
 export class TransactionsHistoryComponent implements OnInit {
-  userData: any;
-  accountData: any;
+  
+  userName :any;
+  accountNumber:any;
+  recipientAccountNum:any;
 
-  // Properties for dynamic data
-  userName: string = '';
-  accountNumber: string = '';
+  transactions:any;
 
   constructor(
     private _AuthService: AuthService,
     private router: Router,
-    private _DataService: DataService
+    private _DataService: DataService,
+    private _transactionsService: transactionsService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +37,6 @@ export class TransactionsHistoryComponent implements OnInit {
     // Subscribe to user data from DataService
     this._DataService.currentUserName.subscribe(name => {
       this.userName = name;
-      console.log('Transactions History - User name updated:', name);
     });
 
     // Subscribe to account data from DataService
@@ -42,9 +45,13 @@ export class TransactionsHistoryComponent implements OnInit {
     });
 
     // For backward compatibility
-    this._AuthService.currentUser.subscribe(user => {
-      this.userData = user;
-    });
+    // this._AuthService.currentUser.subscribe(user => {
+    //   this.userData = user;
+    // });
+
+    this.getAll();
+   
+
   }
 
   logout() {
@@ -53,5 +60,16 @@ export class TransactionsHistoryComponent implements OnInit {
 
   back() {
     this.router.navigate(['/mainOptions']);
+  }
+
+  getAll(){
+    this._transactionsService.getAllTransacions().subscribe({
+      next: (res) => {
+        this.transactions = res.data
+      },
+      error: (err) => {
+        console.log('Transfer error:', err);
+      }
+    })
   }
 }

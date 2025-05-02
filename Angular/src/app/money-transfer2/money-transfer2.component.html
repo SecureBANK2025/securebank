@@ -7,13 +7,13 @@
             <div class="from">
                 <h3>Transferring From:<br><span>{{ userAccountNumber || 'No account number' }}</span></h3>
                 <h3>BTBank</h3>
-                <h3>Sent Amount: <span>{{transferData.amount}}</span> <span>EGP</span></h3>
+                <h3>Sent Amount: <span>{{formData.amount}}</span> <span>EGP</span></h3>
             </div>
             <i class="ti ti-transfer"></i>
             <div class="to">
-                <h3>Transferred To:<br><span>{{transferData.accountNum}}</span></h3>
-                <h3>{{transferData.bank}}</h3>
-                <h3>Received Amount:<span class="currency">{{transferData.amount}}</span><span class="currency">EGP</span></h3>
+                <h3>Transferred To:<br><span>{{formData.accountNum}}</span></h3>
+                <h3>{{formData.bank}}</h3>
+                <h3>Received Amount:<span class="currency">{{formData.amount}}</span><span class="currency">EGP</span></h3>
             </div>
         </div>
         <div class="buttons">

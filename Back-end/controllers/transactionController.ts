@@ -4,6 +4,11 @@ import usersModel from '../Models/usersModel';
 import AccountModel from '../Models/accountModel';
 import customErrors from '../Utils/Errors';
 import asyncHandler from "express-async-handler";
+import { DateTime } from "luxon";
+
+function generateReferenceCode(): string {
+    return Math.floor(1000000 + Math.random() * 9000000).toString();
+}
 
 export const depositMoney = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<any> => {
     const { amount , accountId } = req.body;
@@ -36,6 +41,7 @@ export const depositMoney = asyncHandler(async (req: any, res: Response, next: N
 
     const transaction = await TransactionModel.create({
         userId,
+        refCode:generateReferenceCode(),
         type: "deposit",
         amount,
         date: new Date(),
@@ -78,6 +84,7 @@ export const withdrawMoney = asyncHandler(async (req: any, res: Response, next: 
 
      const transaction = await TransactionModel.create({
         userId,
+        refCode:generateReferenceCode(),
         type: "withdraw",
         amount,
         date: new Date(),
@@ -96,7 +103,7 @@ export const withdrawMoney = asyncHandler(async (req: any, res: Response, next: 
 export const transferMoney = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
     const { amount , accountId , accountNum } = req.body;
     const userId = req.user?._id;
-  
+
     if (!userId ||!amount || !accountNum|| amount <= 0) {
         res.status(400).json({ message: "Invalid request parameters" });
         return;
@@ -125,24 +132,27 @@ export const transferMoney = asyncHandler(async (req: any, res: Response, next: 
     await senderAccount.save();
     await recipientAccount.save();
 
+    const egyptTime = DateTime.now().setZone("Africa/Cairo").toJSDate();
+   
      await TransactionModel.create([
         {
+            refCode: generateReferenceCode(),
             userId: senderAccount.userId,
             type: "transfer",
             direction:"sent",
             amount: amount,  
-            date: new Date(),
-            receiverId: recipientAccount.userId, 
+            date: egyptTime,
+            recipientAccount: recipientAccount.accountNum, 
             
         },
         {
+            refCode: generateReferenceCode(),
             userId: recipientAccount.userId,
             type: "transfer",
             direction:"received",
             amount: amount,  
-            date: new Date(),
-            receiverId: senderAccount.userId, 
-            
+            date: egyptTime,
+            senderAccount: senderAccount.accountNum, 
         }
     ]);
 
