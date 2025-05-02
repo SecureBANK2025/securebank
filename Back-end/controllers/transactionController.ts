@@ -121,6 +121,11 @@ export const transferMoney = asyncHandler(async (req: any, res: Response, next: 
         return;
     }
 
+    if(senderAccount.accountNum == accountNum){
+        res.status(404).json({ message: "invalid transfer" });
+        return;
+    }
+
      if (senderAccount.balance! < amount) {
         res.status(400).json({ message: "Insufficient balance" });
         return;
