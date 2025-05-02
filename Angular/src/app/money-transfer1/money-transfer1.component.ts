@@ -93,8 +93,8 @@ export class MoneyTransfer1Component implements OnInit {
 
     // Store additional transfer data in localStorage for now
     // In a real implementation, you would add these to DataService
-    localStorage.setItem('recipientAccountNum', this.accountNum);
-    localStorage.setItem('recipientBank', this.bank);
+    // localStorage.setItem('recipientAccountNum', this.accountNum);
+    // localStorage.setItem('recipientBank', this.bank);
 
     this.router.navigate(['/moneyTransfer2']);
   }
