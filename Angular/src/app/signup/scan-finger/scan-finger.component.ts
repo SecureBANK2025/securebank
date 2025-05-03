@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './scan-finger.component.scss'
 })
 export class ScanFingerComponent {
-
+  
 }
