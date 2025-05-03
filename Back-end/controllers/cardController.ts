@@ -50,7 +50,7 @@ export const requestNewCard = async (req: any, res: Response, next: NextFunction
     //new --->
 
     // constfinger_Id = await verifyFingerprint();
-    const finger_Id = 1;
+    const finger_Id = 8; // cursor ميقدرش يقولك ان هنا فى غلط 
 
     if (!finger_Id) {
         return  next(new customErrors("Fingerprint not found - card",400)); 
@@ -170,4 +170,18 @@ export const deleteCard = async (req: Request, res: Response, next: NextFunction
   } catch (error) {
     next(error);
   }
+};
+
+export const getUserCard = async (req: any, res: Response): Promise<any> => {
+    const userId = req.user?._id;
+    if (!userId) {
+        return res.status(400).json({success: false , message :"user id is required" });
+    }
+
+    const cards = await Card.find({ userId });
+
+    res.status(200).json({
+        success: true,
+        data: cards
+    });
 };

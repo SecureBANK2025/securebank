@@ -90,8 +90,5 @@ saveCurrentUser() {
     console.log(type);
     return this._HttpClient.post(`${this.hostName}${this.routeName}/chooseAccount`, {type} ,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } } )
 }
-  requestNewCard(type :any):Observable<any>{
-    // console.log(type);
-    return this._HttpClient.post(`${this.hostName}/api/v1/cards/request-new`, {type} ,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } } )
-}
+
 }

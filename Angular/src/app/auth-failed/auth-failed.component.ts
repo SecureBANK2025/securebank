@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; 
+import { ErrorService } from '../services/errorMessage.service';
 
 @Component({
   selector: 'app-auth-failed',
@@ -10,28 +11,20 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AuthFailedComponent implements OnInit {
+  errorMessage:string = '';
   constructor(
     private _router: Router,
-    private _route: ActivatedRoute
+    private _Error: ErrorService
   ) {}
 
   ngOnInit(): void {
-    // Get the 'from' query parameter to determine where to navigate back to
-    this._route.queryParams.subscribe(params => {
-      const from = params['from'];
       
-      setTimeout(() => {
-        // Check if the current route is still 'auth-failed'
-        if (this._router.url === '/auth-failed') {
-          if (from === 'signup') {
-            // If we came from signup, go back to scan finger
-            this._router.navigate(['/signup/scanFinger']);
-          } else {
-            // Default behavior: go back to login
-            this._router.navigate(['/login/loginFinger']);
-          }
-        }
-      }, 3500);
+      this._Error.currentError.subscribe(error => {
+      this.errorMessage = error;
     });
+  }
+
+  back(){
+    this._router.navigate(['/card-services']);
   }
 }

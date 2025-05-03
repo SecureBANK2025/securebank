@@ -12,21 +12,11 @@
                 <div class="input-wrapper">
                     <label for="password">Create New Password</label>
                     <input type="password" id="password" formControlName="password">
-                    <div *ngIf="cardForm.get('password')?.touched && cardForm.get('password')?.invalid" class="error-message">
-                        <span *ngIf="cardForm.get('password')?.errors?.['required']">Password is required</span>
-                        <span *ngIf="cardForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</span>
-                    </div>
                 </div>
 
                 <div class="input-wrapper">
                     <label for="confirmPassword">Confirm Password</label>
                     <input type="password" id="confirmPassword" formControlName="confirmPassword">
-                    <div *ngIf="cardForm.get('confirmPassword')?.touched && cardForm.get('confirmPassword')?.invalid" class="error-message">
-                        <span *ngIf="cardForm.get('confirmPassword')?.errors?.['required']">Confirm password is required</span>
-                    </div>
-                    <div *ngIf="cardForm.errors?.['passwordMismatch'] && cardForm.get('confirmPassword')?.touched" class="error-message">
-                        Passwords do not match
-                    </div>
                 </div>
             </div>
         </form>

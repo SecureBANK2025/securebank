@@ -3,8 +3,11 @@ import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Location } from '@angular/common';
+// import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CardService } from '../services/card.service';
+import { ErrorService } from '../services/errorMessage.service';
+
 
 @Component({
   selector: 'app-money-deposit',
@@ -13,75 +16,46 @@ import { Location } from '@angular/common';
   styleUrl: './request.component.scss'
 })
 export class RequestComponent implements OnInit {
-  cardForm: FormGroup;
-  userData: any;
-  cardData: any = {};
+ 
+  // ينعل ميتين ام cursor 
+
+  errorMessage: string = '';
 
   constructor(
     private _router: Router,
     private _AuthService: AuthService,
-    private location: Location,
-    private fb: FormBuilder
-  ) {
-    this.cardForm = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]]
-    }, {
-      validators: this.passwordMatchValidator
-    });
-  }
+    private _CardService: CardService,
+    private _ErrorService: ErrorService,
 
-  // Custom validator to check if password and confirmPassword match
-  passwordMatchValidator(form: FormGroup) {
-    const password = form.get('password')?.value;
-    const confirmPassword = form.get('confirmPassword')?.value;
+  ) {}
 
-    if (password === confirmPassword) {
-      return null;
-    }
-
-    return { passwordMismatch: true };
-  }
+  cardForm = new FormGroup({
+    password: new FormControl(null, [Validators.required ,Validators.min(6)]),
+    confirmPassword: new FormControl(null, [Validators.required,Validators.min(6)])
+  })
 
   ngOnInit(): void {
-    this._AuthService.currentUser.subscribe(user => {
-      this.userData = user;
-      console.log('User data loaded:', this.userData);
-    });
+    this._AuthService.checkToken();
   }
-
-
-
   back() {
-    this.location.back();
+    // this.location.back(); بطلناها يمعلم 
+    this._router.navigate(['/card-services']);
   }
 
   confirm() {
-    if (this.cardForm.invalid) {
-      // Mark all fields as touched to trigger validation messages
-      this.cardForm.markAllAsTouched();
-      return;
-    }
-
-    // Update cardData with form values
-    // The userId will be extracted from the JWT token on the server side
-    this.cardData = {
-      password: this.cardForm.value.password,
-      confirmPassword: this.cardForm.value.confirmPassword,
-      userId: this.userData._id
-    };
-    console.log(this.cardData);
-
     this._router.navigate(['/finger']);
-
-    this._AuthService.requestNewCard(this.cardData).subscribe({
+    this._CardService.requestNewCard(this.cardForm.value).subscribe({
       next: (res) => {
         console.log(res);
         this._router.navigate(['/request-done']);
       },
       error: (err) => {
         console.log(err);
-        this._router.navigate(['/auth-failed']);
+        this.errorMessage = err.error?.message || 'Something went wrong';
+        console.log(this.errorMessage);
+        //error service==> i set error message and we will show the error message in auth-failed
+        this._ErrorService.setError(this.errorMessage);
+        this._router.navigate(['/authFailed']);
       }
     })
   }
