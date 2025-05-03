@@ -212,6 +212,7 @@ main .content form .form-row {
   gap: 20px;
   width: 100%;
   margin-bottom: 50px;
+  margin-left: 90px;
 }
 main .content form .form-row > div {
   flex: 1;
@@ -223,7 +224,7 @@ main .content form .form-row > div label {
 }
 main .content form .form-row > div input,
 main .content form .form-row > div select {
-  width: 100%;
+  width: 75%;
   margin: 10px;
   padding-left: 10px;
   height: 60px;
@@ -256,7 +257,6 @@ main .content form .form-row.amount-row .amount input {
   padding-left: 50px;
   height: 60px;
   border-radius: 10px;
-  border: solid 1px rgba(0, 255, 51, 0.4862745098);
   background-color: #fafafa;
   box-shadow: 0px 3px 3px rgba(180, 180, 180, 0.75);
   font-weight: 900;
@@ -331,7 +331,7 @@ main .numpad-container ::ng-deep app-num-pad .numpad .key:active {
 
 .confirm-btn {
   height: 55px;
-  margin-left: 175px;
+  margin-left: 100px;
   margin-top: 20px;
   padding: 0 60px;
   font-size: 20px;
