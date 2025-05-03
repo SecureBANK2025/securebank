@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-view-available',
@@ -12,7 +14,8 @@ import { AuthService } from '../services/auth.service';
 export class CardServicesComponent {
   constructor(
     private _AuthService: AuthService,
-    private _router: Router
+    private _router: Router,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +27,7 @@ export class CardServicesComponent {
   }
 
   back() {
-    this._router.navigate(['/certificates']);
+    this.location.back();
   }
   activate() {
     this._router.navigate(['/activate'])
