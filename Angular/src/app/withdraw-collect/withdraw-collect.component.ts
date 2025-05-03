@@ -16,7 +16,7 @@ export class WithdrawCollectComponent {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/withdraw-completed']);
-    }, 5500);
+    }, 3500);
   }
 }
 

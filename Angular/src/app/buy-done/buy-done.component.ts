@@ -15,7 +15,7 @@ export class BuyDoneComponent {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/another-operation']);
-    }, 5500);
+    }, 4700);
   }
 }
 

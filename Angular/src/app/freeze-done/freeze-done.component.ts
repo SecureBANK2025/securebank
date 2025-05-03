@@ -15,7 +15,7 @@ export class FreezeDoneComponent {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/another-operation']);
-    }, 5500);
+    }, 3500);
   }
 }
 
