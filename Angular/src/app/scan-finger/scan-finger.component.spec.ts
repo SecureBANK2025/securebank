@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestFingerComponent } from './request-finger.component';
+import { ScanFingerComponent } from './scan-finger.component';
 
-describe('RequestFingerComponent', () => {
-  let component: RequestFingerComponent;
-  let fixture: ComponentFixture<RequestFingerComponent>;
+describe('ScanFingerComponent', () => {
+  let component: ScanFingerComponent;
+  let fixture: ComponentFixture<ScanFingerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RequestFingerComponent]
+      imports: [ScanFingerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RequestFingerComponent);
+    fixture = TestBed.createComponent(ScanFingerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

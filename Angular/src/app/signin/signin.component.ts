@@ -34,7 +34,8 @@ export class SigninComponent implements OnInit {
 
 
   log_in() {
-    console.log("login works");
+    // this._router.navigate(['/finger']);
+    // console.log("login works");
     this._AuthService.login().subscribe({
 
       next: (res) => {

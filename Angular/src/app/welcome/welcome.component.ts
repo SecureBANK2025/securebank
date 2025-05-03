@@ -16,4 +16,7 @@ export class WelcomeComponent {
     this._router.navigate(['/home']);
     // const atForm1:Boolean = true;
   }
+  navToFinger(){
+    this._router.navigate(['/finger']);
+  }
 }
