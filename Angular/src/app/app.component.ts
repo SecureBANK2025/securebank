@@ -12,18 +12,11 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
   animations: [
     trigger('routeAnimations', [
       transition('* <=> *', [
-        query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
-        group([
-          query(':leave', [
-            animate('0.4s ease-in-out', style({ opacity: 0 }))
-          ], { optional: true }),
-          query(':enter', [
-            style({ opacity: 0 }),
-            animate('0.4s 0.4s ease-in-out', style({ opacity: 1 })) // delay 0.15s
-          ], { optional: true })
-        ])
+        style({ opacity: -2 }),
+        animate('0.55s ease-in-out', style({ opacity: 1 }))
       ])
-    ])    
+    ])
+    
   ]
 })
 export class AppComponent {
