@@ -48,7 +48,7 @@ import { FreezeDoneComponent } from './freeze-done/freeze-done.component';
 import { UnfreezeComponent } from './unfreeze/unfreeze.component';
 import { FreezeComponent } from './freeze/freeze.component';
 import { ChooseAccountComponent } from './choose-account/choose-account.component';
-import { UnreezeDoneComponent } from './unfreeze-done/unfreeze-done.component';
+import { UnfreezeDoneComponent } from './unfreeze-done/unfreeze-done.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -92,6 +92,7 @@ export const routes: Routes = [
     { path: 'freeze-done', canActivate: [authGuard], component: FreezeDoneComponent },
     { path: 'chooseAccount', canActivate: [authGuard], component: ChooseAccountComponent },
     { path: 'finger', component: fingerComponent },
+    { path: 'unfreeze-done' , component:UnfreezeDoneComponent },
 
 
 
