@@ -25,4 +25,7 @@ export class CardService {
     console.log(type);
     return this._HttpClient.patch(`${this.hostName}${this.routeName}/toggleCardStatus`, type, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
+  getCardData(): Observable<any> {
+    return this._HttpClient.get(`${this.hostName}${this.routeName}/getCard`, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
 }

@@ -13,7 +13,7 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
     trigger('routeAnimations', [
       transition('* <=> *', [
         style({ opacity: -2 }),
-        animate('0.6s ease-in-out', style({ opacity: 1 }))
+        animate('0.4s ease-in-out', style({ opacity: 1 }))
       ])
     ])
     

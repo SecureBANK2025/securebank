@@ -138,6 +138,10 @@ main .container .cards-container .actions button {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
+main .container .cards-container .actions button[style*="--highlighted: 1"] {
+  background-color: rgba(176, 176, 255, 0.1098039216);
+  color: #b0b0ff;
+}
 main .container .cards-container .actions button:active {
   background-color: #4a4aff;
   color: #ffffff;
