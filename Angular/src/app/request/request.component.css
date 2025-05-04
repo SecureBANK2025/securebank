@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -56,7 +55,7 @@ footer {
 
 footer .language-btn {
   position: relative;
-  padding: 0px 65px;
+  padding: 0px 55px;
   border: none;
   transition: background-color 0.3s;
   font-size: 35px;
@@ -66,14 +65,14 @@ footer .language-btn {
 }
 
 footer .confirm {
-  left: 930px;
+  left: 940px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
   background-color: #4f46e5;
   color: #ffffff;
 }
 
 footer .cancel {
-  left: -20px;
+  left: -75px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
   background-color: #ffffff;
   color: #4f46e5;
@@ -158,8 +157,8 @@ footer p {
 }
 
 .divider {
-  position: absolute;
-  top: 29%;
+  position: relative;
+  margin-top: 100px;
   left: 60%;
   width: 2px;
   height: 440px;
@@ -169,7 +168,7 @@ footer p {
 
 .input-container {
   display: flex;
-  flex-direction: row; /* جنب بعض */
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
@@ -178,7 +177,7 @@ footer p {
 
 .input-wrapper {
   display: flex;
-  flex-direction: column; /* الليبل فوق الإنبت */
+  flex-direction: column;
   align-items: flex-start;
   width: 220px;
 }
@@ -192,7 +191,7 @@ label {
 
 input {
   width: 100%;
-  height: 40px; /* هنا خففت الإنبوت */
+  height: 40px;
   border: 2px solid #4a4aff;
   border-radius: 8px;
   background: white;

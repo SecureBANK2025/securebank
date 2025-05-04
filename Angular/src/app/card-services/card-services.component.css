@@ -131,6 +131,7 @@ main .container .cards-container .actions button {
   height: 60px;
   font-size: 22px;
   font-weight: 600;
+  position: relative;
   border: none;
   border-radius: 15px;
   font-style: italic;

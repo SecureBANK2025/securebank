@@ -7,9 +7,9 @@
         </div>
 
         <div class="buttons" [class.disabled]="loading">
-            <button type="button" class="back" (click)="savings()" [disabled]="loading">Savings</button>
-            <button type="button" class="confirm" (click)="current()" [disabled]="loading">Current</button>
-            <button type="button" class="confirm" (click)="foreignCurrency()" [disabled]="loading">Foreign Currency</button>
+            <button type="button" class="saving" (click)="savings()" [disabled]="loading">Savings</button>
+            <button type="button" class="current" (click)="current()" [disabled]="loading">Current</button>
+            <button type="button" class="currency" (click)="foreignCurrency()" [disabled]="loading">Foreign <br> Currency </button>
         </div>
 
         <div *ngIf="loading" class="loading">

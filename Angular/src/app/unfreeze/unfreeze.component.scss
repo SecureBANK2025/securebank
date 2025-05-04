@@ -51,10 +51,9 @@
     flex-direction: row;
   }
   
-  // Divider
   .divider {
-    position: absolute;
-    top: 29%;
+    position: relative;
+  margin-top: 100px;
     left: 60%;
     width: 2px;
     height: 440px;
@@ -91,7 +90,7 @@
     margin-bottom: 20px;
   
     &.red {
-      color: red;
+      color:#4a4aff;
     }
   }
   
@@ -106,16 +105,17 @@
     width: 350px;
     border-radius: 20px;
     margin-bottom: 10px;
+    opacity: 60%;
   }
   
   // Warning Box
   .warning-box {
-    background: #ffe5e5;
-    color: red;
-    border: 0px solid red;
+    background:  #4a4aff19;;
+    color:#4a4aff;
+    border: 0px solid #4a4aff;
     padding: 10px 15px;
     border-radius: 10px;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
     text-align: center;
     margin-bottom:13px;
@@ -148,7 +148,7 @@
   input {
     width: 100%;
     height: 40px;
-    border: 2px solid red;
+    border: 2px solid #4a4aff;
     border-radius: 8px;
     background: white;
     padding: 5px 10px;
@@ -164,27 +164,27 @@ footer {
     padding: 20px;
 }
 footer .language-btn {
-    position: relative;
-    padding: 0px 65px;
-    border: none;
-    transition: background-color 0.3s;
-    font-size: 35px;
-    font-weight: 600;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  padding: 0px 55px;
+  border: none;
+  transition: background-color 0.3s;
+  font-size: 35px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
 }
 
 footer .confirm {
-    left: 930px;
-    border-radius: 9999rem 9999rem 9999rem 9999rem;
-    background-color: #ff0000;
-    color: #ffffff;
+  left: 940px;
+  border-radius: 9999rem 9999rem 9999rem 9999rem;
+  background-color: #4f46e5;
+  color: #ffffff;
 }
 footer .cancel {
-    left: -20px;
-    border-radius: 9999rem 9999rem 9999rem 9999rem;
-    background-color: #ffffff;
-    color: #4f46e5;
+  left: -75px;
+  border-radius: 9999rem 9999rem 9999rem 9999rem;
+  background-color: #ffffff;
+  color: #4f46e5;
 }
 footer p {
     font-size: 0.9rem;
@@ -193,7 +193,7 @@ footer p {
 .language-btn.confirm:active {
     background: #ffffff;
     transition: 50ms;
-    color: #ff4a4a;
+    color:  #4a4aff;
 }
 
 .language-btn.cancel:active {
@@ -202,7 +202,6 @@ footer p {
     color: #ffffff;
 }
   
-  // Numpad Section
   .numpad-container {
     display: grid;
     place-items: center;

@@ -1,8 +1,8 @@
 // Define color variables for easy theme adjustments
 $bg-color: #22222200;
 $key-color: #44444400;
-$key-hover: #666;
-$key-active: #888;
+$key-hover: hsl(0, 56%, 50%);
+$key-active: #4a4aff;
 $text-color: #fff;
 
 // Style the body to center the keyboard on the screen
@@ -67,13 +67,13 @@ body {
     // box-shadow: 0 5px 5px rgba(0, 0, 0, 0.553);
     background: $key-color;
     color: $text-color;
-    border: solid 1px $key-active ;
+    border: solid 1px #a9a9a9 ;
     padding: 15px 0; // Vertical padding for key height
     font-size: 25px;
     font-weight: 900;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.2s ease-in-out; // Smooth transition on hover/active
+    transition: background 0.1s ease-in-out; // Smooth transition on hover/active
     text-align:center;
     line-height: 10px;
     // text-justify:distribute;
@@ -85,7 +85,7 @@ body {
     white-space: nowrap; // Keep text in a single line
 
     // Change background on hover
-    &:hover {
+    &:active {
         background: $key-hover;
     }
 

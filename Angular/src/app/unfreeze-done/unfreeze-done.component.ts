@@ -4,18 +4,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-certificate-done',
   imports: [],
-  templateUrl: './buy-done.component.html',
-  styleUrl: './buy-done.component.scss',
+  templateUrl: './unfreeze-done.component.html',
+  styleUrl: './unfreeze-done.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
 
 })
-export class BuyDoneComponent {
+export class UnreezeDoneComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/another-operation']);
-    }, 4700);
+    }, 4500);
   }
 }
 
