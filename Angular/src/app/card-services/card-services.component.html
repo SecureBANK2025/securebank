@@ -10,14 +10,20 @@
         <div class="cards-container">
             <div class="card">
               <img src="/pics/cardpng.png" alt="Basic Certificate">
+              
+              <div class="card-content">
+                <p><b>Card Number:</b> 5078 1264 0028 9888</p>
+                <p><b>Expiry Date:</b> 12/28</p>
+                <p><b>CVV:</b> 116</p>
+              </div>
             </div>
             <div class="divider"></div>
 
             <div class="actions">
-              <button (click)="activate()">Activate</button>
+              <button (click)="activate()" [disabled]="!active">Activate</button>
               <button (click)="request()">Request A New Card</button>
-              <button (click)="freeze()">Freeze</button>
-              <button (click)="Unfreeze()">Unfreeze</button>
+              <button (click)="freeze()" [disabled]="frozen">Freeze</button>
+              <button (click)="Unfreeze()" [disabled]="!frozen">Unfreeze</button>
 
             </div>
           </div>

@@ -3,12 +3,20 @@
         <div class="upper">
             <div class="enter-pin">Activate Card</div>
             <div class="input-container">
-                <label for="amount">Create New Password</label>
-                <div class="input-wrapper">
-                    <input type="text" id="amount"  [(ngModel)]="amount" readonly>
-                </div>
+                <form [formGroup]="activateForm">
+                    <label for="password">Enter Your Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" placeholder="Enter Your Password" id="password" formControlName="password">
+                    </div>
+                    <div *ngIf="activateForm.get('password')?.touched && activateForm.get('password')?.invalid"
+                        class="error-message">
+                        <span *ngIf="activateForm.get('password')?.errors?.['required']">Password is required</span>
+                        <span *ngIf="activateForm.get('password')?.errors?.['minlength']">Password must be at least 6
+                            characters</span>
+                    </div>
+                </form>
             </div>
-        </div>       
+        </div>
     </div>
 
     <div class="divider"></div>
@@ -19,6 +27,6 @@
 </main>
 
 <footer>
-    <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+    <button class="language-btn confirm" (click)="confirm()" [disabled]="activateForm.invalid">Confirm</button>
     <button class="language-btn cancel" (click)="cancel()">Cancel</button>
 </footer>
