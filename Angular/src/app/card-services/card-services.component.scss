@@ -145,6 +145,11 @@ main {
                 margin-top: 30px;
 
                 button {
+                    &[style*="--highlighted: 1"] {
+                        background-color: lighten(#4a4aff1c,20%);
+                        color: lighten($accent-color,20%);
+                    }
+
                     background-color: #4a4aff1c;
                     color: $accent-color;
                     width: 350px;
@@ -156,9 +161,10 @@ main {
                     border-radius: 15px;
                     font-style: italic;
                     cursor: pointer;
-                    transition: background-color 0.3s, color 0.3s;
+                    transition:
+                        background-color 0.3s,
+                        color 0.3s;
 
-                    
                     &:active {
                         background-color: $accent-color;
                         color: $secondary-color;
@@ -171,7 +177,8 @@ main {
 .divider {
     width: 2px;
     height: 90%;
-margin-top: 21px;    background-color: $accent-color;
+    margin-top: 21px;
+    background-color: $accent-color;
     border-radius: 100%;
     // margin: 0 20px;
 }
@@ -196,3 +203,9 @@ button.btnn {
         background-color: $accent-color;
     }
 }
+
+// .inactive-style {
+//     background-color: red;
+//     display: none;
+//     color: red;
+// }
