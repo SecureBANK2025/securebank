@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
 
 })
-export class UnreezeDoneComponent {
+export class UnfreezeDoneComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
