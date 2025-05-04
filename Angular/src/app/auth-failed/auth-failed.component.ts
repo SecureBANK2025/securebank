@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; 
 import { ErrorService } from '../services/errorMessage.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-auth-failed',
@@ -14,7 +15,8 @@ export class AuthFailedComponent implements OnInit {
   errorMessage:string = '';
   constructor(
     private _router: Router,
-    private _Error: ErrorService
+    private _Error: ErrorService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +27,6 @@ export class AuthFailedComponent implements OnInit {
   }
 
   back(){
-    this._router.navigate(['/card-services']);
+    this.location.back();
   }
 }

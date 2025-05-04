@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
-// import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormGroup, FormsModule, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardService } from '../services/card.service';
 import { ErrorService } from '../services/errorMessage.service';
-
+import { FormBuilder } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-money-deposit',
@@ -16,24 +16,39 @@ import { ErrorService } from '../services/errorMessage.service';
   styleUrl: './request.component.scss'
 })
 export class RequestComponent implements OnInit {
- 
+
   // ينعل ميتين ام cursor 
 
   errorMessage: string = '';
+  cardForm: FormGroup;
 
   constructor(
     private _router: Router,
     private _AuthService: AuthService,
     private _CardService: CardService,
     private _ErrorService: ErrorService,
+    private location: Location,
+    private fb: FormBuilder
 
-  ) {}
+  ) {
+    this.cardForm = this.fb.group({
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]]
+    }, {
+      validators: this.passwordMatchValidator
+    });
+  }
 
-  cardForm = new FormGroup({
-    password: new FormControl(null, [Validators.required ,Validators.min(6)]),
-    confirmPassword: new FormControl(null, [Validators.required,Validators.min(6)])
-  })
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
 
+    if (password === confirmPassword) {
+      return null;
+    }
+
+    return { passwordMismatch: true };
+  }
   ngOnInit(): void {
     this._AuthService.checkToken();
   }
@@ -59,5 +74,4 @@ export class RequestComponent implements OnInit {
       }
     })
   }
-
 }
