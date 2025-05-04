@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
 import { ScanFingerComponent } from './signup/scan-finger/scan-finger.component';
+import { fingerComponent } from './scan-finger/scan-finger.component';
 import { SigninComponent } from './signin/signin.component';
 import { SigninFingerComponent } from './signin/signin-finger/signin-finger.component';
 import { SigninFormComponent } from './signin/signin-form/signin-form.component';
@@ -32,20 +33,17 @@ import { DepositeInsertComponent } from './deposite-insert/deposite-insert.compo
 import { WithdrawSureComponent } from './withdraw-sure/withdraw-sure.component';
 import { CertificatesComponent } from './certificates/certificates.component';
 import { ViewAvailableComponent } from './view-available/view-available.component';
-import {WithdrawCollectComponent} from './withdraw-collect/withdraw-collect.component';
-import {WithdrawCompletedComponent} from './withdraw-completed/withdraw-completed.component';
-import {BuyCertificateComponent} from './buy-certificate//buy-certificate.component';
-import {BuyFingerComponent} from './buy-finger/buy-finger.component';
+import { WithdrawCollectComponent } from './withdraw-collect/withdraw-collect.component';
+import { WithdrawCompletedComponent } from './withdraw-completed/withdraw-completed.component';
+import { BuyCertificateComponent } from './buy-certificate//buy-certificate.component';
 import { BuyDoneComponent } from './buy-done/buy-done.component';
 import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
-import { RedeemFingerComponent } from './redeem-finger/redeem-finger.component';
 import { RedeemDoneComponent } from './redeem-done/redeem-done.component';
-import { CardServicesComponent } from './card-services/card-services.component';
+import { CardComponent } from './card-services/card-services.component';
 import { ActivateComponent } from './activate/activate.component';
 import { ActivateDoneComponent } from './activate-done/activate-done.component';
 import { RequestComponent } from './request/request.component';
 import { RequestDoneComponent } from './request-done/request-done.component';
-import { RequestFingerComponent } from './request-finger/request-finger.component';
 import { FreezeDoneComponent } from './freeze-done/freeze-done.component';
 import { UnfreezeComponent } from './unfreeze/unfreeze.component';
 import { FreezeComponent } from './freeze/freeze.component';
@@ -54,49 +52,48 @@ import { UnreezeDoneComponent } from './unfreeze-done/unfreeze-done.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-    { path: 'welcome', component: WelcomeComponent, data: { animation: 'Welcome' } },
-    { path: 'home', component: HomeComponent, data: { animation: 'Home' } },
-    { path: 'mainOptions', canActivate: [authGuard], component: MainOptionsComponent, data: { animation: 'MainOptions' } },
-    { path: 'manualSignin', component: ManualSigninComponent, data: { animation: 'ManualSignin' } },
-    { path: 'moneyDeposit', canActivate: [authGuard], component: MoneyDepositComponent, data: { animation: 'MoneyDeposit' } },
-    { path: 'moneyWithdraw', canActivate: [authGuard], component: MoneyWithdrawComponent, data: { animation: 'MoneyWithdraw' } },
-    { path: 'moneyTransfer1', canActivate: [authGuard], component: MoneyTransfer1Component, data: { animation: 'MoneyTransfer1' } },
-    { path: 'moneyTransfer2', canActivate: [authGuard], component: MoneyTransfer2Component, data: { animation: 'MoneyTransfer2' } },
-    { path: 'moneyTransfer3', canActivate: [authGuard], component: MoneyTransfer3Component, data: { animation: 'MoneyTransfer3' } },
-    { path: 'accountDetails', canActivate: [authGuard], component: AccountDetailsComponent, data: { animation: 'AccountDetails' } },
-    { path: 'transactionsHistory', canActivate: [authGuard], component: TransactionsHistoryComponent, data: { animation: 'TransactionsHistory' } },
-    { path: 'more', canActivate: [authGuard], component: MoreComponent, data: { animation: 'More' } },
-    { path: 'signupSuccess', component: SignupSuccessComponent, data: { animation: 'SignupSuccess' } },
-    { path: 'authFailed', component: AuthFailedComponent, data: { animation: 'AuthFailed' } },
-    { path: 'authSuccess', component: AuthSuccessComponent, data: { animation: 'AuthSuccess' } },
-    { path: 'deposit-sure', canActivate: [authGuard], component: DepositeSureComponent, data: { animation: 'DepositeSure' } },
-    { path: 'deposite-completed', canActivate: [authGuard], component: DepositeCompletedComponent, data: { animation: 'DepositeCompleted' } },
-    { path: 'deposite-no-reciept', canActivate: [authGuard], component: DepositeNoRecieptComponent, data: { animation: 'DepositeNoReciept' } },
-    { path: 'deposite-reciept', canActivate: [authGuard], component: DepositeRecieptComponent, data: { animation: 'DepositeReciept' } },
-    { path: 'another-operation', canActivate: [authGuard], component: AnotherOperationComponent, data: { animation: 'AnotherOperation' } },
-    { path: 'deposite-insert', canActivate: [authGuard], component: DepositeInsertComponent, data: { animation: 'DepositeInsert' } },
-    { path: 'withdraw-sure', canActivate: [authGuard], component: WithdrawSureComponent, data: { animation: 'WithdrawSure' } },
-    { path: 'certificates', canActivate: [authGuard], component: CertificatesComponent, data: { animation: 'Certificates' } },
-    { path: 'view-available', canActivate: [authGuard], component: ViewAvailableComponent, data: { animation: 'ViewAvailable' } },
-    { path: 'withdraw-collect', canActivate: [authGuard], component: WithdrawCollectComponent, data: { animation: 'WithdrawCollect' } },
-    { path: 'withdraw-completed', canActivate: [authGuard], component: WithdrawCompletedComponent, data: { animation: 'WithdrawCompleted' } },
-    { path: 'buy-certificate', canActivate: [authGuard], component: BuyCertificateComponent, data: { animation: 'BuyCertificate' } },
-    { path: 'buy-finger', canActivate: [authGuard], component: BuyFingerComponent, data: { animation: 'BuyFinger' } },
-    { path: 'buy-done', canActivate: [authGuard], component: BuyDoneComponent, data: { animation: 'BuyDone' } },
-    { path: 'my-certificates', canActivate: [authGuard], component: MyCertificatesComponent, data: { animation: 'MyCertificates' } },
-    { path: 'redeem-finger', canActivate: [authGuard], component: RedeemFingerComponent, data: { animation: 'RedeemFinger' } },
-    { path: 'redeem-done', canActivate: [authGuard], component: RedeemDoneComponent, data: { animation: 'RedeemDone' } },
-    { path: 'card-services', canActivate: [authGuard], component: CardServicesComponent, data: { animation: 'CardServices' } },
-    { path: 'activate', canActivate: [authGuard], component: ActivateComponent, data: { animation: 'Activate' } },
-    { path: 'activate-done', canActivate: [authGuard], component: ActivateDoneComponent, data: { animation: 'ActivateDone' } },
-    { path: 'request', canActivate: [authGuard], component: RequestComponent, data: { animation: 'Request' } },
-    { path: 'request-done', canActivate: [authGuard], component: RequestDoneComponent, data: { animation: 'RequestDone' } },
-    { path: 'request-finger', canActivate: [authGuard], component: RequestFingerComponent, data: { animation: 'RequestFinger' } },
-    { path: 'freeze', canActivate: [authGuard], component: FreezeComponent, data: { animation: 'Freeze' } },
-    { path: 'unfreeze', canActivate: [authGuard], component: UnfreezeComponent, data: { animation: 'Unfreeze' } },
-    { path: 'freeze-done', canActivate: [authGuard], component: FreezeDoneComponent, data: { animation: 'FreezeDone' } },
-    { path: 'chooseAccount', canActivate: [authGuard], component: ChooseAccountComponent, data: { animation: 'ChooseAccount' } },
-    { path: 'unfreeze-done', canActivate: [authGuard], component: UnreezeDoneComponent, data: { animation: 'UnreezeDone' } },
+    { path: 'welcome', component: WelcomeComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'mainOptions', canActivate: [authGuard], component: MainOptionsComponent },
+    { path: 'manualSignin', component: ManualSigninComponent },
+    { path: 'moneyDeposit', canActivate: [authGuard], component: MoneyDepositComponent },
+    { path: 'moneyWithdraw', canActivate: [authGuard], component: MoneyWithdrawComponent },
+    { path: 'moneyTransfer1', canActivate: [authGuard], component: MoneyTransfer1Component },
+    { path: 'moneyTransfer2', canActivate: [authGuard], component: MoneyTransfer2Component },
+    { path: 'moneyTransfer3', canActivate: [authGuard], component: MoneyTransfer3Component },
+    { path: 'accountDetails', canActivate: [authGuard], component: AccountDetailsComponent },
+    { path: 'transactionsHistory', canActivate: [authGuard], component: TransactionsHistoryComponent },
+    { path: 'more', canActivate: [authGuard], component: MoreComponent },
+    { path: 'signupSuccess', component: SignupSuccessComponent },
+    { path: 'authFailed', component: AuthFailedComponent },
+    { path: 'authSuccess', component: AuthSuccessComponent },
+    { path: 'deposit-sure', canActivate: [authGuard], component: DepositeSureComponent },
+    { path: 'deposite-completed', canActivate: [authGuard], component: DepositeCompletedComponent },
+    { path: 'deposite-no-reciept', canActivate: [authGuard], component: DepositeNoRecieptComponent },
+    { path: 'deposite-reciept', canActivate: [authGuard], component: DepositeRecieptComponent },
+    { path: 'another-operation', canActivate: [authGuard], component: AnotherOperationComponent },
+    { path: 'deposite-insert', canActivate: [authGuard], component: DepositeInsertComponent },
+    { path: 'withdraw-sure', canActivate: [authGuard], component: WithdrawSureComponent },
+    { path: 'certificates', canActivate: [authGuard], component: CertificatesComponent },
+    { path: 'view-available', canActivate: [authGuard], component: ViewAvailableComponent },
+    { path: 'withdraw-collect', canActivate: [authGuard], component: WithdrawCollectComponent },
+    { path: 'withdraw-completed', canActivate: [authGuard], component: WithdrawCompletedComponent },
+    { path: 'buy-certificate', canActivate: [authGuard], component: BuyCertificateComponent },
+    { path: 'buy-done', canActivate: [authGuard], component: BuyDoneComponent },
+    { path: 'my-certificates', canActivate: [authGuard], component: MyCertificatesComponent },
+    { path: 'redeem-done', canActivate: [authGuard], component: RedeemDoneComponent },
+    { path: 'card-services', canActivate: [authGuard], component: CardComponent },
+    { path: 'activate', canActivate: [authGuard], component: ActivateComponent },
+    { path: 'activate-done', canActivate: [authGuard], component: ActivateDoneComponent },
+    { path: 'request-card', canActivate: [authGuard], component: RequestComponent },
+    { path: 'request-done', canActivate: [authGuard], component: RequestDoneComponent },
+    { path: 'freeze', canActivate: [authGuard], component: FreezeComponent },
+    { path: 'unfreeze', canActivate: [authGuard], component: UnfreezeComponent },
+    { path: 'freeze-done', canActivate: [authGuard], component: FreezeDoneComponent },
+    { path: 'chooseAccount', canActivate: [authGuard], component: ChooseAccountComponent },
+    { path: 'finger', component: fingerComponent },
+
+
 
     {
         path: 'login',

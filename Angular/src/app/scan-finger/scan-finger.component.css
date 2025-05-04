@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -71,5 +72,5 @@ header .date {
   position: absolute;
   top: 200px;
   right: 675px;
-  z-index: 10;
-}/*# sourceMappingURL=redeem-finger.component.css.map */
+    z-index:  10;
+}/*# sourceMappingURL=scan-finger.component.css.map */

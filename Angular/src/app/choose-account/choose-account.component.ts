@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-choose-account',
@@ -19,7 +20,8 @@ export class ChooseAccountComponent implements OnInit {
   constructor(
     private router: Router,
     private _AuthService: AuthService,
-    private _DataService: DataService
+    private _DataService: DataService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,10 @@ export class ChooseAccountComponent implements OnInit {
   foreignCurrency() {
     this.type = "foreign_currency";
     this.confirm();
+    console.log(this.location.back());
+    
+    // this.router.navigate(['/finger']);
+
   }
 
   confirm() {

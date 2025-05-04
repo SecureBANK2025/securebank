@@ -90,4 +90,5 @@ saveCurrentUser() {
     console.log(type);
     return this._HttpClient.post(`${this.hostName}${this.routeName}/chooseAccount`, {type} ,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } } )
 }
+
 }
