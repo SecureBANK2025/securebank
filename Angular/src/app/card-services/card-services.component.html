@@ -20,10 +20,10 @@
             <div class="divider"></div>
 
             <div class="actions">
-              <button (click)="activate()">Activate</button>
+              <button (click)="activate()" [disabled]="!active">Activate</button>
               <button (click)="request()">Request A New Card</button>
-              <button (click)="freeze()">Freeze</button>
-              <button (click)="Unfreeze()">Unfreeze</button>
+              <button (click)="freeze()" [disabled]="frozen">Freeze</button>
+              <button (click)="Unfreeze()" [disabled]="!frozen">Unfreeze</button>
 
             </div>
           </div>

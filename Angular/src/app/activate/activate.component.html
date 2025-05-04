@@ -6,7 +6,7 @@
                 <form [formGroup]="activateForm">
                     <label for="password">Enter Your Password</label>
                     <div class="input-wrapper">
-                        <input type="password" id="password" formControlName="password">
+                        <input type="password" placeholder="Enter Your Password" id="password" formControlName="password">
                     </div>
                     <div *ngIf="activateForm.get('password')?.touched && activateForm.get('password')?.invalid"
                         class="error-message">

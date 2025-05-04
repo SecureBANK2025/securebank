@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post("/requestNew",protectRoute, requestNewCard);
 router.patch("/activate", protectRoute,activateCard);
-router.patch("/cardStatus",protectRoute, toggleFreezeCard);//new
+router.patch("/toggleCardStatus",protectRoute, toggleFreezeCard);//new
 router.delete("/delete", protectRoute,deleteCard);
-router.get("/getCard",protectRoute,getUserCard)
+router.get("/getCard",protectRoute,getUserCard);
 
 export default router;
