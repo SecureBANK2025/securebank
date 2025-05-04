@@ -80,7 +80,7 @@ main {
   margin-bottom: 20px;
 }
 .enter-pin.red {
-  color: red;
+  color: #4a4aff;
 }
 
 .Certf {
@@ -118,9 +118,11 @@ main {
 
 .input-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 300px;
+  align-items: center;
+  border: 1px solid #4a4aff;
+  border-radius: 8px;
+  padding: 9px;
+  background-color: white;
 }
 
 label {
@@ -133,7 +135,7 @@ label {
 input {
   width: 100%;
   height: 40px;
-  border: 2px solid red;
+  border: 2px solid #4a4aff;
   border-radius: 8px;
   background: white;
   padding: 5px 10px;
@@ -163,7 +165,7 @@ footer .language-btn {
 footer .confirm {
   left: 940px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
-  background-color: #f60000;
+  background-color: #4f46e5;
   color: #ffffff;
 }
 

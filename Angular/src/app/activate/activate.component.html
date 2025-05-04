@@ -1,12 +1,16 @@
 <main>
     <div class="pin-container">
         <div class="upper">
+           
             <div class="enter-pin">Activate Card</div>
+            <div class="Certf">
+                <img src="/pics/cardpng.png" alt="Freeze Card" class="certificate-image">
+              </div>
             <div class="input-container">
                 <form [formGroup]="activateForm">
                     <label for="password">Enter Your Password</label>
                     <div class="input-wrapper">
-                        <input type="password" placeholder="Enter Your Password" id="password" formControlName="password">
+                        <input type="password" placeholder="" id="password" formControlName="password">
                     </div>
                     <div *ngIf="activateForm.get('password')?.touched && activateForm.get('password')?.invalid"
                         class="error-message">

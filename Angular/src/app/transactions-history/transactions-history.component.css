@@ -125,6 +125,9 @@ main .container .content .table-head {
   color: #fff;
   font-weight: bold;
   box-shadow: none;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 main .container .content .table-head .table-cell {
   border-right: none;
