@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-// import { Location } from '@angular/common';
 import { DataService } from '../services/data.service';
 import { CardService } from '../services/card.service';
-
 
 @Component({
   selector: 'app-view-available',
@@ -14,16 +12,14 @@ import { CardService } from '../services/card.service';
   styleUrl: './card-services.component.scss'
 })
 
-
-
 export class CardComponent {
-
-  
-
 
   activated: boolean = false;
   freezed: boolean = false;
   cardData: any;
+  cardNumber: string = '';
+  expiryDate: string = '';
+  cvv: string = '';
 
 
   constructor(
@@ -40,15 +36,15 @@ export class CardComponent {
         this.cardData = res.data[0];
         console.log(this.cardData);
         this.activated = this.cardData.isActive;
-        console.log(this.activated);
         this.freezed = this.cardData.isFrozen;
-        console.log(this.freezed);
+        this.cardNumber = this.cardData.cardNumber.replace(/(.{4})/g, '$1 ').trim();
+        this.expiryDate = this.cardData.expiryDate;
+        this.cvv = this.cardData.cvv;
       },
       error: (err) => {
         console.log(err);
       }
     })
-    // this._DataService.refreshAllData();
   }
 
   logout() {
