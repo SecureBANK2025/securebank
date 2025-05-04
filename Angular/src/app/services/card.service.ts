@@ -17,4 +17,8 @@ export class CardService {
     console.log(type);
     return this._HttpClient.post(`${this.hostName}${this.routeName}/requestNew`, type, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
+  activateCard(type: any): Observable<any> {
+    console.log(type);
+    return this._HttpClient.patch(`${this.hostName}${this.routeName}/activate`, type, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
 }
