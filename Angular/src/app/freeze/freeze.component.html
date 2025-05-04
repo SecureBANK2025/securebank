@@ -13,12 +13,10 @@
         Unfreeze option will be available after 48 hours.
       </div>
 
+      <label for="password">Enter Your Password</label>
       <div class="input-container">
         <form [formGroup]="toggleForm">
-          <div class="input-wrapper">
-            <label for="password">Enter Your Password</label>
             <input type="text" id="password" placeholder="" formControlName="password">
-          </div>
           <div *ngIf="toggleForm.get('password')?.touched && toggleForm.get('password')?.invalid" class="error-message">
             <span *ngIf="toggleForm.get('password')?.errors?.['required']">Password is required</span>
             <span *ngIf="toggleForm.get('password')?.errors?.['minlength']">Password must be at least 6
