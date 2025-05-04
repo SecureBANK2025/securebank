@@ -16,7 +16,7 @@
       <label for="password">Enter Your Password</label>
       <div class="input-container">
         <form [formGroup]="toggleForm">
-            <input type="text" id="password" placeholder="" formControlName="password">
+            <input type="password" id="password" formControlName="password">
           <div *ngIf="toggleForm.get('password')?.touched && toggleForm.get('password')?.invalid" class="error-message">
             <span *ngIf="toggleForm.get('password')?.errors?.['required']">Password is required</span>
             <span *ngIf="toggleForm.get('password')?.errors?.['minlength']">Password must be at least 6
