@@ -12,9 +12,10 @@
   
     <div class="white-container">  
       <div class="fail">
-          <span>Authentication Failed,</span><br>
-          <span>Please Try Again</span>
+          <!-- <span>Authentication Failed,</span> -->
+           <p>{{errorMessage}}</p>
+
       </div>
   </div>
-  <button class="btn-back">Back</button>
+  <button class="btn-back" (click)="back()">Back</button>
   </main>

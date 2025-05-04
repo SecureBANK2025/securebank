@@ -39,7 +39,7 @@ import { BuyCertificateComponent } from './buy-certificate//buy-certificate.comp
 import { BuyDoneComponent } from './buy-done/buy-done.component';
 import { MyCertificatesComponent } from './my-certificates/my-certificates.component';
 import { RedeemDoneComponent } from './redeem-done/redeem-done.component';
-import { CardServicesComponent } from './card-services/card-services.component';
+import { CardComponent } from './card-services/card-services.component';
 import { ActivateComponent } from './activate/activate.component';
 import { ActivateDoneComponent } from './activate-done/activate-done.component';
 import { RequestComponent } from './request/request.component';
@@ -81,10 +81,10 @@ export const routes: Routes = [
     { path: 'buy-done', canActivate: [authGuard], component: BuyDoneComponent },
     { path: 'my-certificates', canActivate: [authGuard], component: MyCertificatesComponent },
     { path: 'redeem-done', canActivate: [authGuard], component: RedeemDoneComponent },
-    { path: 'card-services', canActivate: [authGuard], component: CardServicesComponent },
+    { path: 'card-services', canActivate: [authGuard], component: CardComponent },
     { path: 'activate', canActivate: [authGuard], component: ActivateComponent },
     { path: 'activate-done', canActivate: [authGuard], component: ActivateDoneComponent },
-    { path: 'request', canActivate: [authGuard], component: RequestComponent },
+    { path: 'request-card', canActivate: [authGuard], component: RequestComponent },
     { path: 'request-done', canActivate: [authGuard], component: RequestDoneComponent },
     { path: 'freeze', canActivate: [authGuard], component: FreezeComponent },
     { path: 'unfreeze', canActivate: [authGuard], component: UnfreezeComponent },
