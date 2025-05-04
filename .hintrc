@@ -11,5 +11,8 @@
     "not edge <= 126",
     "not opera <= 111",
     "not samsung <= 25"
-  ]
+  ],
+  "hints": {
+    "no-inline-styles": "off"
+  }
 }
