@@ -48,6 +48,7 @@ import { FreezeDoneComponent } from './freeze-done/freeze-done.component';
 import { UnfreezeComponent } from './unfreeze/unfreeze.component';
 import { FreezeComponent } from './freeze/freeze.component';
 import { ChooseAccountComponent } from './choose-account/choose-account.component';
+import { UnreezeDoneComponent } from './unfreeze-done/unfreeze-done.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -95,19 +96,25 @@ export const routes: Routes = [
 
 
     {
-        path: 'login', component: SigninComponent
-        , children: [
-            { path: 'loginFinger', component: SigninFingerComponent },
-            { path: 'loginForm', component: SigninFormComponent }
+        path: 'login',
+        component: SigninComponent,
+        data: { animation: 'Login' },
+        children: [
+            { path: 'loginFinger', component: SigninFingerComponent, data: { animation: 'LoginFinger' } },
+            { path: 'loginForm', component: SigninFormComponent, data: { animation: 'LoginForm' } }
         ]
     },
 
     {
-        path: 'signup', component: SignupComponent, children: [
-            { path: 'form1', component: Form1Component },
-            { path: 'form2', component: Form2Component },
-            { path: 'scanFinger', component: ScanFingerComponent }
+        path: 'signup',
+        component: SignupComponent,
+        data: { animation: 'Signup' },
+        children: [
+            { path: 'form1', component: Form1Component, data: { animation: 'Form1' } },
+            { path: 'form2', component: Form2Component, data: { animation: 'Form2' } },
+            { path: 'scanFinger', component: ScanFingerComponent, data: { animation: 'ScanFinger' } }
         ]
     },
-    { path: '**', component: NotFoundComponent }
+
+    { path: '**', component: NotFoundComponent, data: { animation: 'NotFound' } }
 ];

@@ -239,20 +239,21 @@ main {
 
         form {
           min-width: 70%;
-          margin-top: -20px;
+          margin-top: -59px;
           width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: start;
-          gap: 20px;
+          gap: 200px;
 
           .form-row {
             display: flex;
             flex-direction: row;
             gap: 20px;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 50px;
+            margin-left: 90px;
 
             > div {
               flex: 1;
@@ -260,12 +261,13 @@ main {
               label {
                 font-weight: 900;
                 display: block;
-                margin-bottom: 5px;
+                margin-bottom: -9px;
               }
 
               input,
               select {
-                width: 100%;
+                width: 75%;
+                margin: 10px;
                 padding-left: 10px;
                 height: 60px;
                 border-radius: 10px;
@@ -297,10 +299,9 @@ main {
 
                 input {
                   width: 87%;
-                  padding-left: 10px;
+                  padding-left: 50px;
                   height: 60px;
                   border-radius: 10px;
-                  border: solid 1px #4e3cda7c;
                   background-color: #fafafa;
                   box-shadow: 0px 3px 3px rgba(180, 180, 180, 0.75);
                   font-weight: 900;
@@ -337,7 +338,7 @@ main {
         ::ng-deep app-num-pad {
           .numpad {
             .key {
-              background-color: #4a4aff;
+              background-color:#4a4aff;
               color: white;
               
               &:active {
@@ -388,16 +389,21 @@ main {
     color: red;
     height: 0px;
     position: relative;
-    top: 5px;
+    top: -51px;
+    left: 390px;
+    font-weight: 900;
+    font-size: 15px;
   }
   .confirm-btn {
-    height: 60px;
+    height: 55px;
+    margin-left:100px;
+    margin-top: 20px;
     padding: 0 60px;
-    margin-right: 40px;
     font-size: 20px;
+    width: 50%;
     font-weight: bold;
     border: none;
-    border-radius: 15px;
+    border-radius: 18px;
     background-color: $accent-color;
     color: white;
     cursor: pointer;

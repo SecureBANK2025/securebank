@@ -10,6 +10,6 @@ declare namespace NodeJS {
     // readonly EMAIL_HOST: string;
     readonly EMAIL_USERNAME: string;
     readonly EMAIL_PASSWORD: string;
-    // readonly APP_NAME: string;
-  }
+    // readonly APP_NAME: string;
+  }
 }

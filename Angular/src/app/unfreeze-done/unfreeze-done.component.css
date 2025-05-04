@@ -81,8 +81,8 @@ main .container .details .before p {
 }
 main .container .details .lottie-fixed {
   position: absolute;
-  top: 200px;
-  left: 500px;
+  top: 290px;
+  right: 620px;
   z-index: 10;
 }
 main .container .details .footer {
@@ -110,4 +110,4 @@ main .container .details .footer div {
 main .container .details .footer div p {
   color: black;
   font-weight: 900;
-}/*# sourceMappingURL=buy-done.component.css.map */
+}/*# sourceMappingURL=unfreeze-done.component.css.map */

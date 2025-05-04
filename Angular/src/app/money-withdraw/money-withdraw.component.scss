@@ -51,7 +51,7 @@ footer {
 }
 footer .language-btn {
   position: relative;
-  padding: 0px 65px;
+  padding: 0px 55px;
   border: none;
   transition: background-color 0.3s;
   font-size: 35px;
@@ -61,13 +61,13 @@ footer .language-btn {
 }
 
 footer .confirm {
-  left: 930px;
+  left: 940px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
   background-color: #4f46e5;
   color: #ffffff;
 }
 footer .cancel {
-  left: -20px;
+  left: -75px;
   border-radius: 9999rem 9999rem 9999rem 9999rem;
   background-color: #ffffff;
   color: #4f46e5;
@@ -152,8 +152,8 @@ footer p {
   margin-bottom: 40px;
 }
 .divider {
-  position: absolute;
-  top: 29%;
+  position: relative;
+margin-top: 100px;
   left: 60%;
   width: 2px;
   height: 440px;

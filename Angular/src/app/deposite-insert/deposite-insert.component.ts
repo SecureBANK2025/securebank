@@ -17,7 +17,7 @@ export class DepositeInsertComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/deposite-completed']);
-    }, 8000);
+    }, 5000);
   }
 }
 

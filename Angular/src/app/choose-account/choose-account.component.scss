@@ -86,10 +86,12 @@ header {
     justify-content: center;
     gap: 40px;
     width: 100%;
+  
 }
 
 button {
     padding: 10px 40px;
+    width: 25%;
     font-size: 18px;
     font-weight: bold;
     border: none;
@@ -98,23 +100,33 @@ button {
     transition: 0.3s;
 }
 
-.back {
+.saving {
+    background-color: #4a4aff;
+    color: white;
+
+}
+.current {
+    background-color: #4a4aff;
+    color: white;
+}
+
+.saving:active {
+    color: #3f51b5;
     background-color: white;
     border: 2px solid #4a4aff;
-    color: #4a4aff;
-
 }
-.confirm {
+
+.current:active {
+    color: #3f51b5;
+    background-color: white;
+    border: 2px solid #4a4aff;
+}
+.currency {
     background-color: #4a4aff;
     color: white;
 }
 
-.back:active {
-    background-color: #4a4aff;
-    color: white;
-}
-
-.confirm:active {
+.currency:active {
     color: #3f51b5;
     background-color: white;
     border: 2px solid #4a4aff;
