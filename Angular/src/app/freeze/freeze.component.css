@@ -168,6 +168,10 @@ footer .confirm {
   background-color: #4f46e5;
   color: #ffffff;
 }
+footer .confirm[style*="--highlighted: 1"] {
+  background-color: rgba(176, 176, 255, 0.1098039216);
+  color: #b0b0ff;
+}
 
 footer .cancel {
   left: -75px;

@@ -20,6 +20,7 @@ export class UnfreezeComponent implements OnInit {
   userData: any;
   errorMessage: string = '';
   toggleForm: FormGroup;
+  // valid: boolean = false;
 
   constructor(
     private router: Router,

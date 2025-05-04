@@ -35,6 +35,6 @@
 </main>
 
 <footer>
-  <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+  <button class="language-btn confirm" (click)="confirm()" [disabled]="toggleForm.invalid" [style.--highlighted]="toggleForm.invalid ? '1' : '0'">Confirm</button>
   <button class="language-btn cancel" (click)="cancel()">Cancel</button>
 </footer>
