@@ -1,0 +1,221 @@
+// Variables
+$primary-color: #1a1a40;
+$secondary-color: #ffffff;
+$accent-color: #4a4aff;
+
+// Reset some default styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", serif;
+}
+
+body {
+    background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
+    background-size: cover;
+    background-position: center;
+    color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+
+    .logo {
+        :first-child {
+            height: 50px;
+            top: 10px;
+            position: relative;
+        }
+        :last-child {
+            height: 30px;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+    }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // padding-top: 20px;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        div {
+            // margin-bottom: 10px;
+        }
+        .names {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    // background-color: rgba(0, 0, 0, 0.5);
+
+    .language-btn {
+        position: relative;
+        padding: 5px 100px;
+        border: none;
+
+        cursor: pointer;
+        transition: background-color 0.3s;
+        // text-align:start;
+        font-size: 35px;
+        font-weight: 600;
+        &:hover {
+            background-color: $accent-color;
+            color: $secondary-color;
+        }
+    }
+
+    .english {
+        left: -20px;
+        border-radius: 0 9999rem 9999rem 0;
+        background-color: $secondary-color;
+        color: $primary-color;
+    }
+
+    .arabic {
+        left: 20px;
+        border-radius: 9999rem 0 0 9999rem;
+        background-color: $secondary-color;
+        color: $primary-color;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin-left: 20px;
+    }
+}
+
+// Define color variables for easy theme adjustments
+$key-color: transparent;
+$key-hover: #ffffff37;
+$key-active: $key-hover;
+$text-color: #fff;
+
+// Container for the keyboard with grid centering
+.keyboard-container {
+    display: grid;
+    place-items: center;
+    // width: 100%;
+    position: absolute;
+    top: 400px;
+    left: 370px;
+}
+
+// Main keyboard styling with fixed width and grid layout
+.keyboard {
+    width: 600px; // Fixed width to maintain consistency
+    display: grid;
+    gap: 5px; // Space between rows
+    padding: 20px;
+    // background: #333;
+    border-radius: 10px;
+    // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+// Each row uses grid layout to evenly space keys
+.row {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+}
+
+// Define grid layout for each row based on the number of keys
+.keyboard > .row:nth-child(1) {
+    grid-template-columns: repeat(10, 1fr); // 10 number keys
+}
+.keyboard > .row:nth-child(2) {
+    grid-template-columns: repeat(10, 1fr); // 10 keys for top letters
+}
+.keyboard > .row:nth-child(3) {
+    grid-template-columns: repeat(9, 1fr); // 9 keys for middle letters
+}
+.keyboard > .row:nth-child(4) {
+    grid-template-columns: repeat(8, 1fr); // 8 keys for bottom letters and backspace
+}
+.keyboard > .row:nth-child(5) {
+    // Layout for special keys: shift, language toggle, space, etc.
+    grid-template-columns: auto auto 1fr auto auto;
+}
+
+// Styling for all keys
+.key {
+    background: $key-color;
+    color: $text-color;
+    border: solid 2px $key-active;
+    padding: 5px 20px; // Vertical padding for key height
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out; // Smooth transition on hover/active
+    // width: 50px;
+    text-align: center;
+    min-width: 70px; // Prevent keys from becoming too small
+    // min-height: 55px; // Ensure a consistent key height
+    // box-sizing: border-box;
+    // white-space: nowrap; // Keep text in a single line
+
+    // Change background on hover
+    &:hover {
+        background: $key-hover;
+    }
+
+    // Change background on active (pressed)
+    &:active {
+        background: $key-active;
+    }
+
+    // Additional style when a key (e.g., shift) is active
+    &.active {
+        background: $key-active;
+    }
+}

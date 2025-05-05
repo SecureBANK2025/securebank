@@ -1,0 +1,89 @@
+// Variables
+$primary-color: #1a1a40;
+$secondary-color: #ffffff;
+$accent-color: #4a4aff;
+
+// Reset some default styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", serif;
+}
+
+body {
+    background-color: $accent-color;
+}
+
+.container {
+    flex-direction: column;
+    background-color: white;
+    width: 750px;
+    border-radius: 30px;
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 30px 10px;
+        font-size: 20px;
+
+        h2 {
+            font-size: 35px;
+            font-weight: 600;
+            color: $accent-color;
+        }
+        i {
+            cursor: pointer;
+            color: gray;
+            font-size: 35px;
+            position: relative;
+            top: 15px;
+            right: 10px;
+        }
+    }
+
+    .content {
+        padding: 10px 30px;
+        justify-content: center;
+        h4 {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -1px;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        padding: 30px 30px 30px;
+        justify-content: end;
+        button {
+            margin: 5px;
+            padding: 10px 30px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        :first-child {
+            background-color: transparent;
+            color: black;
+            border: solid 2px rgb(210, 210, 210);
+            &:hover {
+                background-color: $accent-color;
+                color: $secondary-color;
+                border: solid 2px $accent-color;
+            }
+        }
+
+        :last-child {
+            background-color: $accent-color;
+            color: white;
+            &:hover {
+                background-color: darken($accent-color, 35%);
+                color: $secondary-color;
+            }
+        }
+    }
+}

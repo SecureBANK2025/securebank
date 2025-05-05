@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", serif;
+}
+
+body {
+  background-color: #4a4aff;
+}
+
+.container {
+  flex-direction: column;
+  background-color: white;
+  width: 750px;
+  border-radius: 30px;
+}
+.container .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 30px 10px;
+  font-size: 20px;
+}
+.container .nav h2 {
+  font-size: 35px;
+  font-weight: 600;
+  color: #4a4aff;
+}
+.container .nav i {
+  cursor: pointer;
+  color: gray;
+  font-size: 35px;
+  position: relative;
+  top: 15px;
+  right: 10px;
+}
+.container .content {
+  padding: 10px 30px;
+  justify-content: center;
+}
+.container .content h4 {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.container .buttons {
+  display: flex;
+  padding: 30px 30px 30px;
+  justify-content: end;
+}
+.container .buttons button {
+  margin: 5px;
+  padding: 10px 30px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+.container .buttons :first-child {
+  background-color: transparent;
+  color: black;
+  border: solid 2px rgb(210, 210, 210);
+}
+.container .buttons :first-child:hover {
+  background-color: #4a4aff;
+  color: #ffffff;
+  border: solid 2px #4a4aff;
+}
+.container .buttons :last-child {
+  background-color: #4a4aff;
+  color: white;
+}
+.container .buttons :last-child:hover {
+  background-color: #000097;
+  color: #ffffff;
+}/*# sourceMappingURL=style.css.map */

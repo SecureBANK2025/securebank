@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTBANK</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/Union (4).svg" alt="Logo">
+            <img src="./assets/BTBANK.svg" alt="BTBANK Logo">
+        </div>
+        <div class="date">2 FEB 2025, SUNDAY</div>
+    </header>
+    
+    <main>
+        <div class="form-container">
+            <label for="birth-date">Birth date</label>
+            <div class="date-dropdowns">
+                <select id="month">
+                    <option value="" disabled selected>MM</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+    
+                <select id="day">
+                    <option value="" disabled selected>DD</option>
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(`<option value="${i < 10 ? '0' + i : i}">${i < 10 ? '0' + i : i}</option>`);
+                        }
+                    </script>
+                </select>
+    
+                <select id="year">
+                    <option value="" disabled selected>YYYY</option>
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= 1900; i--) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+    
+            <label for="national-id">National ID</label>
+            <input type="text" id="national-id" placeholder="Must be 14 numbers" maxlength="14">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="numpad-container">
+            <div class="numpad">
+                <div class="row">
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                </div>
+                <div class="row">
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                </div>
+                <div class="row">
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                </div>
+                <div class="row">
+                    <button class="key">⌫</button>
+                    <button class="key">0</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <button class="language-btn english">Back</button>
+        <button class="language-btn arabic">Next</button>
+    </footer>
+</body>
+</html>
