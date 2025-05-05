@@ -64,7 +64,6 @@ SecureBank is a full-stack banking application that allows users to:
 The Angular application follows a modular structure with components for different banking operations:
 
 - **Authentication**: Components for login, signup, and fingerprint scanning
-- **Dashboard**: Main options and account overview
 - **Transactions**: Components for deposits, withdrawals, and transfers
 - **Account Management**: Account details and transaction history
 - **Services**: Authentication, data, and transaction services
@@ -189,10 +188,6 @@ The hardware component includes:
 
 ## Contributors
 
-- [Your Name](https://github.com/yourusername)
-- [Contributor 1](https://github.com/contributor1)
-- [Contributor 2](https://github.com/contributor2)
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+- [Baher Hossam](https://github.com/baher1088)
+- [Bahy Adel](https://github.com/bahy-adell)
+- [Yasseen L Maghraby](https://github.com/YasseenLMaghraby)
