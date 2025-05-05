@@ -25,7 +25,7 @@
                         <span *ngIf="cardForm.get('confirmPassword')?.errors?.['required']">Confirm password is required</span>
                     </div>
                     <div *ngIf="cardForm.errors?.['passwordMismatch'] && cardForm.get('confirmPassword')?.touched" class="error-message">
-                        Passwords do not match
+                        Passwords don’t match
                     </div>
                 </div>
             </div>
