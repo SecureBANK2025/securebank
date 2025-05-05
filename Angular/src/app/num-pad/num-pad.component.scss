@@ -1,0 +1,72 @@
+// Color and style variables for easy customization
+$bg-color: #222;
+$key-color: transparent;
+$text-color: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: $text-color;
+}
+// Center the numpad on the screen
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: $bg-color;
+}
+
+// Container for the numpad (centering purpose)
+.numpad-container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+// Numpad styling using grid layout
+.numpad {
+    display: grid;
+    justify-content: center;
+    gap: 30px; // Space between rows
+}
+
+// Each row in the numpad using grid layout
+.row {
+    display: grid;
+    gap: 30px;
+    // For a numpad, we want 3 columns per row
+    grid-template-columns: repeat(3, 1fr);
+    // align-items: center;
+    // justify-content: center;
+    // text-align: center;
+}
+
+// Styling for each key (button)
+.key {
+    -webkit-backdrop-filter:blur(50px);
+    backdrop-filter: blur(100px);
+    background: $key-color;
+    color: $text-color;
+    padding: 20px 0;
+    font-size: 50px;
+    line-height: 0px;
+    font-weight: 900;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition:  0.05s ease-in-out;
+    text-align: center;
+    width: 12vh;
+    height: 12vh;
+    box-sizing: border-box;
+    white-space: nowrap;
+   
+
+    &:active {
+background-color: #ffffff;
+color: #4f46e5;      transition: background 0.15s ease-in-out;
+}
+}

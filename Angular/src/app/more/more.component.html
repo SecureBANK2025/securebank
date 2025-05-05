@@ -1,0 +1,22 @@
+<main>
+    <div class="container">
+        <div class="title">
+            <div class="text">
+                <h1>{{userName || userData?.name}}</h1>
+                <h3>{{accountNumber || 'No account number'}}</h3>
+            </div>
+            <button (click)="logout()">Log out</button>
+        </div>
+        <div class="services">
+                  <!-- الراوتس عايزه تتعمل انا حايبها من كود صفحه تانيه توفيرا للوقت بس -->
+
+            <button (click)="navigateTo('card-services')" class="card moneyWithdraw"><i class="bi bi-credit-card-2-front"></i>
+                Card Services</button>
+            <button (click)="navigateTo('certificates')" class="card certificates"><i class="bi bi-bank"></i>
+                Certificates  </button>
+        </div>
+    </div>
+    <div class="footer">
+        <button class="buttonn" (click)="back()">Back</button>
+    </div>
+</main>

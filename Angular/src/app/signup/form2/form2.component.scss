@@ -1,0 +1,133 @@
+// Variables
+$primary-color: #1a1a40; // Background color
+$secondary-color: #ffffff; // White text
+$accent-color: #4a4aff; // Blue accent
+$input-bg: #ffffff; // White input fields
+$input-border: #cccccc; // Light gray border
+$input-text: #333333; // Dark text for inputs
+* {
+    box-sizing: border-box;
+  }
+  body {
+    overflow-x: hidden;
+  }
+body {
+    background-image: url(/pics/back.jpg);
+    background-size: cover;
+    background-position: center;
+    color: $secondary-color;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-container {
+    max-width: 30%;
+    max-height: 10vh;
+    position: relative;
+    left: 233px;
+    top: 80px;
+    display: flex;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  
+
+    label {
+        font-size: 16px;
+        color: $secondary-color;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid $input-border;
+        background: $input-bg;
+        color: $input-text;
+        font-size: 14px; // Slightly smaller font
+        outline: none;
+        transition: all 0.3s;
+
+        &:focus {
+            border-color: $accent-color;
+            box-shadow: 3px 3px 8px rgba(109, 109, 247, 0.5);
+        }
+    }
+}
+
+
+.pass {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    .field {
+        flex: 1;
+    }
+}
+
+
+.numpad-container {
+    display: grid;
+    place-items: center;
+    width: 400px;
+    left: 950px;
+    top: -20px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.numpad {
+    display: grid;
+    justify-content: center;
+    gap: 30px;
+}
+
+.row {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.key {
+    background: transparent;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 35px;
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    text-align: center;
+    width: 13vh;
+    height: 13vh;
+    box-sizing: border-box;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.key:active {
+    background: #dcdcdc;
+}
+
+
+p {
+    font-size: 0.9rem;
+    color: red;
+    height: 0px;
+    position: relative;
+    top: -9px;
+  
+}
+
+
+
+
+
+
+
+

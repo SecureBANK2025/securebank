@@ -1,0 +1,47 @@
+<main>
+    <div class="container">
+        <div class="title">
+            <div class="text">
+                <h1>{{ userData?.name }}</h1>
+            </div>
+            <button type="button" (click)="logout()">Log out</button>
+        </div>
+        <div class="content">
+            <h1>Account details</h1>
+
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+
+            <div *ngIf="loading" class="loading">
+                <p>Loading account details...</p>
+            </div>
+
+            <div *ngIf="!loading && accountData; else noAccountData" class="details">
+                <h3>Account number:</h3>
+                <h3 id="accNum">{{ accountData.accountNum || 'N/A' }}</h3>
+
+                <h3>Account balance:</h3>
+                <h3 id="accBalance">{{ accountData.balance | number:'1.2-2' }}<span> {{ accountData.currency || 'EGP' }}</span></h3>
+
+                <h3>IBAN:</h3>
+                <h3 id="IBAN">{{ accountData.IBAN || 'N/A' }}</h3>
+
+                <h3>Account type:</h3>
+                <h3 id="accType">{{ accountData.type | titlecase }}</h3>
+
+                <h3>Created on:</h3>
+                <h3 id="createdAt">{{ accountData.createdAt | date:'mediumDate' }}</h3>
+            </div>
+
+            <ng-template #noAccountData>
+                <div *ngIf="!loading" class="no-data">
+                    <h3>No account data available. Please create an account first.</h3>
+                </div>
+            </ng-template>
+        </div>
+        <div class="footer">
+            <button type="button" class="back-btn" (click)="back()">Back</button>
+        </div>
+    </div>
+</main>

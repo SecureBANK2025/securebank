@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", serif;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main h1 {
+  font-size: 6rem;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+footer .language-btn {
+  position: relative;
+  padding: 5px 100px;
+  border: none;
+  width: 350px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 35px;
+  font-weight: 600;
+}
+footer .language-btn:active {
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+footer .english {
+  left: -20px;
+  border-radius: 0 9999rem 9999rem 0;
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+footer .arabic {
+  left: 20px;
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+footer p {
+  font-size: 0.9rem;
+  margin-left: 20px;
+}/*# sourceMappingURL=welcome.component.css.map */

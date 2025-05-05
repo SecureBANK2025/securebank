@@ -1,0 +1,218 @@
+// Variables
+$primary-color: #1a1a40;
+$secondary-color: #ffffff;
+$accent-color: #4a4aff;
+
+// Reset some default styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", serif;
+}
+
+body {
+    background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
+    background-size: cover;
+    background-position: center;
+    color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+
+    .logo {
+        :first-child {
+            height: 50px;
+            top: 10px;
+            position: relative;
+        }
+        :last-child {
+            height: 30px;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+    }
+}
+
+main {
+    .container {
+        max-width: 80%;
+        margin: 0 auto;
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 50px;
+        border: none;
+        height: 80vh;
+        color: $accent-color;
+
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 80dvw;
+            padding: 20px 70px;
+
+            .text {
+                h1 {
+                    font-style: italic;
+                    font-weight: 800;
+                }
+
+                h3 {
+                    color: gray;
+                    font-weight: 500;
+                    margin: -10px 0 0 5px;
+                }
+            }
+
+            button {
+                width: 200px;
+                height: 60px;
+                font-style: italic;
+                position: relative;
+                border: none;
+                color: $secondary-color;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                font-size: 35px;
+                font-weight: 600;
+                &:hover {
+                    background-color: darken($accent-color, 40%);
+                }
+                top: 15px;
+                left: 70px;
+                border-radius: 9999rem 0 0 9999rem;
+                background-color: $accent-color;
+            }
+        }
+        .content {
+            height: 400px; /* ثبّت ارتفاع المحتوى */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            padding: 0px 70px;
+            margin-top: -50px;
+            position: relative; /* مهم عشان التحكم بمكان العناصر */
+        
+            h1 {
+                font-size: 40px;
+                font-weight: 600;
+                margin-bottom: 20px;
+                margin-top: 20px; /* خليه ثابت ميبقاش سلبي */
+            }
+            
+            .table-box {
+                flex: 1;
+                overflow-y: auto; /* هنا عشان السكورول يظهر داخل الجدول */
+                width: 100%;
+                max-width: 1100px;
+                padding: 0 20px;
+            }
+        
+        
+            .table-row {
+                display: table;
+                width: 100%;
+                margin: 10px 0;
+                background: white;
+                padding: 15px 0;
+                color: #555;
+                font-size: 14px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 12px; 
+                overflow: hidden;
+            }
+            .table-head {
+                background: #4F46E5;
+                color: #fff;
+                font-weight: bold;
+                box-shadow: none;
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+            
+            .table-head .table-cell {
+                border-right: none;
+            }
+            .table-cell {
+                display: table-cell;
+                width: 12.5%;
+                text-align: center;
+                padding: 10px 5px;
+                vertical-align: middle;
+                border-right: 1px solid #eee;
+            }
+            .first-cell {
+                text-align: left;
+                padding-left: 15px;
+            }
+            .last-cell {
+                border-right: none;
+            }
+            .redeem-btn {
+                background-color: #4F46E5;
+                color: white;
+                padding: 6px 12px;
+                font-size: 13px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+            .redeem-btn:active {
+                background-color: #ffffff; 
+                color: #4F46E5;
+            }
+            @media only screen and (max-width: 600px) {
+              .table-row {
+                font-size: 12px;
+              }
+            }
+        }
+}}
+.footer {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    padding: 20px 70px;
+
+    button {
+        width: 200px;
+        height: 60px;
+        font-style: italic;
+        position: relative;
+        border: none;
+        color: $secondary-color;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 35px;
+        font-weight: 600;
+        &:active {
+           
+          
+                background-color: #4a4aff;
+                color: #ffffff;        }
+        top: -15px;
+        left: -70px;
+        border-radius: 0 9999rem 9999rem 0;
+        background-color: black;
+    }
+}

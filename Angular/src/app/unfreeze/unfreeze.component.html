@@ -1,0 +1,40 @@
+<main>
+  <div class="pin-container">
+    <div class="upper">
+      <div class="enter-pin red">Unfreeze Card</div>
+
+      <div class="Certf">
+        <img src="/pics/cardpng.png" alt="Freeze Card" class="certificate-image">
+      </div>
+
+      <div class="warning-box">
+        Card Status: Freezed
+      </div>
+
+      <div class="input-container">
+        <form [formGroup]="toggleForm">
+          <div class="input-wrapper">
+            <label for="password">Enter Password</label>
+            <input type="password" id="password" formControlName="password">
+            <div *ngIf="toggleForm.get('password')?.touched && toggleForm.get('password')?.invalid" class="error-message">
+              <span *ngIf="toggleForm.get('password')?.errors?.['required']">Password is required</span>
+              <span *ngIf="toggleForm.get('password')?.errors?.['minlength']">Password must be at least 6
+                characters</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="numpad-container">
+    <app-num-pad></app-num-pad>
+  </div>
+</main>
+
+<footer>
+  <button class="language-btn confirm" (click)="confirm()" [disabled]="toggleForm.invalid" [style.--highlighted]="toggleForm.invalid ? '1' : '0'">Confirm</button>
+  <button class="language-btn cancel" (click)="cancel()">Cancel</button>
+</footer>

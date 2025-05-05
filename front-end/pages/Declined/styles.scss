@@ -7,8 +7,7 @@ $accent-color: #4a4aff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-font-family: 'Noto Kufi Arabic', sans-serif !important;
-
+  font-family: "Noto Kufi Arabic", sans-serif !important;
 }
 
 body {
@@ -21,7 +20,7 @@ body {
   min-height: 100vh;
 }
 
-header {  
+header {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -43,40 +42,38 @@ header .date {
 
 .white-container {
   background: white;
-width: 938px;
-height: 481px;
+  width: 938px;
+  height: 481px;
   border-radius: 49px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
- margin: auto;
- justify-content: center; 
-}
- 
-.ti-xbox-x{
-    font-size: 9rem;
-    color: #ff1010;
+  margin: auto;
+  justify-content: center;
 }
 
-.fail{
- 
+.ti-xbox-x {
+  font-size: 9rem;
   color: #ff1010;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-
 }
-.bold{
+
+.fail {
+  color: #ff1010;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+.bold {
   font-size: 50px;
   font-weight: bolder;
 }
-.thin{
+.thin {
   font-weight: lighter;
   font-style: italic;
 }
- 
+
 // Variables
 $primary-color: #1a1a40;
 $secondary-color: #ffffff;
@@ -84,93 +81,90 @@ $accent-color: #4a4aff;
 
 // Reset some default styles
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Noto Kufi Arabic", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Kufi Arabic", serif;
 }
 
 body {
-    background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
-    background-size: cover;
-    background-position: center;
-    color: $secondary-color;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
+  background-size: cover;
+  background-position: center;
+  color: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 25px;
 
-    .logo {
-        :first-child {
-            height: 50px;
-            top: 10px;
-            position: relative;
-        }
-        :last-child {
-            height: 30px;
-        }
+  .logo {
+    :first-child {
+      height: 50px;
+      top: 10px;
+      position: relative;
     }
+    :last-child {
+      height: 30px;
+    }
+  }
 
-    .date {
-        font-weight: bold;
-    }
+  .date {
+    font-weight: bold;
+  }
 }
 
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    // background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  // background-color: rgba(0, 0, 0, 0.5);
 
-    .language-btn {
-        width: 350px;
-        position: relative;
-        padding: 25px 0px;
-        border: none;
-        color: $accent-color;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        // text-align:start;
-        font-size: 32px;
-        font-weight: 600;
-        &:hover {
-            background-color: $accent-color;
-            color: $secondary-color;
-        }
+  .language-btn {
+    width: 350px;
+    position: relative;
+    padding: 25px 0px;
+    border: none;
+    color: $accent-color;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    // text-align:start;
+    font-size: 32px;
+    font-weight: 600;
+    &:hover {
+      background-color: $accent-color;
+      color: $secondary-color;
     }
+  }
 
- 
-
-    .english {
-        left: -20px;
-        border-radius: 0 9999rem 9999rem 0;
-        background-color: $secondary-color;
-        i{
-            position: relative;
-            font-size: 50px;
-            top: 10px;
-        }
+  .english {
+    left: -20px;
+    border-radius: 0 9999rem 9999rem 0;
+    background-color: $secondary-color;
+    i {
+      position: relative;
+      font-size: 50px;
+      top: 10px;
     }
+  }
 
-    .arabic {
-        left: 20px;
-        border-radius: 9999rem 0 0 9999rem;
-        background-color: $accent-color;
-        color: #ffffff;
-        i{
-            position: relative;
-            font-size: 50px;
-            top: 10px;
-            color: pri;
-        }
+  .arabic {
+    left: 20px;
+    border-radius: 9999rem 0 0 9999rem;
+    background-color: $accent-color;
+    color: #ffffff;
+    i {
+      position: relative;
+      font-size: 50px;
+      top: 10px;
+      color: pri;
     }
-
+  }
 }

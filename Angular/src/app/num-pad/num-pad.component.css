@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #222;
+}
+
+.numpad-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.numpad {
+  display: grid;
+  justify-content: center;
+  gap: 30px;
+}
+
+.row {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.key {
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(100px);
+  background: transparent;
+  color: #ffffff;
+  padding: 20px 0;
+  font-size: 50px;
+  line-height: 0px;
+  font-weight: 900;
+  border: 2px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.05s ease-in-out;
+  text-align: center;
+  width: 12vh;
+  height: 12vh;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.key:active {
+  background-color: #ffffff;
+  color: #4f46e5;
+  transition: background 0.15s ease-in-out;
+}/*# sourceMappingURL=num-pad.component.css.map */

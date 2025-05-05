@@ -1,0 +1,94 @@
+.signin-container {
+  width: 600px;
+  height: 350px;
+  margin: 2rem auto;
+  padding: 0.7rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.signin-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.1rem;
+  font-weight: 700;
+}
+.signin-container .signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.signin-container .signin-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.signin-container .signin-form .form-group label {
+  font-weight: 500;
+  color: #555;
+}
+.signin-container .signin-form .form-group input {
+  padding: 0.45rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.signin-container .signin-form .form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+.signin-container .signin-form .form-group input.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+.signin-container .signin-form .form-group .error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+.signin-container .signin-form .submit-button {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.signin-container .signin-form .submit-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+.signin-container .signin-form .submit-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  padding-top: 233px;
+}
+footer .language-btn {
+  position: relative;
+  padding: 5px 100px;
+  border: none;
+  width: 350px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 35px;
+  font-weight: 600;
+}
+footer .language-btn:active {
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+footer .english {
+  left: -20px;
+  border-radius: 0 9999rem 9999rem 0;
+  background-color: #ffffff;
+  color: #4a4aff;
+}/*# sourceMappingURL=manual-signin.component.css.map */

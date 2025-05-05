@@ -1,0 +1,72 @@
+<main>
+    <div class="container">
+        <div class="title">
+            <div class="text">
+                <h1>{{ userName || userData?.name }}</h1>
+                <h3>{{ userAccountNumber || 'No account number' }}</h3>
+            </div>
+            <button type="button" (click)="logout()">Log out</button>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1>Transfer Money</h1>
+                </div>
+
+                <form [formGroup]="transferForm">
+                    <div class="form-row">
+                        <!-- <div class="bank">
+                            <label for="bank">Receiver's Bank:</label>
+                            <select id="bank" name="bank" formControlName="bank">
+                                <option value="" disabled selected>Select Bank</option>
+                                <option value="Banque Misr">Banque Misr</option>
+                                <option value="Banque du Caire">Banque du Caire</option>
+                                <option value="National Bank of Egypt">National Bank of Egypt</option>
+                                <option value="CIB – Commercial International Bank">CIB – Commercial International Bank
+                                </option>
+                                <option value="QNB Al Ahli">QNB Al Ahli</option>
+                                <option value="HSBC Egypt">HSBC Egypt</option>
+                                <option value="AlexBank">AlexBank</option>
+                                <option value="SAIB Bank">SAIB Bank</option>
+                                <option value="Abu Dhabi Islamic Bank (ADIB)">Abu Dhabi Islamic Bank (ADIB)</option>
+                                <option value="Faisal Islamic Bank">Faisal Islamic Bank</option>
+                                <option value="Credit Agricole Egypt">Credit Agricole Egypt</option>
+                                <option value="Housing and Development Bank">Housing and Development Bank</option>
+                                <option value="Al Ahli Bank of Kuwait (ABK)">Al Ahli Bank of Kuwait (ABK)</option>
+                                <option value="Union National Bank">Union National Bank</option>
+                            </select>
+                        </div> -->
+
+                        <div class="iban">
+                            <label for="accountNum">Receiver's Account Number:</label>
+                            <input type="text" title="accountNum" id="accountNum" name="accountNum"
+                                formControlName="accountNum">
+                                @if ( !formValid ) {
+                                <p class="error-message">You can’t transfer to your own account.</p>
+                                }
+                                <!-- <div class="form-row amount-row"> -->
+                                    <div class="amount">
+                                        <label for="amount">Amount:</label>
+                                        <input type="text" title="amount" id="amount" name="amount" formControlName="amount">
+                                    </div>
+                                    <!-- <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button> -->
+                                    <button type="button" (click)="transfer()" class="confirm-btn">Transfer now</button>
+            
+                                <!-- </div> -->
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="divider"></div>
+            <div class="numpad-container">
+                <app-num-pad></app-num-pad>
+            </div>
+        </div>
+        <div class="footer">
+            <button type="button" (click)="back()">Back</button>
+        </div>
+    </div>
+</main>

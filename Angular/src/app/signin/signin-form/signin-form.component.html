@@ -1,0 +1,21 @@
+<main class="main">
+    <div class="pin-container">
+        <div class="upper">
+            <div class="verfy">Verifying ...</div>
+            <div class="subverfy">Use the OTP sent to your phone number to access your account securely.</div>
+        </div>
+        <div class="middle">
+            <div class="enterotp">Enter the OTP Sent to Your Email</div>
+            <div class="field">
+                <input id="PIN" type="text" placeholder="Enter PIN" [(ngModel)]="otp">
+            </div>
+        </div>
+    </div>
+    <div class="numpad-container">
+        <app-num-pad></app-num-pad>
+        <div class="Btns">
+            <button class="language-btn confirm" (click)="verify_OTP()">Confirm</button>
+            <button class="language-btn cancel" (click)="navToHome()">Cancel</button>
+        </div>
+    </div>
+</main>

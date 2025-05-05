@@ -1,0 +1,29 @@
+<main>
+    <div class="container">
+        <div class="title">
+            <h1>Transaction Completed<i class="ti ti-circle-check"></i></h1>
+        </div>
+        <div class="details">
+            <div class="before">
+                <p>before you go</p>
+            </div>
+            <div class="cards">
+                <div class="card noReceipt" (click)="noReceipt()">
+                    <i class="ti ti-receipt-off"></i>
+                    <p>Save The Environment</p>
+                </div>
+                <div class="divider"></div>
+                <div class="card receipt" (click)="printReceipt()">
+                    <i class="ti ti-printer"></i>
+                    <p>Print Receipt</p>
+                </div>
+            </div>
+            <div class="footer">
+                <h1>Reference code</h1>
+                <div>
+                    <p>BLUTUKHY34PB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

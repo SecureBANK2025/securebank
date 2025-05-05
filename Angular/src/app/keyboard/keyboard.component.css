@@ -1,0 +1,79 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: rgba(34, 34, 34, 0);
+}
+
+.keyboard-container {
+  display: grid;
+  place-items: center;
+  height: 5px;
+}
+
+.keyboard {
+  width: 800px;
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.row {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+}
+
+.keyboard > .row:nth-child(1) {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.keyboard > .row:nth-child(2) {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.keyboard > .row:nth-child(3) {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.keyboard > .row:nth-child(4) {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.keyboard > .row:nth-child(5) {
+  grid-template-columns: auto auto 1fr auto auto;
+}
+
+.key {
+  z-index: 5;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  background: rgba(68, 68, 68, 0);
+  color: #fff;
+  border: solid 1px #a9a9a9;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 900;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.1s ease-in-out;
+  text-align: center;
+  line-height: 10px;
+  width: 100%;
+  min-width: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.key:active {
+  background: hsl(0, 56%, 50%);
+}
+.key:active {
+  background: #4a4aff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
+}
+.key.active {
+  background: #4a4aff;
+}/*# sourceMappingURL=keyboard.component.css.map */

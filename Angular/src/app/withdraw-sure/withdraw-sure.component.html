@@ -1,0 +1,16 @@
+<main>
+    <div class="white-container">
+        <p class="confirmation-text">Are you sure the amount entered is correct?</p>
+
+        <div class="details-box">
+            <p><strong>Name:</strong> {{ userName || userData?.name }}</p>
+            <p><strong>Account Number:</strong> {{ accountNumber }}</p>
+            <p><strong>Amount:</strong> {{ amount }} EGP</p>
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="back" (click)="back()">Back</button>
+            <button type="button" class="confirm" (click)="confirm()">Confirm</button>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,23 @@
+<main>
+    <div class="container">
+        <div class="title">
+            <h1>Are you sure the amount entered is correct?</h1>
+        </div>
+        <div class="details">
+            <div class="from">
+                <h3>Transferring From:<br><span>{{ userAccountNumber || 'No account number' }}</span></h3>
+                <h3>Sent Amount: <span>{{formData.amount}}</span> <span>EGP</span></h3>
+            </div>
+            <i class="ti ti-transfer"></i>
+            <div class="to">
+                <h3>Transferred To:<br><span>{{formData.accountNum}}</span></h3>
+                <h3>{{formData.bank}}</h3>
+                <h3>Received Amount:<span class="currency">{{formData.amount}}</span><span class="currency">EGP</span></h3>
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="button" (click)="back()">Back</button>
+            <button type="button" (click)="confirm()">Confirm</button>
+        </div>
+    </div>
+</main>

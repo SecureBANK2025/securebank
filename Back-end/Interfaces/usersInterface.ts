@@ -1,27 +1,32 @@
-import{Document}from 'mongoose';
+import  mongoose,{Document,Types}from 'mongoose';
 
 type Role = 'user' | 'admin'| 'manager' ;
+type AccountType = 'current' | 'savings' | 'foreign_currency';
 export interface users extends Document{
     email: string;
-    password: string;
+    PIN: string;
     name: string;
     fingerId: number;
     role: Role;
     active: boolean;
-    // account:accounts[];
-    // subscribtion: products[];
     nationalId: string;
-    cardNum: string;
     address: Address[];
-    IBAN: string;
     phoneNum: string;
-    cvv: string ;
-    
+    cardFrozen?: boolean;
+    // balance? :number ; remove it 
+    birthDate: Date;
+    accounts?: Account[];
+    cardId?: mongoose.Types.ObjectId; //new
+    certificateId?: mongoose.Types.ObjectId[]; //new;
 
 }
 
 export interface Address extends Document {
-    street: string ;
+  street: string ;
   city: string;
-  country: string;
+  governorate: string;
+}
+export interface Account {
+  _id: Types.ObjectId; 
+  type: AccountType;   
 }

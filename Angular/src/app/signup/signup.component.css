@@ -1,0 +1,63 @@
+.fotterNB {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  top: calc(98vh - 500px);
+  z-index: 2;
+  width: 100dvw;
+}
+
+.fotterSB {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0;
+  width: 100dvw;
+}
+
+.btn {
+  padding: 5px 100px;
+  width: 350px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.back {
+  border-radius: 0 9999rem 9999rem 0;
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+.back:active {
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+
+.next {
+  left: 20px;
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+.next:active {
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+
+.submit {
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #4a4aff;
+  color: #ffffff;
+}
+.submit:active {
+  background-color: #ffffff;
+  color: #4a4aff;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-left: 20px;
+}/*# sourceMappingURL=signup.component.css.map */

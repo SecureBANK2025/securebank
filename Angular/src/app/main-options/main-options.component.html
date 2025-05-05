@@ -1,0 +1,24 @@
+<main>
+    <div class="container">
+        <div class="title">
+            <div class="text">
+                <h1>{{ userName || userData?.name }}</h1>
+                <h3>{{ accountNumber || accountData?.accountNum || 'No account number' }}</h3>
+            </div>
+            <button type="button" (click)="logout()">Log out</button>
+        </div>
+        <div class="services">
+            <button type="button" (click)="navigateTo('moneyDeposit')" class="card moneyDeposit"><i class="i-solar-archive-up-linear"></i>Money
+                Deposit</button>
+            <button type="button" (click)="navigateTo('moneyTransfer1')" class="card moneyTransfer"><i class="ti ti-transfer"></i>Money
+                Transfer</button>
+            <button type="button" (click)="navigateTo('moneyWithdraw')" class="card moneyWithdraw"><i class="i-solar-archive-down-linear"></i>Money
+                Withdraw</button>
+            <button type="button" (click)="navigateTo('accountDetails')" class="card accountDetails"><i class="bi bi-person-lines-fill"></i>Account
+                Details</button>
+            <button type="button" (click)="navigateTo('transactionsHistory')" class="card transactionsHistory"><i
+                    class="ti ti-clock-dollar"></i>Transactions History</button>
+            <button type="button" (click)="navigateTo('more')" class="card more"><i class="ti ti-apps"></i>More</button>
+        </div>
+    </div>
+</main>

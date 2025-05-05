@@ -1,0 +1,43 @@
+<main>
+    <div class="pin-container">
+
+        
+        <div class="upper">
+            <div class="enter-pin">Money Withdraw</div>
+            <div class="input-container">
+                <label for="amount">Enter the Amount (Cash)</label>
+                <div class="input-wrapper">
+                    <input type="text" id="amount" [(ngModel)]="amount" placeholder="Enter the amount" >
+                    <span class="currency">EGP</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider2"></div>
+
+        <div class="select">Select the Amount</div>
+        <div class="middle">
+            <div class="up">
+                <button class="amount-btn" (click)="selectAmount(1000)"><em>1000</em> EGP</button>
+                <button class="amount-btn" (click)="selectAmount(5000)"><em>5000</em> EGP</button>
+            </div>
+            <div class="down">
+                <button class="amount-btn" (click)="selectAmount(2000)"><em>2000</em> EGP</button>
+                <button class="amount-btn" (click)="selectAmount(10000)"><em>10000</em> EGP</button>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="divider"></div>
+
+    <div class="numpad-container">
+        <app-num-pad></app-num-pad>
+    </div>
+</main>
+
+<footer>
+    <button class="language-btn confirm" (click)="confirm()">Confirm</button>
+    <button class="language-btn cancel" (click)="cancel()">Cancel</button>
+</footer>

@@ -1,0 +1,42 @@
+<div class="signin-container">
+  <h2>Manual Sign In</h2>
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="signin-form">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <div *ngIf="signinForm.get('email')?.invalid && signinForm.get('email')?.touched" class="error-message">
+        <div *ngIf="signinForm.get('email')?.errors?.['required']">Email is required</div>
+        <div *ngIf="signinForm.get('email')?.errors?.['email']">Please enter a valid email</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="PIN">PIN</label>
+      <input
+        type="password"
+        id="PIN"
+        formControlName="PIN"
+        placeholder="Enter your PIN"
+      />
+      <div *ngIf="signinForm.get('PIN')?.invalid && signinForm.get('PIN')?.touched" class="error-message">
+        PIN is required
+      </div>
+    </div>
+    <button type="submit" class="submit-button" [disabled]="signinForm.invalid">Sign In</button>
+  </form>
+</div>
+
+<app-keyboard></app-keyboard>
+
+
+ <footer>
+
+  <button class="language-btn english" (click)="[navToHome()]">
+    Back
+</button>
+
+</footer>
