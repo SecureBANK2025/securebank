@@ -143,6 +143,9 @@ main {
                 color: #fff;
                 font-weight: bold;
                 box-shadow: none;
+                position: sticky;
+                top: 0;
+                z-index: 10;
             }
             .table-head .table-cell {
                 border-right: none;

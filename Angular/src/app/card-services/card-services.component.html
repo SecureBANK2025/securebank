@@ -10,9 +10,9 @@
         <div class="cards-container">
             <div class="card">
               <img src="/pics/cardpng.png" alt="Basic Certificate">
-              
+
               <div class="card-content">
-                <p><b>Card Number:</b> {{cardNumber}}</p>
+                <p><b>Card Number:</b> {{cardNumber | cardNumberFormat}}</p>
                 <p><b>Expiry Date:</b> {{expiryDate}}</p>
                 <p><b>CVV:</b> {{cvv}}</p>
               </div>
@@ -27,8 +27,8 @@
 
             </div>
           </div>
-          
+
           <button class="btnn" (click)="back()">Back</button>
-          
+
     </div>
 </main>

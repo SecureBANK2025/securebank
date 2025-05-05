@@ -6,8 +6,10 @@ const certificateSchema = new Schema<ICertificate>({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
-    accountId:{type: Schema.Types.ObjectId,
-        ref: 'User',},
+    accountId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
     issuedAt: {
         type: Date,
         default: Date.now
@@ -20,16 +22,20 @@ const certificateSchema = new Schema<ICertificate>({
         enum: ['valid', 'revoked', 'expired'],
         default: 'valid'
     },
-    type :{type :String},
+    type: { type: String },
     purchaseAmount: {
         type: Number,
-        required:true,
-        min: 5000
+        required: true
     },
     interestRate: {
         type: Number,
-        required:  true    
-    } 
+        required: true
+    },
+    refCode: {
+        type: String,
+        unique: true,
+        required: true
+    }
 }, {
     timestamps: true
 });

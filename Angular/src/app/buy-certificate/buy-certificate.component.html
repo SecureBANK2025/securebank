@@ -2,13 +2,15 @@
     <div class="pin-container">
         <div class="upper">
             <div class="enter-pin">Buy a Certificate</div>
+            <form [formGroup]="certificateForm">
             <div class="input-container">
-                <label for="amount">Enter the certificate amount </label>
+                <label for="purchaseAmount">Enter the certificate amount </label>
                 <div class="input-wrapper">
-                    <input type="text" id="amount" [(ngModel)]="amount" readonly>
+                    <input type="text" id="purchaseAmount" formControlName="purchaseAmount">
                     <span class="currency">EGP</span>
                 </div>
             </div>
+        </form>
         </div>
 
         <div class="divider2"></div>
