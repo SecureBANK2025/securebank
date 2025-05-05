@@ -241,6 +241,16 @@ main .content form .form-row > div select:focus {
   box-shadow: 3px 3px 8px rgba(109, 109, 247, 0.5);
   outline: none;
 }
+main .content form .form-row .error-message {
+  min-height: 20px;
+  margin-top: 5px;
+  color: red;
+  font-weight: 900;
+  font-size: 15px;
+  position: relative;
+  top: auto;
+  left: auto;
+}
 main .content form .form-row.amount-row {
   align-items: end;
 }
@@ -250,7 +260,6 @@ main .content form .form-row.amount-row .amount {
 main .content form .form-row.amount-row .amount label {
   font-weight: 900;
   display: block;
-  margin-bottom: 5px;
 }
 main .content form .form-row.amount-row .amount input {
   width: 87%;
@@ -316,17 +325,6 @@ main .numpad-container ::ng-deep app-num-pad .numpad .key:active {
 }
 .footer button:active {
   background-color: #4a4aff;
-}
-
-.error-message {
-  font-size: 0.9rem;
-  color: red;
-  height: 0px;
-  position: relative;
-  top: -51px;
-  left: 390px;
-  font-weight: 900;
-  font-size: 15px;
 }
 
 .confirm-btn {
