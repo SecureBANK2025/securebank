@@ -9,6 +9,7 @@ export interface ICertificate extends Document {
     status: "valid" | "revoked" | "expired";
     purchaseAmount: number;
     interestRate: number;
+    refCode: string;
     
     
 }
