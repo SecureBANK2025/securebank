@@ -10,6 +10,7 @@ export class GlobalService {
   authRoute: string = '/api/v1/auth';
   transactionsRoute:string= '/api/v1/transactions';
   cardRoute:string= '/api/v1/cards';
+  certificatesRoute:string= '/api/v1/certificates';
 
   constructor() { }
 

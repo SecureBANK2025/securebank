@@ -148,6 +148,7 @@ main {
                     &[style*="--highlighted: 1"] {
                         background-color: lighten(#4a4aff1c, 20%);
                         color: lighten($accent-color, 20%);
+                        display: none;
                     }
 
                     background-color: #4a4aff1c;
