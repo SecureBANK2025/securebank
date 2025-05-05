@@ -284,7 +284,18 @@ main {
                 }
               }
             }
+            
 
+            .error-message {
+              min-height: 20px; 
+              margin-top: 5px;
+              color: red;
+              font-weight: 900;
+              font-size: 15px;
+              position: relative;
+              top: auto;
+              left: auto;
+          }
             &.amount-row {
               align-items: end;
 
@@ -294,7 +305,7 @@ main {
                 label {
                   font-weight: 900;
                   display: block;
-                  margin-bottom: 5px;
+                  
                 }
 
                 input {
@@ -381,19 +392,7 @@ main {
       }
     }
   
-    
-    .error-message{
-      
-      font-size: 0.9rem;
-    // visibility: hidden;
-    color: red;
-    height: 0px;
-    position: relative;
-    top: -51px;
-    left: 390px;
-    font-weight: 900;
-    font-size: 15px;
-  }
+  
   .confirm-btn {
     height: 55px;
     margin-left:100px;
