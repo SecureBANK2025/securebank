@@ -21,6 +21,7 @@ export class MyCertificatesComponent implements OnInit {
   // recipientAccountNum:any;
 
   certificates: any;
+  certificateData: any;
 
 
   constructor(
@@ -61,7 +62,22 @@ export class MyCertificatesComponent implements OnInit {
   back() {
     this.router.navigate(['/certificates']);
   }
-  redeem() {
+  redeem(certificateId:any, accountId:any) {
+    // console.log(certificateId);
+    this.certificateData = {
+      accountId: accountId,
+      certificateId: certificateId
+    }
+    console.log(this.certificateData);
+    this._certificatesService.redeem(this.certificateData).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigate(['/redeem-done']);
+      },
+      error: (err) => {
+        console.log('Transfer error:', err);
+      }
+    })
   }
 
   getAll(){
