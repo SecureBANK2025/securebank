@@ -17,6 +17,7 @@ import { DataService } from '../services/data.service';
 })
 export class BuyCertificateComponent implements OnInit {
   purchaseAmount: string = '';
+  amount: number = 0;
   userData: any;
   errorMessage: string = '';
   certificateForm: FormGroup;
@@ -25,7 +26,7 @@ export class BuyCertificateComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _AuthService: AuthService,
+    // private _AuthService: AuthService,
     private _ErrorService: ErrorService,
     private fb: FormBuilder,
     private _CertificatesService: CertificatesService,
@@ -49,7 +50,9 @@ export class BuyCertificateComponent implements OnInit {
   }
 
   selectAmount(value: number) {
-    this.purchaseAmount = value.toString();
+    this.amount = value;
+    console.log(this.amount);
+    console.log(value);
   }
 
   cancel() {
