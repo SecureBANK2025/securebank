@@ -89,12 +89,24 @@
             <h1>My Certificates</h1>
             <div class="table-box">
                 <div class="table-row table-head">
-                    <div class="table-cell first-cell"><p>Name</p></div>
-                    <div class="table-cell"><p>Reference Code</p></div>
-                    <div class="table-cell"><p>Status</p></div>
-                    <div class="table-cell"><p>Amount</p></div>
-                    <div class="table-cell"><p>Interest Rate</p></div>
-                    <div class="table-cell"><p>Issued Date</p></div>
+                    <div class="table-cell first-cell">
+                        <p>Name</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Reference Code</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Status</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Amount</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Interest Rate</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Issued Date</p>
+                    </div>
                     <div class="table-cell last-cell"></div>
                 </div>
 
@@ -119,7 +131,8 @@
                         <p>{{ certificate.issuedAt || 'No data found' |egyptTime }}</p>
                     </div>
                     <div class="table-cell last-cell">
-                        <button class="redeem-btn"(click)="redeem()">Redeem</button>
+                        <button class="redeem-btn"
+                            (click)="redeem(certificate._id,certificate.accountId)">Redeem</button>
                     </div>
                 </div>
                 }
