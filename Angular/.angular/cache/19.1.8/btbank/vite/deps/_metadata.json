@@ -1,0 +1,97 @@
+{
+  "hash": "9b28254e",
+  "configHash": "8875a633",
+  "lockfileHash": "21dd4b9a",
+  "browserHash": "59c1892c",
+  "optimized": {
+    "@angular/animations": {
+      "src": "../../../../../../node_modules/@angular/animations/fesm2022/animations.mjs",
+      "file": "@angular_animations.js",
+      "fileHash": "5066f678",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "dd695a06",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "49626b28",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "3cb1ca1b",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "e20c1ebe",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "5a3b9619",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
+      "file": "@angular_platform-browser_animations.js",
+      "fileHash": "2beba1b3",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "b9903a37",
+      "needsInterop": false
+    },
+    "jwt-decode": {
+      "src": "../../../../../../node_modules/jwt-decode/build/esm/index.js",
+      "file": "jwt-decode.js",
+      "fileHash": "8fceda2c",
+      "needsInterop": false
+    },
+    "luxon": {
+      "src": "../../../../../../node_modules/luxon/src/luxon.js",
+      "file": "luxon.js",
+      "fileHash": "8bcb1526",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "7421fdf8",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-WDOWHVRI": {
+      "file": "chunk-WDOWHVRI.js"
+    },
+    "chunk-WAAVPPWH": {
+      "file": "chunk-WAAVPPWH.js"
+    },
+    "chunk-QGP2Z56W": {
+      "file": "chunk-QGP2Z56W.js"
+    },
+    "chunk-HRMWXWEU": {
+      "file": "chunk-HRMWXWEU.js"
+    },
+    "chunk-ZXNQQMV3": {
+      "file": "chunk-ZXNQQMV3.js"
+    },
+    "chunk-P6U2JBMQ": {
+      "file": "chunk-P6U2JBMQ.js"
+    },
+    "chunk-WDMUDEB6": {
+      "file": "chunk-WDMUDEB6.js"
+    }
+  }
+}
