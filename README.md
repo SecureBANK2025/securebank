@@ -94,29 +94,29 @@ SecureBank is a comprehensive banking application that combines modern web techn
 ```
 securebank/
 ├── Angular/                 # Frontend application
-│   ├── src/                # Source code
-│   │   ├── app/           # Application modules
-│   │   ├── assets/        # Static assets
-│   │   ├── environments/  # Environment configs
-│   │   └── styles/        # Global styles
-│   ├── public/            # Public assets
-│   └── package.json       # Frontend dependencies
+│   ├── src/                 # Source code
+│   │   ├── app/             # Application modules
+│   │   ├── assets/          # Static assets
+│   │   ├── environments/    # Environment configs
+│   │   └── styles/          # Global styles
+│   ├── public/              # Public assets
+│   └── package.json         # Frontend dependencies
 │
-├── Back-end/              # Backend application
-│   ├── controllers/       # Business logic
-│   ├── Models/           # Database schemas
-│   ├── Routes/           # API endpoints
-│   ├── Utils/            # Helper functions
-│   ├── Interfaces/       # TypeScript interfaces
-│   ├── validators/       # Input validation
-│   ├── DB_config/        # Database configuration
-│   ├── tests/            # Test files
-│   └── docs/             # API documentation
+├── Back-end/                # Backend application
+│   ├── controllers/         # Business logic
+│   ├── Models/              # Database schemas
+│   ├── Routes/              # API endpoints
+│   ├── Utils/               # Helper functions
+│   ├── Interfaces/          # TypeScript interfaces
+│   ├── validators/          # Input validation
+│   ├── DB_config/           # Database configuration
+│   ├── tests/               # Test files
+│   └── docs/                # API documentation
 │
-└── docs/                 # Project documentation
-    ├── api/             # API documentation
-    ├── setup/           # Setup guides
-    └── architecture/    # Architecture diagrams
+└── docs/                    # Project documentation
+    ├── api/                 # API documentation
+    ├── setup/               # Setup guides
+    └── architecture/        # Architecture diagrams
 ```
 
 ## API Documentation
