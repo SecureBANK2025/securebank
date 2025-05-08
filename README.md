@@ -51,8 +51,6 @@ SecureBank is a comprehensive banking application that combines modern web techn
 - 📊 Account details view
 - 💰 Balance and IBAN information
 - 📜 Transaction history with filtering
-- 📈 Account analytics
-- 📱 Mobile-responsive interface
 
 ### Banking Operations
 - 💵 Money deposits
@@ -60,9 +58,6 @@ SecureBank is a comprehensive banking application that combines modern web techn
 - 💱 Money transfers between accounts
 - 📈 Certificate of deposit purchase
 - 💳 Bank card management
-- 📊 Financial reports
-- 🔔 Transaction notifications
-- 📅 Scheduled payments
 
 ## Technical Architecture
 
@@ -74,7 +69,6 @@ SecureBank is a comprehensive banking application that combines modern web techn
 - **Styling**: SCSS
 - **Authentication**: JWT
 - **State Management**: NgRx
-- **Testing**: Jasmine & Karma
 - **Build Tool**: Angular CLI
 
 ### Backend
@@ -90,7 +84,7 @@ SecureBank is a comprehensive banking application that combines modern web techn
 
 ### Hardware Integration
 - **Controller**: ESP32 Microcontroller
-- **Sensor**: Adafruit Fingerprint Sensor
+- **Sensor**: Adafruit Fingerprint Sensor (R307)
 - **Programming**: Arduino IDE
 - **Communication**: WiFi
 - **Security**: Local encryption
@@ -220,13 +214,14 @@ Authorization: Bearer <token>
 - Angular CLI (v19 or higher)
 - MongoDB (v4.4 or higher)
 - Arduino IDE
-- ESP32 microcontroller with fingerprint sensor
+- ESP32 microcontroller
+- fingerprint sensor (R307)
 - Git
 
 ### Environment Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/securebank.git
+   git clone https://github.com/SecureBANK2025/securebank.git
    cd securebank
    ```
 
@@ -352,7 +347,7 @@ ng test
 ## Security Features
 - JWT authentication for all protected endpoints
 - Secure PIN hashing using bcrypt
-- Local fingerprint data storage on ESP32
+- Local fingerprint data storage on the R307 sensor
 - Email OTP verification
 - CORS protection
 - Rate limiting
