@@ -389,6 +389,6 @@ ng test
 ## Contributors
 - [Baher Hossam](https://github.com/baher1088)
 - [Bahy Adel](https://github.com/bahy-adell)
-- [Manal Ali]([https://github.com/YasseenLMaghraby](https://github.com/manal-3li))
-- [Mazen Ahmed]([https://github.com/YasseenLMaghraby](https://github.com/Mazen8Ahmed))
+- [Manal Ali](https://github.com/manal-3li)
+- [Mazen Ahmed](https://github.com/Mazen8Ahmed)
 - [Yasseen L Maghraby](https://github.com/YasseenLMaghraby)
