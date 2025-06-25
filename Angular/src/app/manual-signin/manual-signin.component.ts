@@ -56,11 +56,7 @@ export class ManualSigninComponent implements OnInit {
           console.log(res.token);
           this._AuthService.currentUser.subscribe(user => {
             if (user) {
-              // -----------------------------------------------------------new
-
-              // this._router.navigate(['/mainOptions']);
           this._router.navigate(['/chooseAccount']);
-
             }
           });
           this._AuthService.saveCurrentUser();

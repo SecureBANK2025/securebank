@@ -116,4 +116,8 @@ export class AccountDetailsComponent implements OnInit {
   back() {
     this.router.navigate(['/mainOptions']);
   }
+
+  createAccount() {
+    this.router.navigate(['/newAccount']);
+  }
 }

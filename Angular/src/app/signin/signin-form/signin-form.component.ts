@@ -51,7 +51,7 @@ export class SigninFormComponent {
           this._AuthService.saveCurrentUser();
           // this._AuthService.saveCurrentAccountID();
           // this._AuthService.saveCurrentAccountData();
-          this._router.navigate(['/mainOptions']);
+          this._router.navigate(['/chooseAccount']);
         }
       },
       error: (err) => {

@@ -109,6 +109,8 @@ export class BuyCertificateComponent implements OnInit, OnDestroy {
     }
 
     // Check if user has enough balance
+    console.log(this.currentBalance);
+    console.log(finalAmount);
     if (finalAmount > this.currentBalance) {
       this.error = true;
       this.errorMessage = 'You Don\'t Have Enough Money';

@@ -48,7 +48,6 @@ export class ChooseAccountComponent implements OnInit {
     console.log(this.location.back());
     
     // this.router.navigate(['/finger']);
-
   }
 
   confirm() {

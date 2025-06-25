@@ -84,18 +84,43 @@ export class SignupComponent implements OnInit {
 
 
 
+  //   signup(myData: object) {
+  //     this._AuthService.singUp(myData).subscribe({
+  //       next: (res) => {
+  //         this._router.navigate(['/signupSuccess'])
+  //       },
+  //       error: (err) => {
+  //         console.error('Signup failed:', err);
+  //         // Navigate to auth-failed with a flag to indicate we're in signup flow
+  //         this._router.navigate(['/authFailed'], {
+  //           queryParams: { from: 'signup' }
+  //         });
+  //       }
+  //     })
+  //   }
   signup(myData: object) {
     this._AuthService.singUp(myData).subscribe({
       next: (res) => {
-        this._router.navigate(['/signupSuccess'])
-      }, 
+        this._router.navigate(['/signupSuccess']);
+      },
       error: (err) => {
         console.error('Signup failed:', err);
-        // Navigate to auth-failed with a flag to indicate we're in signup flow
-        this._router.navigate(['/authFailed'], { 
-          queryParams: { from: 'signup' }
+
+        // Extract error messages from the backend response
+        const errorMessages = err?.error?.errors?.map(function (e: any) {
+          return e.msg;
+        });
+        console.log(errorMessages);
+
+        // Navigate to auth-failed with query parameters
+        this._router.navigate(['/authFailed'], {
+          queryParams: {
+            from: 'signup',
+            messages: JSON.stringify(errorMessages)  // Send as JSON string
+          }
         });
       }
-    })
+    });
   }
+
 }
