@@ -1,5 +1,4 @@
 
-
 export const enrollFingerprint = (): Promise<number | null> => {
     // return fetch(`http://${process.env.ESP_IP}/enroll`, {
     return fetch(`http://${process.env.ESP_LINK}/enroll`, {

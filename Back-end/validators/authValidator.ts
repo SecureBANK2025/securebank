@@ -35,9 +35,16 @@ export const signUpValidation = [
     .isMobilePhone("ar-EG").withMessage("Invalid phone number"),
 
   check("nationalId")
-    .notEmpty().withMessage("National ID is required")
-    .isNumeric().withMessage("National ID must be numeric")
-    .isLength({ min: 14, max: 14 }).withMessage("National ID must be exactly 14 digits"),
+  .notEmpty().withMessage("National ID is required")
+  .isNumeric().withMessage("National ID must be numeric")
+  .isLength({ min: 14, max: 14 }).withMessage("National ID must be exactly 14 digits")
+  .custom(async (val: string) => {
+    const user = await usersModel.findOne({ nationalId: val });
+    if (user) {
+      throw new Error("National ID is already in use");
+    }
+    return true;
+  }),
 
   check("birthDate")
     .notEmpty().withMessage("Birthday is required")
