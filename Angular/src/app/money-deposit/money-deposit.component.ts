@@ -13,11 +13,13 @@ import { DataService } from '../services/data.service';
   styleUrl: './money-deposit.component.scss'
 })
 export class MoneyDepositComponent implements OnInit {
-  amount: number = 0;
+  amount: number | null = null;
   userData: any;
+  error: boolean = false;
+  errorMessage: string = '';
 
-  constructor(private router: Router,private _AuthService: AuthService,private _dataService:DataService) {
-    
+  constructor(private router: Router, private _AuthService: AuthService, private _dataService: DataService) {
+
   }
 
   ngOnInit(): void {
@@ -26,12 +28,21 @@ export class MoneyDepositComponent implements OnInit {
     });
   }
   sendAmount() {
-    this._dataService.setAmount(this.amount);
+    this._dataService.setAmount(this.amount || 0);
   }
-  
+
 
   selectAmount(value: number) {
     this.amount = value;
+  }
+
+  onKeyPress(event: KeyboardEvent): boolean {
+    // Allow only numbers (0-9), backspace, delete, tab, escape, enter
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
   }
 
   cancel() {
@@ -39,7 +50,19 @@ export class MoneyDepositComponent implements OnInit {
   }
 
   confirm() {
-  this.sendAmount()
-  this.router.navigate(['/deposit-sure']);
+    if (this.amount !== 0 && this.amount !== null) {
+      if (this.amount < 50) {
+        this.error = true;
+        this.errorMessage = 'The amount must be greater than 50';
+      } else {
+        this.error = false;
+        this.errorMessage = '';
+        this.sendAmount()
+        this.router.navigate(['/deposit-sure']);
+      }
+    } else {
+      this.error = true;
+      this.errorMessage = 'Please enter the amount';
+    }
   }
 }

@@ -33,6 +33,8 @@ export class ManualSigninComponent implements OnInit {
 
   ngOnInit(): void {
     this.myData = {};
+    // Clear any existing token
+    localStorage.removeItem('user');
   }
 
 

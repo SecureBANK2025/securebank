@@ -6,9 +6,10 @@
             <div class="input-container">
                 <label for="purchaseAmount">Enter the certificate amount </label>
                 <div class="input-wrapper">
-                    <input type="text" id="purchaseAmount" formControlName="purchaseAmount" [(ngModel)]="amount">
+                    <input type="text" id="purchaseAmount" formControlName="purchaseAmount" [(ngModel)]="amount" (keypress)="onKeyPress($event)">
                     <span class="currency">EGP</span>
                 </div>
+                <div class="error-message-red" *ngIf="error">{{ errorMessage }}</div>
             </div>
         </form>
         </div>

@@ -22,8 +22,11 @@ export class AuthService {
   constructor(private _HttpClient: HttpClient, private _Router: Router, private _GlobalService: GlobalService) {
     this.hostName = this._GlobalService.hostName;
     this.routeName = this._GlobalService.authRoute;
-    if (localStorage.getItem('user') !== null) {
-      this.saveCurrentUser()
+    const token = localStorage.getItem('user');
+    if (token !== null) {
+      this.saveCurrentUser();
+    } else {
+      this.currentUser.next(null);
     }
   }
 
@@ -34,7 +37,18 @@ export class AuthService {
 
 saveCurrentUser() {
     const token: any = localStorage.getItem('user');
-    this.currentUser.next(jwtDecode(token));
+    if (!token) {
+      this.currentUser.next(null);
+      return;
+    }
+    
+    try {
+      this.currentUser.next(jwtDecode(token));
+    } catch (error) {
+      // Token is invalid (malformed)
+      this.currentUser.next(null);
+      localStorage.removeItem('user');
+    }
   }
 
 
@@ -73,10 +87,21 @@ saveCurrentUser() {
 
   checkToken() {
     const token: any = localStorage.getItem('user');
-    const decodedToken = jwtDecode<DecodedToken>(token);
-    if (decodedToken.exp! < Date.now() / 1000) {
-      this.logout()
-      this._Router.navigate(['/home'])
+    if (!token) {
+      this.logout();
+      return;
+    }
+    
+    try {
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      if (decodedToken.exp! < Date.now() / 1000) {
+        this.logout();
+        this._Router.navigate(['/home']);
+      }
+    } catch (error) {
+      // Token is invalid (malformed)
+      this.logout();
+      this._Router.navigate(['/home']);
     }
   }
 

@@ -7,9 +7,10 @@
             <div class="input-container">
                 <label for="amount">Enter the Amount (Cash)</label>
                 <div class="input-wrapper">
-                    <input type="text" id="amount" [(ngModel)]="amount" placeholder="Enter the amount" >
+                    <input type="text" id="amount" [(ngModel)]="amount" placeholder="Enter the amount" (keypress)="onKeyPress($event)">
                     <span class="currency">EGP</span>
                 </div>
+                <div class="error-message-red" *ngIf="error">{{ errorMessage }}</div>
             </div>
         </div>
 

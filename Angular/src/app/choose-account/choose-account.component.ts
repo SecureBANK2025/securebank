@@ -25,6 +25,9 @@ export class ChooseAccountComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Check if user is authenticated
+    this._AuthService.checkToken();
+    
     // Clear any error message on component initialization
     this.errorMessage = '';
   }

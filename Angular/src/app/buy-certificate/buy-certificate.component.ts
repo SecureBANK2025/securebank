@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { numPadComponent } from '../num-pad/num-pad.component';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,7 @@ import { ErrorService } from '../services/errorMessage.service';
 import { FormBuilder } from '@angular/forms';
 import { CertificatesService } from '../services/certificates.service';
 import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-money-deposit',
@@ -15,14 +16,17 @@ import { DataService } from '../services/data.service';
   templateUrl: './buy-certificate.component.html',
   styleUrl: './buy-certificate.component.scss'
 })
-export class BuyCertificateComponent implements OnInit {
+export class BuyCertificateComponent implements OnInit, OnDestroy {
   purchaseAmount: string = '';
-  amount: number = 0;
+  amount: number | null = null;
   userData: any;
   errorMessage: string = '';
   certificateForm: FormGroup;
   accountId: string = '';
   certificateData: any;
+  currentBalance: number = 0;
+  error: boolean = false;
+  private balanceSubscription?: Subscription;
 
   constructor(
     private router: Router,
@@ -43,6 +47,19 @@ export class BuyCertificateComponent implements OnInit {
     });
     console.log(this.accountId);
 
+    // Get current balance
+    this.balanceSubscription = this._DataService.currentAccountBalance.subscribe(
+      balance => {
+        this.currentBalance = balance;
+        console.log('Current account balance:', balance);
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.balanceSubscription) {
+      this.balanceSubscription.unsubscribe();
+    }
   }
 
   setAmount(value: string) {
@@ -55,20 +72,61 @@ export class BuyCertificateComponent implements OnInit {
     console.log(value);
   }
 
+  onKeyPress(event: KeyboardEvent): boolean {
+    // Allow only numbers (0-9), backspace, delete, tab, escape, enter
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
   cancel() {
     this.router.navigate(['/view-available']);
   }
 
   confirm() {
+    // Reset error state
+    this.error = false;
+    this.errorMessage = '';
+
+    // Get the amount from form or selected amount
+    const formAmount = this.certificateForm.value.purchaseAmount;
+    const finalAmount = this.amount || (formAmount ? parseInt(formAmount) : null);
+
+    // Validation checks
+    if (!finalAmount || finalAmount === null) {
+      this.error = true;
+      this.errorMessage = 'Please enter the certificate amount';
+      return;
+    }
+
+    // Check minimum amount
+    if (finalAmount < 1000) {
+      this.error = true;
+      this.errorMessage = 'The amount must be greater than 1000 EGP';
+      return;
+    }
+
+    // Check if user has enough balance
+    if (finalAmount > this.currentBalance) {
+      this.error = true;
+      this.errorMessage = 'You Don\'t Have Enough Money';
+      return;
+    }
+
+    // All validations passed
+    console.log('Certificate purchase details:', {
+      amount: finalAmount,
+      currentBalance: this.currentBalance
+    });
 
     if (this.certificateForm.valid) {
-      
       this.certificateData = {
-        purchaseAmount: parseInt(this.certificateForm.value.purchaseAmount),
+        purchaseAmount: finalAmount,
         accountId: this.accountId
       }
       console.log(this.certificateData);
-
 
       this.router.navigate(['/finger']);
       this._CertificatesService.buyCertificate(this.certificateData).subscribe({
