@@ -76,19 +76,27 @@ header .date {
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  flex-direction: row;
+  gap: 80px;
   width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 button {
-  padding: 10px 40px;
-  width: 25%;
-  font-size: 18px;
+  width: 230px;
+  height: 70px;
+  font-size: 22px;
   font-weight: bold;
   border: none;
-  border-radius: 13px;
+  border-radius: 15px;
   cursor: pointer;
   transition: 0.3s;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .saving {
