@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -153,28 +154,43 @@ main .container .content .loading p {
 }
 main .container .footer {
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: space-between; /* وزع الزرين على طرفي الحاوية */
+  align-items: center;
   width: 100%;
   padding: 20px 70px;
 }
-main .container .footer button {
+main .container .footer button.back-btn {
   width: 200px;
   height: 60px;
   font-style: italic;
-  position: relative;
   border: none;
   color: #ffffff;
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 35px;
   font-weight: 600;
-  top: -15px;
-  left: -70px;
   border-radius: 0 9999rem 9999rem 0;
   background-color: black;
+  position: relative;
+  top: -15px;
+  left: -70px;
 }
-main .container .footer button:active {
-  background-color: #4a4aff;
+main .container .footer button.back-btnn {
+  width: 250px;
+  height: 60px;
+  font-style: italic;
+  border: none;
   color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 9999rem 0 0 9999rem;
+  background-color: #4a4aff;
+  position: relative;
+  top: -15px;
+  right: -70px;
+}
+main .container .footer button.back-btnn:active {
+  background-color: black;
 }/*# sourceMappingURL=account-details.component.css.map */
