@@ -168,3 +168,40 @@ button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
 }
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .language-btn {
+        position: relative;
+        padding: 5px 100px;
+        border: none;
+        width: 250px;
+
+        cursor: pointer;
+        transition: background-color 0.3s;
+        // text-align:start;
+        font-size: 35px;
+        font-weight: 600;
+        &:active {
+            background-color: $accent-color;
+            color: $secondary-color;
+        }
+    }
+
+    .english {
+        left: -20px;
+        border-radius: 0 9999rem 9999rem 0;
+        background-color: $secondary-color;
+        color: $accent-color;
+    }
+
+    
+
+    p {
+        font-size: 0.9rem;
+        margin-left: 20px;
+    }
+}

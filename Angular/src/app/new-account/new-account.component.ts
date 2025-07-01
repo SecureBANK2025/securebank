@@ -29,6 +29,11 @@ export class NewAccountComponent implements OnInit {
     this._AuthService.checkToken();
   }
 
+  navToHome() {
+        this.router.navigate(['/accountDetails']);
+    // const atForm1:Boolean = true;
+  }
+ 
   savings() {
     this.type = "savings";
     this.confirm();
