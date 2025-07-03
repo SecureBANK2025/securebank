@@ -5,6 +5,7 @@ import AccountModel from "../Models/accountModel";
 import customErrors from "../Utils/Errors";
 import asyncHandler from "express-async-handler";
 import { ObjectId } from "mongodb";
+import { verifyFingerprint } from "./FingerprintController";
 
 const calculateValidUntil = (): Date => {
     const endDate = new Date();
@@ -114,9 +115,9 @@ export const buyCertificate = asyncHandler(async (req: any, res: Response): Prom
     const validUntil = calculateValidUntil();
 
 
-    // constfinger_Id = await verifyFingerprint();
+    const finger_Id = await verifyFingerprint();
 
-    const finger_Id = 8;
+    //const finger_Id = 8;
 
     if (!finger_Id) {
         return res.status(400).json({ success: false, message: "Fingerprint not found - card" });

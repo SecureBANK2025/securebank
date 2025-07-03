@@ -49,8 +49,8 @@ export const requestNewCard = async (req: any, res: Response, next: NextFunction
     }
     //new --->
 
-    // constfinger_Id = await verifyFingerprint();
-    const finger_Id = 8; // cursor ميقدرش يقولك ان هنا فى غلط 
+    const finger_Id = await verifyFingerprint();
+    //const finger_Id = 8; // cursor ميقدرش يقولك ان هنا فى غلط 
 
     if (!finger_Id) {
         return  next(new customErrors("Fingerprint not found - card",400)); 

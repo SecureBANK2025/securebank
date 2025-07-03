@@ -28,12 +28,12 @@ export const depositMoney = asyncHandler(async (req: any, res: Response, next: N
     await user.save();
     //-----------------------> new <----------------------------
     if (!accountId) {
-            return new customErrors("Create Account first", 400);
+            return next(new customErrors("Create Account first", 400));
     }
         
     const account = await AccountModel.findById(accountId);
     if (!account) {
-        return new customErrors("Create Account first", 400);
+        return next(new customErrors("Create Account first", 400));
     }
 
     account.balance += amount;
@@ -58,7 +58,7 @@ export const withdrawMoney = asyncHandler(async (req: any, res: Response, next: 
     const { amount , accountId} = req.body;
     const userId = req.user?._id;
 
-    if (!userId || !amount || amount <= 0) {
+    if (!userId || !amount || amount <= 0 || amount < 50) {
         res.status(400).json({ message: "Invalid amount" });
         return;
     }
@@ -68,16 +68,21 @@ export const withdrawMoney = asyncHandler(async (req: any, res: Response, next: 
         return;
     }
 
-    await user.save();
+    
     //--------------------------> new
     if (!accountId) {
-            return new customErrors("No Account ID Found", 400);
+            return next(new customErrors("No Account ID Found", 400));
         }
             
     const account = await AccountModel.findById(accountId);
     if (!account) {
-            return new customErrors("Create Account first", 400);
+            return  next(new customErrors("Create Account first", 400));
         }
+
+    if(account.balance < amount){
+        res.status(400).json({ message: "Insufficient balance" });
+      return;
+    }
 
     account.balance -= amount;
     await account.save();
