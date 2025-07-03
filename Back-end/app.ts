@@ -4,6 +4,7 @@ import database from './DB_config/database';
 import AllRoutes from './Routes';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
+import customErrors from './Utils/Errors';
 
 const app: express.Application = express();
 app.use(express.json());
@@ -27,6 +28,22 @@ database();
 dotenv.config();
 
 AllRoutes(app);
+
+
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction): void => {
+  if (err instanceof customErrors) {
+    res.status(err.statusCode).json(err.toJSON());
+    return;
+  }
+  
+  console.error('Error:', err);
+  res.status(500).json({
+    success: false,
+    status: 'error',
+    statusCode: 500,
+    message: 'Internal server error'
+  });
+});
 
 app.listen(process.env.PORT, () => {
   console.log(`App listen on Port : ${process.env.PORT}`)
