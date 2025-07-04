@@ -1,4 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { ChatbotService } from '../services/chatbot.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-keyboard',
@@ -6,7 +8,7 @@ import { Component, AfterViewInit } from '@angular/core';
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.scss']
 })
-export class KeyboardComponent implements AfterViewInit {
+export class KeyboardComponent implements AfterViewInit, OnDestroy {
   // Define the keyboard layouts for English and Arabic
   englishLayout = {
     row2: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
@@ -28,6 +30,21 @@ export class KeyboardComponent implements AfterViewInit {
 
   // Track the last focused input or textarea element
   lastFocusedElement: HTMLInputElement | HTMLTextAreaElement | null = null;
+  
+  // Subscription for chatbot state
+  private chatSubscription: Subscription;
+
+  constructor(private chatbotService: ChatbotService) {
+    // Subscribe to chatbot state changes
+    this.chatSubscription = this.chatbotService.isChatOpen$.subscribe(isOpen => {
+      if (isOpen) {
+        // When chat opens, focus on the chatbot input
+        setTimeout(() => {
+          this.focusChatbotInput();
+        }, 200);
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     // Initialize the keyboard layout after view loads
@@ -41,6 +58,17 @@ export class KeyboardComponent implements AfterViewInit {
         this.lastFocusedElement = target as HTMLInputElement | HTMLTextAreaElement;
       }
     });
+
+    // Add click listener to the entire keyboard to focus chatbot input
+    const keyboardElement = document.querySelector('.keyboard-container');
+    if (keyboardElement) {
+      keyboardElement.addEventListener('click', () => {
+        // When keyboard is clicked, try to focus on chatbot input
+        setTimeout(() => {
+          this.focusChatbotInput();
+        }, 100);
+      });
+    }
 
     // Event listener for language toggle button
     const toggleLangButton = document.querySelector('.toggle-lang');
@@ -80,6 +108,9 @@ export class KeyboardComponent implements AfterViewInit {
     const keys = document.querySelectorAll('.keyboard .key');
     keys.forEach(key => {
       key.addEventListener('click', (e: Event) => {
+        // Prevent event bubbling to avoid double-focusing
+        e.stopPropagation();
+        
         const target = e.currentTarget as HTMLElement;
         const keyText = target.textContent?.trim();
 
@@ -98,6 +129,86 @@ export class KeyboardComponent implements AfterViewInit {
         }
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    // Clean up subscription
+    if (this.chatSubscription) {
+      this.chatSubscription.unsubscribe();
+    }
+  }
+
+  // Focus on the chatbot input field with multiple selectors
+  private focusChatbotInput(): void {
+    // Try multiple selectors to find the chatbot input
+    const selectors = [
+      '.bpWebchat input[type="text"]',
+      '.bpWebchat textarea',
+      '.bpWebchat input[placeholder*="message"]',
+      '.bpWebchat input[placeholder*="Message"]',
+      '.bpWebchat input[placeholder*="Type"]',
+      '.bpWebchat input[placeholder*="type"]',
+      '.bpWebchat .bpWebchatInput',
+      '.bpWebchat input',
+      '.bpWebchat textarea',
+      '[data-testid="input"]',
+      '[data-testid="textarea"]'
+    ];
+
+    let chatbotInput: HTMLInputElement | HTMLTextAreaElement | null = null;
+
+    for (const selector of selectors) {
+      chatbotInput = document.querySelector(selector) as HTMLInputElement | HTMLTextAreaElement;
+      if (chatbotInput) {
+        break;
+      }
+    }
+
+    if (chatbotInput) {
+      chatbotInput.focus();
+      this.lastFocusedElement = chatbotInput;
+    }
+  }
+
+  // Get the current active input field
+  private getCurrentInput(): HTMLInputElement | HTMLTextAreaElement | null {
+    // First try to get the chatbot input if chat is open
+    if (this.chatbotService.getChatOpen()) {
+      const chatbotInput = this.findChatbotInput();
+      if (chatbotInput) {
+        return chatbotInput;
+      }
+    }
+
+    // Fallback to last focused element or currently active element
+    return this.lastFocusedElement || 
+           (document.activeElement as HTMLInputElement | HTMLTextAreaElement | null);
+  }
+
+  // Find chatbot input with multiple selectors
+  private findChatbotInput(): HTMLInputElement | HTMLTextAreaElement | null {
+    const selectors = [
+      '.bpWebchat input[type="text"]',
+      '.bpWebchat textarea',
+      '.bpWebchat input[placeholder*="message"]',
+      '.bpWebchat input[placeholder*="Message"]',
+      '.bpWebchat input[placeholder*="Type"]',
+      '.bpWebchat input[placeholder*="type"]',
+      '.bpWebchat .bpWebchatInput',
+      '.bpWebchat input',
+      '.bpWebchat textarea',
+      '[data-testid="input"]',
+      '[data-testid="textarea"]'
+    ];
+
+    for (const selector of selectors) {
+      const input = document.querySelector(selector) as HTMLInputElement | HTMLTextAreaElement;
+      if (input) {
+        return input;
+      }
+    }
+
+    return null;
   }
 
   // Update the keyboard layout based on the current language and shift state
@@ -172,24 +283,65 @@ export class KeyboardComponent implements AfterViewInit {
     }
   }
 
-  // Inserts the provided text into the last focused input or textarea
+  // Inserts the provided text into the current input field
   insertText(text: string): void {
-    // Use the stored element if available, otherwise fallback to document.activeElement
-    const targetElement = this.lastFocusedElement ||
-      (document.activeElement as HTMLInputElement | HTMLTextAreaElement | null);
+    // If chatbot is open, use the chatbot service to insert text
+    if (this.chatbotService.getChatOpen()) {
+      this.chatbotService.insertTextIntoChatbot(text);
+      return;
+    }
+    
+    // Fallback to regular input handling for non-chatbot inputs
+    const targetElement = this.getCurrentInput();
+    
     if (targetElement && (targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-      targetElement.value += text;
-      targetElement.dispatchEvent(new Event('input'));
+      // Insert text at cursor position or append to end
+      const start = targetElement.selectionStart || 0;
+      const end = targetElement.selectionEnd || 0;
+      const currentValue = targetElement.value;
+      
+      const newValue = currentValue.substring(0, start) + text + currentValue.substring(end);
+      targetElement.value = newValue;
+      
+      // Set cursor position after inserted text
+      const newCursorPos = start + text.length;
+      targetElement.setSelectionRange(newCursorPos, newCursorPos);
+      
+      // Focus the element
+      targetElement.focus();
+      
+      // Dispatch events
+      targetElement.dispatchEvent(new Event('input', { bubbles: true }));
+      targetElement.dispatchEvent(new Event('change', { bubbles: true }));
+      targetElement.dispatchEvent(new Event('keyup', { bubbles: true }));
     }
   }
 
   // Remove the last character from the target input or textarea
   handleBackspace(): void {
-    const targetElement = this.lastFocusedElement ||
-      (document.activeElement as HTMLInputElement | HTMLTextAreaElement | null);
+    // If chatbot is open, handle backspace in the chatbot
+    if (this.chatbotService.getChatOpen()) {
+      this.chatbotService.handleChatbotBackspace();
+      return;
+    }
+    
+    // Fallback to regular backspace handling for non-chatbot inputs
+    const targetElement = this.getCurrentInput();
+    
     if (targetElement && (targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-      targetElement.value = targetElement.value.slice(0, -1);
-      targetElement.dispatchEvent(new Event('input'));
+      const currentValue = targetElement.value;
+      if (currentValue.length > 0) {
+        const newValue = currentValue.slice(0, -1);
+        targetElement.value = newValue;
+        
+        // Focus the element
+        targetElement.focus();
+        
+        // Dispatch events
+        targetElement.dispatchEvent(new Event('input', { bubbles: true }));
+        targetElement.dispatchEvent(new Event('change', { bubbles: true }));
+        targetElement.dispatchEvent(new Event('keyup', { bubbles: true }));
+      }
     }
   }
 }

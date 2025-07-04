@@ -1,193 +1,394 @@
-
 # SecureBank - Modern Banking Application
 
-SecureBank is a comprehensive banking application that combines modern web technologies with biometric authentication to provide a secure and user-friendly banking experience.
+<div align="center">
+  <img src="https://img.shields.io/badge/Angular-19-red" alt="Angular Version">
+  <img src="https://img.shields.io/badge/Node.js-v14+-green" alt="Node.js Version">
+  <img src="https://img.shields.io/badge/TypeScript-4.5+-blue" alt="TypeScript Version">
+  <img src="https://img.shields.io/badge/MongoDB-4.4+-green" alt="MongoDB Version">
+</div>
 
-## Project Overview
+## 📋 Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technical Architecture](#technical-architecture)
+- [Project Structure](#project-structure)
+- [API Documentation](#api-documentation)
+- [Setup Guide](#setup-guide)
+- [Development Guide](#development-guide)
+- [Security Features](#security-features)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
 
-SecureBank is a full-stack banking application that allows users to:
-- Register and authenticate using fingerprint biometrics
-- Manage multiple account types (current, savings, foreign currency)
-- Perform banking operations (deposits, withdrawals, transfers)
-- View transaction history and account details
-- Request and manage bank cards
-- Purchase certificates of deposit
+## Overview
+SecureBank is a comprehensive banking application that combines modern web technologies with biometric authentication to provide a secure and user-friendly banking experience. The application allows users to perform various banking operations while ensuring high security through biometric authentication and two-factor verification.
 
-## Technology Stack
+### 🎯 Key Objectives
+- Provide secure and convenient banking operations
+- Implement biometric authentication for enhanced security
+- Support multiple account types and banking services
+- Ensure real-time transaction processing
+- Maintain high performance and scalability
 
-### Frontend
-- **Angular 19**: Modern frontend framework for building responsive single-page applications
-- **Angular Material**: UI component library for consistent design
-- **SCSS**: Advanced styling with variables and mixins
-- **Bootstrap**: For responsive grid layout and components
-- **JWT**: For secure authentication
+## Features
 
-### Backend
-- **Node.js**: JavaScript runtime for the server
-- **Express.js**: Web framework for building RESTful APIs
-- **TypeScript**: Type-safe JavaScript for better code quality
-- **MongoDB**: NoSQL database for storing user and transaction data
-- **JWT**: For secure authentication and authorization
-
-### Hardware Integration
-- **ESP32**: Microcontroller for fingerprint sensor integration
-- **Adafruit Fingerprint Sensor**: For biometric authentication
-- **Arduino**: For programming the ESP32 microcontroller
-
-## Key Features
-
-### Authentication
-- Traditional email/PIN login
-- Biometric fingerprint authentication
-- Two-factor authentication with email OTP
+### Authentication & Security
+- 🔐 Biometric fingerprint authentication
+- 📧 Email OTP verification
+- 🔑 Traditional email/PIN login
+- 🛡️ JWT token-based security
+- 🔒 Card freezing functionality
+- 🔄 Session management
+- 🚫 Rate limiting
+- 🔍 Activity logging
 
 ### Account Management
-- Multiple account types (current, savings, foreign currency)
-- Account details view with balance and IBAN
-- Transaction history with filtering
+- 💳 Multiple account types support
+  - Current accounts
+  - Savings accounts
+  - Foreign currency accounts
+- 📊 Account details view
+- 💰 Balance and IBAN information
+- 📜 Transaction history with filtering
 
 ### Banking Operations
-- Money deposits
-- Money withdrawals
-- Money transfers between accounts
-- Certificate of deposit purchase
+- 💵 Money deposits
+- 💸 Money withdrawals
+- 💱 Money transfers between accounts
+- 📈 Certificate of deposit purchase
+- 💳 Bank card management
 
-### Security Features
-- Fingerprint biometric authentication
-- JWT token-based authentication
-- Email OTP verification
-- Card freezing functionality
+## Technical Architecture
+
+### Frontend
+- **Framework**: Angular 19
+- **UI Libraries**:
+  - Angular Material
+  - Bootstrap
+- **Styling**: SCSS
+- **Authentication**: JWT
+- **State Management**: NgRx
+- **Build Tool**: Angular CLI
+
+### Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Language**: TypeScript
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **API Documentation**: Swagger
+- **Testing**: Jest
+- **Logging**: Winston
+- **Validation**: Joi
+
+### Hardware Integration
+- **Controller**: ESP32 Microcontroller
+- **Sensor**: Adafruit Fingerprint Sensor (R307)
+- **Programming**: Arduino IDE
+- **Communication**: WiFi
+- **Security**: Local encryption
 
 ## Project Structure
 
-### Angular Frontend
-The Angular application follows a modular structure with components for different banking operations:
+```
+securebank/
+├── Angular/                 # Frontend application
+│   ├── src/                 # Source code
+│   │   ├── app/             # Application modules
+│   │   ├── assets/          # Static assets
+│   │   ├── environments/    # Environment configs
+│   │   └── styles/          # Global styles
+│   ├── public/              # Public assets
+│   └── package.json         # Frontend dependencies
+│
+├── Back-end/                # Backend application
+│   ├── controllers/         # Business logic
+│   ├── Models/              # Database schemas
+│   ├── Routes/              # API endpoints
+│   ├── Utils/               # Helper functions
+│   ├── Interfaces/          # TypeScript interfaces
+│   ├── validators/          # Input validation
+│   ├── DB_config/           # Database configuration
+│   ├── tests/               # Test files
+│   └── docs/                # API documentation
+│
+└── docs/                    # Project documentation
+    ├── api/                 # API documentation
+    ├── setup/               # Setup guides
+    └── architecture/        # Architecture diagrams
+```
 
-- **Authentication**: Components for login, signup, and fingerprint scanning
-- **Transactions**: Components for deposits, withdrawals, and transfers
-- **Account Management**: Account details and transaction history
-- **Services**: Authentication, data, and transaction services
+## API Documentation
 
-### Node.js Backend
-The backend is organized into:
+### Authentication
+```http
+POST /api/v1/auth/signup
+Content-Type: application/json
 
-- **Routes**: API endpoints for different features
-- **Controllers**: Business logic for handling requests
-- **Models**: Database schemas for users, accounts, transactions, etc.
-- **Middleware**: Authentication, validation, and error handling
-- **Utils**: Helper functions and utilities
+{
+  "email": "user@example.com",
+  "password": "securePassword",
+  "name": "John Doe"
+}
 
-### ESP32 Fingerprint Integration
-The hardware component includes:
+POST /api/v1/auth/login
+Content-Type: application/json
 
-- **ESP32 Controller**: Hosts a web server for fingerprint operations
-- **API Endpoints**: For enrolling, verifying, and deleting fingerprints
-- **WiFi Connectivity**: For communication with the backend
+{
+  "email": "user@example.com",
+  "password": "securePassword"
+}
 
-## Getting Started
+POST /api/v1/auth/loginWithFinger
+Content-Type: application/json
+
+{
+  "fingerprintId": "user_fingerprint_id"
+}
+
+POST /api/v1/auth/verifyOTP
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "otp": "123456"
+}
+```
+
+### Accounts
+```http
+POST /api/v1/accounts/create
+Content-Type: application/json
+
+{
+  "type": "savings",
+  "currency": "USD"
+}
+
+GET /api/v1/accounts/myAccount
+Authorization: Bearer <token>
+
+GET /api/v1/accounts/:id
+Authorization: Bearer <token>
+```
+
+### Transactions
+```http
+POST /api/v1/transactions/deposit
+Content-Type: application/json
+
+{
+  "accountId": "account_id",
+  "amount": 1000,
+  "currency": "USD"
+}
+
+POST /api/v1/transactions/withdraw
+Content-Type: application/json
+
+{
+  "accountId": "account_id",
+  "amount": 500,
+  "currency": "USD"
+}
+
+POST /api/v1/transactions/transfer
+Content-Type: application/json
+
+{
+  "fromAccount": "account_id_1",
+  "toAccount": "account_id_2",
+  "amount": 100,
+  "currency": "USD"
+}
+
+GET /api/v1/transactions/history
+Authorization: Bearer <token>
+```
+
+## Setup Guide
 
 ### Prerequisites
 - Node.js (v14 or higher)
 - Angular CLI (v19 or higher)
-- MongoDB
-- Arduino IDE (for ESP32 programming)
-- ESP32 microcontroller with fingerprint sensor
+- MongoDB (v4.4 or higher)
+- Arduino IDE
+- ESP32 microcontroller
+- fingerprint sensor (R307)
+- Git
 
-### Installation
-
-#### Backend Setup
-1. Navigate to the backend directory:
+### Environment Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SecureBANK2025/securebank.git
+   cd securebank
    ```
+
+### Backend Setup
+1. Navigate to backend directory:
+   ```bash
    cd Back-end
    ```
 
 2. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 
-3. Create a `.env` file with the following variables:
-   ```
+3. Create `.env` file:
+   ```env
+   # Server Configuration
    PORT=3000
+   NODE_ENV=development
+   
+   # Database Configuration
    DB=mongodb://localhost:27017/securebank
+   
+   # JWT Configuration
    JWT_SECRET_KEY=your_secret_key
+   JWT_EXPIRES_IN=24h
+   
+   # Email Configuration
    EMAIL_USERNAME=your_email@example.com
    EMAIL_PASSWORD=your_email_password
-   ESP_IP=192.168.x.x (IP address of your ESP32)
+   EMAIL_HOST=smtp.example.com
+   EMAIL_PORT=587
+   
+   # ESP32 Configuration
+   ESP_IP=192.168.x.x
+   ESP_PORT=80
+   
+   # Security Configuration
+   RATE_LIMIT_WINDOW=15m
+   RATE_LIMIT_MAX=100
    ```
 
-4. Start the backend server:
-   ```
+4. Start server:
+   ```bash
+   # Development
    npm run dev
+   
+   # Production
+   npm run build
+   npm start
    ```
 
-#### Frontend Setup
-1. Navigate to the Angular directory:
-   ```
+### Frontend Setup
+1. Navigate to Angular directory:
+   ```bash
    cd Angular
    ```
 
 2. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 
-3. Start the Angular development server:
-   ```
+3. Start development server:
+   ```bash
+   # Development
    ng serve
+   
+   # Production
+   ng build --prod
    ```
 
-4. Open your browser and navigate to `http://localhost:4200`
+4. Access application at `http://localhost:4200`
 
-#### ESP32 Setup
-1. Open the Arduino IDE
-2. Install the required libraries:
+### ESP32 Setup
+1. Install required libraries in Arduino IDE:
    - Adafruit Fingerprint Sensor Library
    - ESP32 WebServer
-3. Upload the `main.ino` sketch to your ESP32
-4. Connect the fingerprint sensor to the ESP32 according to the pin configuration in the code
-5. Power on the ESP32 and ensure it connects to your WiFi network
+   - ArduinoJson
+   - WiFiManager
 
-## API Endpoints
+2. Configure ESP32:
+   ```cpp
+   // WiFi Configuration
+   const char* ssid = "YourWiFiSSID";
+   const char* password = "YourWiFiPassword";
+   
+   // Server Configuration
+   const int serverPort = 80;
+   ```
 
-### Authentication
-- `POST /api/v1/auth/signup`: Register a new user
-- `POST /api/v1/auth/login`: Login with email and PIN
-- `POST /api/v1/auth/loginWithFinger`: Login with fingerprint
-- `POST /api/v1/auth/verifyOTP`: Verify OTP sent to email
+3. Upload `main.ino` to ESP32
+4. Connect fingerprint sensor
+5. Power on ESP32 and connect to WiFi
 
-### Accounts
-- `POST /api/v1/accounts/create`: Create a new account
-- `GET /api/v1/accounts/myAccount`: Get user's accounts
-- `GET /api/v1/accounts/:id`: Get specific account details
+## Development Guide
 
-### Transactions
-- `POST /api/v1/transactions/deposit`: Deposit money
-- `POST /api/v1/transactions/withdraw`: Withdraw money
-- `POST /api/v1/transactions/transfer`: Transfer money
-- `GET /api/v1/transactions/history`: Get transaction history
+### Code Style
+- Follow Angular style guide
+- Use TypeScript strict mode
+- Follow ESLint rules
+- Write meaningful commit messages
 
-### Cards
-- `POST /api/v1/cards/requestNew`: Request a new card
-- `PATCH /api/v1/cards/activate`: Activate a card
-- `PATCH /api/v1/cards/toggleCardStatus`: Freeze/unfreeze a card
-- `DELETE /api/v1/cards/delete`: Delete a card
-- `GET /api/v1/cards/getCard`: Get user's card details
+### Git Workflow
+1. Create feature branch
+2. Make changes
+3. Write tests
+4. Submit pull request
+5. Code review
+6. Merge to main
 
-### Certificates
-- `POST /api/v1/certificates/purchase`: Purchase a certificate of deposit
-- `GET /api/v1/certificates/myCertificates`: Get user's certificates
+### Testing
+```bash
+# Backend Tests
+cd Back-end
+npm test
 
-## Security Considerations
+# Frontend Tests
+cd Angular
+ng test
+```
 
-- All API endpoints (except authentication) are protected with JWT authentication
-- Sensitive data like PINs are hashed before storage
-- Fingerprint data is stored securely on the ESP32 device
-- OTP verification adds an extra layer of security
-- CORS is configured to allow only specific origins
+## Security Features
+- JWT authentication for all protected endpoints
+- Secure PIN hashing using bcrypt
+- Local fingerprint data storage on the R307 sensor
+- Email OTP verification
+- CORS protection
+- Rate limiting
+- Input validation
+- XSS protection
+- SQL injection prevention
+- Secure session management
+- Regular security audits
+
+## Deployment
+
+### Backend Deployment
+1. Build the application:
+   ```bash
+   npm run build
+   ```
+
+2. Set up PM2:
+   ```bash
+   npm install -g pm2
+   pm2 start dist/main.js
+   ```
+
+### Frontend Deployment
+1. Build for production:
+   ```bash
+   ng build --prod
+   ```
+
+2. Deploy to hosting service (e.g., Netlify, Vercel)
+
+## Contributing
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create pull request
 
 ## Contributors
-
 - [Baher Hossam](https://github.com/baher1088)
 - [Bahy Adel](https://github.com/bahy-adell)
+- [Manal Ali](https://github.com/manal-3li)
+- [Mazen Ahmed](https://github.com/Mazen8Ahmed)
 - [Yasseen L Maghraby](https://github.com/YasseenLMaghraby)

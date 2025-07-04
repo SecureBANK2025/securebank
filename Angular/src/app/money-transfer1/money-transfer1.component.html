@@ -40,14 +40,16 @@
                         <div class="iban">
                             <label for="accountNum">Receiver's Account Number:</label>
                             <input type="text" title="accountNum" id="accountNum" name="accountNum"
-                                formControlName="accountNum">
+                                formControlName="accountNum" (keypress)="onKeyPress($event)">
                                 @if ( !formValid ) {
                                 <p class="error-message">You can’t transfer to your own account.</p>
                                 }
                                 <!-- <div class="form-row amount-row"> -->
                                     <div class="amount">
                                         <label for="amount">Amount:</label>
-                                        <input type="text" title="amount" id="amount" name="amount" formControlName="amount">
+                                        <input type="text" title="amount" id="amount" name="amount" formControlName="amount" (keypress)="onKeyPress($event)">
+                                        <!-- <span class="currency">EGP</span> -->
+                                        <div class="error-message-red" *ngIf="error">{{ errorMessage }}</div>
                                     </div>
                                     <!-- <button type="button" (click)="transfer()" class="confirm-btn" [disabled]="!formValid">Transfer now</button> -->
                                     <button type="button" (click)="transfer()" class="confirm-btn">Transfer now</button>

@@ -176,35 +176,49 @@ main {
                 }
             }
         }
+.footer {
+    display: flex;
+    justify-content: space-between; /* وزع الزرين على طرفي الحاوية */
+    align-items: center;
+    width: 100%;
+    padding: 20px 70px;
 
-        .footer {
-            display: flex;
-            justify-content: start;
-            align-items: start;
-            width: 100%;
-            padding: 20px 70px;
+    button.back-btn {
+        width: 200px;
+        height: 60px;
+        font-style: italic;
+        border: none;
+        color: $secondary-color;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 35px;
+        font-weight: 600;
+        border-radius: 0 9999rem 9999rem 0;
+        background-color: black;
+        position: relative;
+        top: -15px;
+        left: -70px;
+    }
 
-            button {
-                width: 200px;
-                height: 60px;
-                font-style: italic;
-                position: relative;
-                border: none;
-                color: $secondary-color;
-                cursor: pointer;
-                transition: background-color 0.3s;
-                font-size: 35px;
-                font-weight: 600;
-                &:active {
+    button.back-btnn {
+        width: 250px;
+        height: 60px;
+        font-style: italic;
+        border: none;
+        color: $secondary-color;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 24px;
+        font-weight: 600;
+        border-radius: 9999rem 0 0 9999rem; 
+        background-color: #4a4aff;         
+        position: relative;
+        top: -15px;
+        right: -70px;
 
-
-                        background-color: #4a4aff;
-                        color: #ffffff;        }
-                top: -15px;
-                left: -70px;
-                border-radius: 0 9999rem 9999rem 0;
-                background-color: black;
-            }
+        &:active {
+            background-color: black;       
         }
     }
 }
+    }}

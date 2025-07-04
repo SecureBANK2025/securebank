@@ -49,6 +49,7 @@ import { UnfreezeComponent } from './unfreeze/unfreeze.component';
 import { FreezeComponent } from './freeze/freeze.component';
 import { ChooseAccountComponent } from './choose-account/choose-account.component';
 import { UnfreezeDoneComponent } from './unfreeze-done/unfreeze-done.component';
+import { NewAccountComponent } from './new-account/new-account.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -93,6 +94,7 @@ export const routes: Routes = [
     { path: 'chooseAccount', canActivate: [authGuard], component: ChooseAccountComponent, data: { animation: 'ChooseAccount' } },
     { path: 'finger', component: fingerComponent, data: { animation: 'Finger' } },
     { path: 'unfreeze-done', component: UnfreezeDoneComponent, data: { animation: 'UnfreezeDone' } },
+    { path: 'newAccount', canActivate: [authGuard], component: NewAccountComponent, data: { animation: 'NewAccount' } },
 
     {
         path: 'login',

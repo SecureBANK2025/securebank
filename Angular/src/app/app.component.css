@@ -1,1 +1,20 @@
-/*# sourceMappingURL=app.component.css.map */
+.chatKeyboard {
+  position: fixed;
+  bottom: 500px;
+  left: -40%;
+  right: 0;
+  z-index: 1000;
+}
+
+.chatKeyboardContainer {
+  position: fixed;
+  bottom: 140px;
+  left: 20px;
+  right: 0;
+  z-index: 10100;
+  background-color: #1c1d71;
+  width: 870px;
+  height: 400px;
+  border-radius: 50px;
+  border: 1px solid #ffffff;
+}/*# sourceMappingURL=app.component.css.map */

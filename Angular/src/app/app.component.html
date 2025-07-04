@@ -3,3 +3,17 @@
 <main [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
 </main>
+
+<!-- Send Message Button - only show when chatbot is open -->
+@if (chatbotService.isChatOpen$ | async) {
+<div style="position: fixed; top: 10px; left: 10px; z-index: 2000;">
+  <app-send-button></app-send-button>
+</div>
+}
+
+<!-- Keyboard component - only show when chatbot is open -->
+@if (chatbotService.isChatOpen$ | async) {
+<div class="chatKeyboardContainer">
+  <app-keyboard class="chatKeyboard"></app-keyboard>
+</div>
+}

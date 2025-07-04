@@ -1,0 +1,207 @@
+// Variables
+$primary-color: #1a1a40;
+$secondary-color: #ffffff;
+$accent-color: #4a4aff;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Kufi Arabic", sans-serif !important;
+}
+
+body {
+    background-image: url(https://s3-alpha-sig.figma.com/img/92ee/87a3/466b5164ecf380f788679fd51c66c5be?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g4uUM2G-OZIHWeOBxenTgJ5y46fR~m4txlH5r2myovLcG5pnAQmibTo7ZORQtAHoxLfRrFTbXNuBMkcaY51icewSvmxgzBtzlBN03kqUek~K-2sqozZmZJVVpVj0hZ~oVa4XU2~laeWajsE2cHkqWV2s5ARmKEkc60EEK~XJaeSWiEZt1VBfUKMDVe815I9sNyXfoJEoAwd7gw8EHp-RCVSRnELG1jn9jFTgITA7NRmb7Xodc8F1ll8~zklNxDBD8U2MeStaarDariu~LpxPOmNVOvZ~gTW59xFhir~JBsI64hhwQk0mknCWKoycb7mV9VX-F1fArk3spvZAxoPC4Q__);
+    background-size: cover;
+    background-position: center;
+    color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+
+    .logo {
+        :first-child {
+            height: 50px;
+            top: 10px;
+            position: relative;
+        }
+        :last-child {
+            height: 30px;
+        }
+    }
+
+    .date {
+        font-weight: bold;
+    }
+}
+
+.white-container {
+    background: white;
+    width: 832px;
+    height: 500px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: space-evenly;
+    padding: 30px 20px;
+    margin-top: 90px;
+}
+
+.confirmation-text {
+    font-size: 38px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.details-box {
+    background: #ececec;
+    padding: 15px;
+    border-radius: 10px;
+    width: 60%;
+    height: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 60px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 80px;
+    width: 100%;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+button {
+    width: 230px;         
+    height: 70px;        
+    font-size: 22px;     
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0;         
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+}
+
+
+
+.saving {
+    background-color: #4a4aff;
+    color: white;
+
+}
+.current {
+    background-color: #4a4aff;
+    color: white;
+}
+
+.saving:active {
+    color: #3f51b5;
+    background-color: white;
+    border: 2px solid #4a4aff;
+}
+
+.current:active {
+    color: #3f51b5;
+    background-color: white;
+    border: 2px solid #4a4aff;
+}
+.currency {
+    background-color: #4a4aff;
+    color: white;
+}
+
+.currency:active {
+    color: #3f51b5;
+    background-color: white;
+    border: 2px solid #4a4aff;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+}
+
+.loading {
+    margin-top: 20px;
+    color: #4a4aff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.buttons.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .language-btn {
+        position: relative;
+        padding: 5px 100px;
+        border: none;
+        width: 250px;
+
+        cursor: pointer;
+        transition: background-color 0.3s;
+        // text-align:start;
+        font-size: 35px;
+        font-weight: 600;
+        &:active {
+            background-color: $accent-color;
+            color: $secondary-color;
+        }
+    }
+
+    .english {
+        left: -20px;
+        border-radius: 0 9999rem 9999rem 0;
+        background-color: $secondary-color;
+        color: $accent-color;
+    }
+
+    
+
+    p {
+        font-size: 0.9rem;
+        margin-left: 20px;
+    }
+}

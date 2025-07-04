@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>BTBank</title>
@@ -8,20 +9,103 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-        rel="stylesheet">
+    rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+  <style>
+    #webchat .bpWebchat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      width: 600px;
+      height: 85dvh;
+      max-height: 85dvh;
+      max-width: 600px;
+    }
+  
+    #webchat .bpFab {
+      /* display: none; */
+      position: absolute;
+      top: 10px;
+      right: calc(50% - 35px);
+      /* left: 50%; */
+      z-index: 1000;
+    }
+
+    /* Ensure chatbot input is accessible for keyboard */
+    #webchat .bpWebchat input[type="text"],
+    #webchat .bpWebchat textarea {
+      z-index: 1001;
+    }
+  </style>
+
+
+
+
+
+
 </head>
+
 <body class="mat-typography">
   <app-root></app-root>
-<!--   
-  <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-  <script src="https://files.bpcontent.cloud/2025/02/21/18/20250221183720-JHNAXUV4.js"></script>
-      
-       -->
-  <!-- src/index.html -->
   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+
+  <div id="webchat" style="width: 500px; height: 500px;"></div>
+  
+  <script>
+    // Initialize Botpress with proper event handling
+    window.botpress.init({
+    "botId": "ed6f3ff6-f538-4400-9447-423a36a34f9e",
+    "configuration": {
+      "version": "v1",
+      "botName": "BTBank AI Bot",
+      "fabImage": "https://files.bpcontent.cloud/2025/06/30/00/20250630002006-2YXIOEWZ.png", 
+      "website": {},
+      "email": {
+        "title": "securebank2025@gmail.com",
+        "link": "securebank2025@gmail.com"
+      },
+      "phone": {},
+      "termsOfService": {},
+      "privacyPolicy": {},
+      "color": "#1f207d",
+      "variant": "solid",
+      "headerVariant": "solid",
+      "themeMode": "light",
+      "fontFamily": "inter",
+      "radius": 4,
+      "feedbackEnabled": true,
+      "footer": "",
+      "additionalStylesheetUrl": "https://files.bpcontent.cloud/2025/06/27/22/20250627225147-ON2S3H15.css"
+    },
+    "clientId": "6ec2a86a-066d-4960-b79f-c5b8f3922a63",
+    "selector": "#webchat"
+  });
+
+  // Ensure Botpress events are properly dispatched
+  window.botpress.on("webchat:ready", () => {
+    console.log("Botpress webchat is ready");
+  });
+
+  window.botpress.on("webchat:opened", () => {
+    console.log("Botpress webchat opened");
+    // Dispatch custom event for Angular to catch
+    window.dispatchEvent(new CustomEvent('botpress:opened'));
+  });
+
+  window.botpress.on("webchat:closed", () => {
+    console.log("Botpress webchat closed");
+    // Dispatch custom event for Angular to catch
+    window.dispatchEvent(new CustomEvent('botpress:closed'));
+  });
+  </script>
 
 
 

@@ -100,29 +100,29 @@ main {
             }
         }
         .content {
-            height: 400px; /* ثبّت ارتفاع المحتوى */
+            height: 500px; 
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: start;
             justify-content: start;
             padding: 0px 70px;
-            margin-top: -50px;
-            position: relative; /* مهم عشان التحكم بمكان العناصر */
+            margin-top: -110px;
+            position: relative; 
         
             h1 {
-                font-size: 40px;
+                font-size: 49px;
                 font-weight: 600;
                 margin-bottom: 20px;
-                margin-top: 20px; /* خليه ثابت ميبقاش سلبي */
+                margin-top: 20px; 
             }
             
             .table-box {
                 flex: 1;
-                overflow-y: auto; /* هنا عشان السكورول يظهر داخل الجدول */
+                overflow-y: auto; 
                 width: 100%;
                 max-width: 1100px;
-                padding: 0 20px;
+                padding: 0 30px;
             }
         
         
@@ -130,9 +130,9 @@ main {
                 display: table;
                 width: 100%;
                 margin: 10px 0;
-                background: white;
+                background: #a7a7f32e;
                 padding: 15px 0;
-                color: #555;
+                color: #000000;
                 font-size: 14px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 border-radius: 12px; 
@@ -157,7 +157,7 @@ main {
                 text-align: center;
                 padding: 10px 5px;
                 vertical-align: middle;
-                border-right: 1px solid #eee;
+                border-right: 1px solid #00000022;
             }
             .first-cell {
                 text-align: left;
