@@ -117,7 +117,7 @@ export const buyCertificate = asyncHandler(async (req: any, res: Response): Prom
 
     const finger_Id = await verifyFingerprint();
 
-    // const finger_Id = 8;
+    //const finger_Id = 8;
 
     if (!finger_Id) {
         return res.status(400).json({ success: false, message: "Fingerprint not found - card" });
