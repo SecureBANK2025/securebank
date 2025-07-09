@@ -8,7 +8,7 @@ import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-new-account',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './new-account.component.html',
   styleUrl: './new-account.component.scss'
 })
@@ -17,6 +17,9 @@ export class NewAccountComponent implements OnInit {
   data: object = {
     currency: 'EGP'
   };
+  userAccounts: any[] = [];
+  availableAccountTypes: string[] = [];
+  loading: boolean = true;
 
   constructor(
     private router: Router,
@@ -27,11 +30,36 @@ export class NewAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this._AuthService.checkToken();
+    this.loadUserAccounts();
+  }
+
+  loadUserAccounts() {
+    this._AccountService.getUserAccounts().subscribe({
+      next: (res) => {
+        this.userAccounts = res.data || [];
+        this.determineAvailableAccountTypes();
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error loading user accounts:', err);
+        this.loading = false;
+        // If there's an error, show all account types as fallback
+        this.availableAccountTypes = ['savings', 'current'];
+      }
+    });
+  }
+
+  determineAvailableAccountTypes() {
+    const allAccountTypes = ['savings', 'current'];
+    const userAccountTypes = this.userAccounts.map(account => account.type);
+    
+    this.availableAccountTypes = allAccountTypes.filter(type => 
+      !userAccountTypes.includes(type)
+    );
   }
 
   navToHome() {
-        this.router.navigate(['/accountDetails']);
-    // const atForm1:Boolean = true;
+    this.router.navigate(['/accountDetails']);
   }
  
   savings() {

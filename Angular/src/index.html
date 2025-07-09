@@ -17,7 +17,7 @@
 
 
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
-  <style>
+    <style>
     #webchat .bpWebchat {
       position: fixed;
       bottom: 20px;
@@ -28,7 +28,7 @@
       max-height: 85dvh;
       max-width: 600px;
     }
-  
+
     #webchat .bpFab {
       /* display: none; */
       position: absolute;
@@ -58,56 +58,59 @@
 
 
   <div id="webchat" style="width: 500px; height: 500px;"></div>
-  
+
   <script>
     // Initialize Botpress with proper event handling
     window.botpress.init({
-    "botId": "ed6f3ff6-f538-4400-9447-423a36a34f9e",
-    "configuration": {
-      "version": "v1",
-      "botName": "BTBank AI Bot",
-      "fabImage": "https://files.bpcontent.cloud/2025/06/30/00/20250630002006-2YXIOEWZ.png", 
-      "website": {},
-      "email": {
-        "title": "securebank2025@gmail.com",
-        "link": "securebank2025@gmail.com"
+      "botId": "ed6f3ff6-f538-4400-9447-423a36a34f9e",
+      "configuration": {
+        "version": "v1",
+        "botName": "BTBank AI Bot",
+        "botAvatar": "https://files.bpcontent.cloud/2025/06/30/01/20250630011735-GXOEPDYO.png",
+        "fabImage": "https://files.bpcontent.cloud/2025/06/30/00/20250630002006-2YXIOEWZ.png",
+        "website": {},
+        "email": {
+          "title": "securebank2025@gmail.com",
+          "link": "securebank2025@gmail.com"
+        },
+        "phone": {},
+        "termsOfService": {},
+        "privacyPolicy": {},
+        "color": "#1f207d",
+        "variant": "solid",
+        "headerVariant": "solid",
+        "themeMode": "light",
+        "fontFamily": "rubik",
+        "radius": 4,
+        "feedbackEnabled": true,
+        "footer": "",
+        "additionalStylesheetUrl": "https://files.bpcontent.cloud/2025/06/27/22/20250627225147-ON2S3H15.css"
       },
-      "phone": {},
-      "termsOfService": {},
-      "privacyPolicy": {},
-      "color": "#1f207d",
-      "variant": "solid",
-      "headerVariant": "solid",
-      "themeMode": "light",
-      "fontFamily": "inter",
-      "radius": 4,
-      "feedbackEnabled": true,
-      "footer": "",
-      "additionalStylesheetUrl": "https://files.bpcontent.cloud/2025/06/27/22/20250627225147-ON2S3H15.css"
-    },
     "clientId": "6ec2a86a-066d-4960-b79f-c5b8f3922a63",
     "selector": "#webchat"
-  });
+    });
 
-  // Ensure Botpress events are properly dispatched
-  window.botpress.on("webchat:ready", () => {
-    console.log("Botpress webchat is ready");
-  });
+    // Ensure Botpress events are properly dispatched
+    window.botpress.on("webchat:ready", () => {
+      console.log("Botpress webchat is ready");
+    });
 
-  window.botpress.on("webchat:opened", () => {
-    console.log("Botpress webchat opened");
-    // Dispatch custom event for Angular to catch
-    window.dispatchEvent(new CustomEvent('botpress:opened'));
-  });
+    window.botpress.on("webchat:opened", () => {
+      console.log("Botpress webchat opened");
+      // Dispatch custom event for Angular to catch
+      window.dispatchEvent(new CustomEvent('botpress:opened'));
+    });
 
-  window.botpress.on("webchat:closed", () => {
-    console.log("Botpress webchat closed");
-    // Dispatch custom event for Angular to catch
-    window.dispatchEvent(new CustomEvent('botpress:closed'));
-  });
+    window.botpress.on("webchat:closed", () => {
+      console.log("Botpress webchat closed");
+      // Dispatch custom event for Angular to catch
+      window.dispatchEvent(new CustomEvent('botpress:closed'));
+    });
   </script>
 
 
 
 </body>
+
 </html>
+

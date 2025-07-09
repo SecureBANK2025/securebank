@@ -7,19 +7,29 @@
 
   <div class="white-container">
     <div class="fail">
-      <!-- <span>Authentication Failed,</span> -->
       @if (errorMessages.length > 0) {
-        <div>
-          <!-- <h3>Signup Failed:</h3> -->
-          <ul>
-            @for (msg of errorMessages; track msg) {
-              <li style="list-style: none;">{{ msg }}</li>
+        <div class="error-container">
+          <h3 class="error-title">Authentication Failed</h3>
+          <div class="error-messages">
+            @for (msg of errorMessages; track msg; let i = $index) {
+              <div class="error-message" [class.first-error]="i === 0">
+                <span class="error-icon">⚠️</span>
+                <span class="error-text">{{ msg }}</span>
+              </div>
             }
-          </ul>
+          </div>
+        </div>
+      } @else {
+        <div class="loading-container">
+          <p>Loading error details...</p>
         </div>
       }
-
     </div>
   </div>
-  <button class="btn-back" (click)="back()">Back</button>
+  
+  <div class="button-container">
+    <button class="btn-back" (click)="back()">
+      <span class="btn-text">Back</span>
+    </button>
+  </div>
 </main>

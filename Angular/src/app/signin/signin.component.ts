@@ -39,7 +39,6 @@ export class SigninComponent implements OnInit {
     this._AuthService.login().subscribe({
 
       next: (res) => {
-
         this.email = res.email;
         // Send the email to the UserEmailService
         this.emailService.setEmail(this.email);

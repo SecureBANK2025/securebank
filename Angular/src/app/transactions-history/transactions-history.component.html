@@ -2,7 +2,7 @@
     <div class="container">
         <div class="title">
             <div class="text">
-                
+
             </div>
             <button type="button" (click)="logout()">Log out</button>
         </div>
@@ -11,10 +11,18 @@
 
             <div class="table-box">
                 <div class="table-row table-head">
-                    <div class="table-cell first-cell"><p>Reference Code</p></div>
-                    <div class="table-cell"><p>Date</p></div>
-                    <div class="table-cell"><p>Type</p></div>
-                    <div class="table-cell"><p>Amount</p></div>
+                    <div class="table-cell first-cell">
+                        <p>Reference Code</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Date</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Type</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Amount</p>
+                    </div>
                     <div class="table-cell last-cell">
                         <p>Sender Account</p>
                     </div>
@@ -24,31 +32,42 @@
                 </div>
                 @for(transaction of transactions; track transactions._id){
                 <div class="table-row">
-                    <div class="table-cell first-cell"><p>{{ transaction.refCode|| 'No data found' }}</p></div>
-                    <div class="table-cell"><p>{{ transaction.date || 'No data found' |egyptTime}}</p></div>
-                    <div class="table-cell"><p>{{ transaction.type || 'No data found' }}</p>
-                                            @if(transaction.direction){
-                                            <p>{{ transaction.direction  || 'No data found' }}</p>
-                                        }
+                    <div class="table-cell first-cell">
+                        <p>{{ transaction.refCode|| 'No data found' }}</p>
                     </div>
-                    <div class="table-cell"><p>{{ transaction.amount || 'No data found' |egyptcurrency }}</p></div>  
+                    <div class="table-cell">
+                        <p>{{ transaction.date || 'No data found' |egyptTime}}</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>{{ transaction.type || 'No data found' }}</p>
+                        @if(transaction.direction){
+                        <p>{{ transaction.direction || 'No data found' }}</p>
+                        }
+                    </div>
+                    <div class="table-cell">
+                      <p>
+                        {{
+                        transaction.amount || 'No data found' |egyptcurrency
+                        }}
+                      </p>
+                    </div>
                     <div class="table-cell last-cell">
                         @if(transaction.type=='transfer'){
-                        <p>{{ transaction.senderAccount || 'You sent' }}</p> 
+                        <p>{{ transaction.senderAccount || 'You sent' }}</p>
                         }@else {
-                            <p>{{''}}</p>
+                        <p>{{''}}</p>
                         }
                     </div>
                     <div class="table-cell last-cell">
                         @if(transaction.type=='transfer'){
-                            <p>{{ transaction.recipientAccount || 'You recieved' }}</p> 
+                        <p>{{ transaction.recipientAccount || 'You recieved' }}</p>
                         }@else {
-                            <p>{{''}}</p>
+                        <p>{{''}}</p>
                         }
-                    </div>     
+                    </div>
                 </div>
                 }
-           
+
                 <!-- <div class="table-row">
                     <div class="table-cell first-cell"><p>68555100</p></div>
                     <div class="table-cell"><p>06/01/2024</p></div>

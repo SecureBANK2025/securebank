@@ -151,6 +151,18 @@ button {
   text-align: center;
 }
 
+.no-accounts {
+  margin-top: 20px;
+  color: #666;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 80%;
+}
+
 .buttons.disabled {
   opacity: 0.7;
   pointer-events: none;

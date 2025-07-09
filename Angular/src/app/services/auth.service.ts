@@ -35,13 +35,13 @@ export class AuthService {
   // currentAccountData = new BehaviorSubject(null);
 
 
-saveCurrentUser() {
+  saveCurrentUser() {
     const token: any = localStorage.getItem('user');
     if (!token) {
       this.currentUser.next(null);
       return;
     }
-    
+
     try {
       this.currentUser.next(jwtDecode(token));
     } catch (error) {
@@ -81,7 +81,10 @@ saveCurrentUser() {
   }
 
   verifyOTP(data: any): Observable<any> {
-    return this._HttpClient.post(`${this.hostName}${this.routeName}/verifyOTP`, data)
+    return this._HttpClient.post(
+      `${this.hostName}${this.routeName}/verifyOTP`
+      , data
+    )
   }
 
 
@@ -91,7 +94,7 @@ saveCurrentUser() {
       this.logout();
       return;
     }
-    
+
     try {
       const decodedToken = jwtDecode<DecodedToken>(token);
       if (decodedToken.exp! < Date.now() / 1000) {
@@ -111,9 +114,9 @@ saveCurrentUser() {
     this._Router.navigate(['/welcome']);
   }
 
-  chooseAccount(type :any):Observable<any>{
+  chooseAccount(type: any): Observable<any> {
     console.log(type);
-    return this._HttpClient.post(`${this.hostName}${this.routeName}/chooseAccount`, {type} ,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } } )
-}
+    return this._HttpClient.post(`${this.hostName}${this.routeName}/chooseAccount`, { type }, { headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
 
 }

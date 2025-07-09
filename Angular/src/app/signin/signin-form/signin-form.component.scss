@@ -87,6 +87,27 @@ body {
       }
     }
 
+    .error-message {
+      background-color: #ffebee;
+      color: #d32f2f;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 15px 70px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      width: 80%;
+      border: 1px solid #ffcdd2;
+    }
+
+    .loading-message {
+      color: #4f46e5;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
     // .pin-boxes {
     //   display: flex;
     //   flex-direction: row;

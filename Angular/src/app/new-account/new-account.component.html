@@ -1,11 +1,19 @@
 <main>
   <div class="white-container">
-    <p class="confirmation-text">Please Choose Your Account Type</p>
+    <p class="confirmation-text">Please Choose The Account Type You Want To Create</p>
 
-    <div class="buttons">
-      <button type="button" class="saving" (click)="savings()">Savings</button>
-      <button type="button" class="current" (click)="current()">Current</button>
+    <div class="buttons" *ngIf="!loading">
+      <button type="button" class="saving" (click)="savings()" *ngIf="availableAccountTypes.includes('savings')">Savings</button>
+      <button type="button" class="current" (click)="current()" *ngIf="availableAccountTypes.includes('current')">Current</button>
       <!-- <button type="button" class="currency" (click)="foreignCurrency()" [disabled]="loading">Foreign <br> Currency </button> -->
+    </div>
+
+    <div class="loading" *ngIf="loading">
+      <p>Loading available account types...</p>
+    </div>
+
+    <div class="no-accounts" *ngIf="!loading && availableAccountTypes.length === 0">
+      <p>You already have all available account types.</p>
     </div>
 
   </div>
