@@ -9,7 +9,7 @@
     <div class="fail">
       @if (errorMessages.length > 0) {
         <div class="error-container">
-          <h3 class="error-title">Authentication Failed</h3>
+          <h3 class="error-title">Sorry, an error occurred</h3>
           <div class="error-messages">
             @for (msg of errorMessages; track msg; let i = $index) {
               <div class="error-message" [class.first-error]="i === 0">

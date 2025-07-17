@@ -93,7 +93,40 @@ export class MoneyTransfer2Component implements OnInit {
         this.router.navigate(['/moneyTransfer3']);
       },
       error: (err) => {
-        console.log('Transfer error:', err);
+        console.error('Transfer failed:', err);
+
+        // Extract error messages from the backend response
+        let errorMessages: string[] = [];
+        
+        if (err?.error?.errors) {
+          // Handle validation errors from backend
+          errorMessages = err.error.errors.map((e: any) => e.msg);
+        } else if (err?.error?.message) {
+          // Handle single error message
+          errorMessages = [err.error.message];
+        } else if (err?.status === 404) {
+          // Handle non-existing account error
+          errorMessages = ['The recipient account does not exist. Please check the account number and try again.'];
+        } else if (err?.status === 400) {
+          // Handle bad request errors
+          errorMessages = ['Invalid transfer request. Please check your input and try again.'];
+        } else if (err?.status === 403) {
+          // Handle insufficient funds
+          errorMessages = ['Insufficient funds for this transfer. Please check your account balance.'];
+        } else {
+          // Handle other errors
+          errorMessages = ['Transfer failed. Please try again later.'];
+        }
+
+        console.log('Error messages:', errorMessages);
+
+        // Navigate to auth-failed with query parameters
+        this.router.navigate(['/authFailed'], {
+          queryParams: {
+            from: 'moneyTransfer',
+            messages: JSON.stringify(errorMessages)  // Send as JSON string
+          }
+        });
       }
     });
   }

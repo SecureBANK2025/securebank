@@ -3,7 +3,7 @@
 #include <Arduino.h>
 #include <HardwareSerial.h>
 #include <WiFi.h>
-#include <Firebase_ESP_Client.h>
+// #include <Firebase_ESP_Client.h>
 
 
 
@@ -24,11 +24,11 @@ uint32_t sensorAddress = 0xFFFFFFFF;
 // const char* ssid = "2024";       
 // const char* password = "bahy2710";
 
-const char* ssid = "2024";       
-const char* password = "19971995";
+// const char* ssid = "2024";       
+// const char* password = "19971995";
 
-// const char* ssid = "BAHER";       
-// const char* password = "01091968221"; 
+const char* ssid = "BAHER";       
+const char* password = "01091968221"; 
 
 // const char* ssid = "NoInternet";       
 // const char* password = "bahy015015"; 
